@@ -1,0 +1,23 @@
+C:\Users\pc\source\repos\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe.config
+C:\Users\pc\source\repos\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe
+C:\Users\pc\source\repos\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.pdb
+C:\Users\pc\source\repos\paradis des huiles\paradis des huiles\bin\Debug\Guna.UI.dll
+C:\Users\pc\source\repos\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csprojAssemblyReference.cache
+C:\Users\pc\source\repos\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Form1.resources
+C:\Users\pc\source\repos\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
+C:\Users\pc\source\repos\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
+C:\Users\pc\source\repos\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.cache
+C:\Users\pc\source\repos\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CopyComplete
+C:\Users\pc\source\repos\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.exe
+C:\Users\pc\source\repos\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb
+G:\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe.config
+G:\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe
+G:\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.pdb
+G:\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csprojAssemblyReference.cache
+G:\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Form1.resources
+G:\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
+G:\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
+G:\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.cache
+G:\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CopyComplete
+G:\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.exe
+G:\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb
