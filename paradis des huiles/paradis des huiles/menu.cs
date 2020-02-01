@@ -33,37 +33,25 @@ namespace paradis_des_huiles
         {
 
         }
-
+        DataSet DataSet1 = new DataSet();
         private void menu_Load(object sender, EventArgs e)
         {
-            /*DataSet DataSet1 = new DataSet();
+            
             cn.Open();
-            SqlDataAdapter dataAdapter1 = new SqlDataAdapter("Select * from Client", cn);
-            SqlCommandBuilder commandBuilder1 = new SqlCommandBuilder(dataAdapter1);
-            DataSet1.Tables.Add("Client");
+            SqlDataAdapter dataAdapter1 = new SqlDataAdapter("select nomClt + ' ' + ISNULL( prenomClt, '') as NomClient, numTel [Num Tel] , adresse Adresse , email Mail, fidelite as Type , RC_CIN [RC / CIN] from Client ", cn);
+
             dataAdapter1.Fill(DataSet1, "Client");
-            cn.Close();
-            dataGridClient.DataSource = DataSet1;
-            dataGridClient.DataMember = "Client";*/
-            cn.Open();
-            SqlCommand cmd = new SqlCommand("Select * from Client", cn);
-            SqlDataReader dtR = cmd.ExecuteReader();
-            while(dtR.Read())
-            {
-                string s;
-                if (dtR[6].Equals(1))
-                    s = "Fidéle";
-                else
-                    s = "Non Fidéle";
-                dataGridClient.Rows.Add(dtR[1].ToString() + ' ' + dtR[2].ToString(), dtR[3].ToString(), dtR[5].ToString(), dtR[4].ToString(),s.ToString(), dtR[0].ToString());
-            }
-            cn.Close();
+            cn.Close();           
+            dataGridClient.DataSource = DataSet1.Tables["Client"];
+
         }
 
         private void TxtRchDgrid_TextChanged(object sender, EventArgs e)
         {
-            DataView dataView = new DataView();
-            //dataView.
+            DataView dataView = new DataView(DataSet1.Tables["Client"]);
+            dataView.RowFilter = "NomClient like '%" + TxtRchDgrid.Text + "%'";
+
+            dataGridClient.DataSource = dataView;
         }
     }
 }
