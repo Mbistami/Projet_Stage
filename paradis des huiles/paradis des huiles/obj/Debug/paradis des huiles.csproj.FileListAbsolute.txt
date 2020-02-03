@@ -61,3 +61,15 @@ C:\Users\abdekrime\Desktop\Projet_Stage-5114c475d10456eb709e6416789d70d092ad0a58
 C:\Users\abdekrime\Desktop\Projet_Stage-5114c475d10456eb709e6416789d70d092ad0a58\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
 C:\Users\abdekrime\Desktop\Projet_Stage-5114c475d10456eb709e6416789d70d092ad0a58\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
 C:\Users\abdekrime\Desktop\Projet_Stage-5114c475d10456eb709e6416789d70d092ad0a58\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.Cache
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe.config
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.pdb
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\Guna.UI.dll
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csprojAssemblyReference.cache
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Form1.resources
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.cache
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CopyComplete
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.exe
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb
