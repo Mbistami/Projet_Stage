@@ -73,3 +73,15 @@ C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\ob
 C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CopyComplete
 C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.exe
 C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe.config
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.pdb
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\Guna.UI.dll
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csprojAssemblyReference.cache
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Form1.resources
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.cache
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CopyComplete
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.exe
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb

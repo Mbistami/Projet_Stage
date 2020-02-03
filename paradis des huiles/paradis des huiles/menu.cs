@@ -42,7 +42,7 @@ namespace paradis_des_huiles
 
 
             cn.Open();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("select nomClt + ' ' + ISNULL( prenomClt, '') as NomClient, numTel [Num Tel] , adresse Adresse , email Mail, fidelite as Type , RC_CIN [RC / CIN] from Client ", cn);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("select nomClt as NomClient, numTel [Num Tel] , adresse Adresse , email Mail, fidelite as Type , RC_CIN [RC / CIN] from Client ", cn);
             dataAdapter.Fill(DataSet1, "Client");
 
             dataAdapter = new SqlDataAdapter("select nomFournisseur [Nom Fourni] ,numTel [Num Tel] , adresse [Adresse] , email [Mail] , RCF [RC] from Fournisseur", cn);
@@ -57,7 +57,7 @@ namespace paradis_des_huiles
             dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(nomMP, '') + ISNULL(codeEM + Emballage.idE, '') [Nom Produit], ISNULL(nomFournisseur, '') + ISNULL(nomFournisseur, '') [Fournisseur], qtea [Quantite], prix  [Prix], dateA [Date Achat]from historique_achat inner join Matiere_premiere on historique_achat.idMP=Matiere_premiere.idmp/* or */ inner join Emballage on Emballage.idEM = historique_achat.idEM inner join Fournisseur on Fournisseur.RCF = Emballage.RCF  or  Fournisseur.RCF=Matiere_premiere.RCF", cn);
             dataAdapter.Fill(DataSet1, "HistoriqueA");
 
-            dataAdapter = new SqlDataAdapter("select numVente [Num Vente], Produit_finis.idPF + codePF [Nom Produit], nomClt + ' ' + ISNULL(prenomClt,'') [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
+            dataAdapter = new SqlDataAdapter("select numVente [Num Vente], Produit_finis.idPF + codePF [Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
             dataAdapter.Fill(DataSet1, "HistoriqueV");
 
             cn.Close();
@@ -70,6 +70,7 @@ namespace paradis_des_huiles
             dataGridHistoAUpdate.DataSource = DataSet1.Tables["HistoriqueA"];
             dataGrideHistoriqueV.DataSource = DataSet1.Tables["HistoriqueV"];
             dataGridHistoVUpdate.DataSource = DataSet1.Tables["HistoriqueV"];
+            DatagridModifClient.DataSource = DataSet1.Tables["Client"];
 
             //CmbRechFournisseurAfficher afficher rechercher fournisseur
             for (int i = 0; i < DataSet1.Tables["Fournisseur"].Columns.Count; i++)
@@ -78,37 +79,41 @@ namespace paradis_des_huiles
             }
             CmbRechFournisseurAfficher.Text = CmbRechFournisseurAfficher.Items[0].ToString();
 
+            for (int i = 0; i < DataSet1.Tables["Emballage"].Columns.Count; i++)
+            {
+                CmbAfficheEmballageRech.Items.Add(DataSet1.Tables["Emballage"].Columns[i].ColumnName.ToString());
+            }
+            CmbAfficheEmballageRech.Text = CmbAfficheEmballageRech.Items[0].ToString();
+
+            for (int i = 0; i < DataSet1.Tables["MatiereP"].Columns.Count; i++)
+            {
+                CmbAfficherMatierpfind.Items.Add(DataSet1.Tables["MatiereP"].Columns[i].ColumnName.ToString());
+            }
+            CmbAfficherMatierpfind.Text = CmbAfficherMatierpfind.Items[0].ToString();
+
+            for (int i = 0; i < DataSet1.Tables["HistoriqueA"].Columns.Count; i++)
+            {
+                CmbAfficherHistoriqueAfind.Items.Add(DataSet1.Tables["HistoriqueA"].Columns[i].ColumnName.ToString());
+            }
+            CmbAfficherHistoriqueAfind.Text = CmbAfficherHistoriqueAfind.Items[0].ToString();
+
+            for (int i = 0; i < DataSet1.Tables["HistoriqueV"].Columns.Count; i++)
+            {
+                CmbAfficherHistVfind.Items.Add(DataSet1.Tables["HistoriqueV"].Columns[i].ColumnName.ToString());
+            }
+            CmbAfficherHistVfind.Text = CmbAfficherHistVfind.Items[0].ToString();
+
+            for (int i = 0; i < CmbRechClientAfficher.Items.Count; i++)
+            {
+                CmbRechClientAfficherc.Items.Add(CmbRechClientAfficher.Items[i]);
+            }
+            CmbRechClientAfficherc.Text = CmbRechClientAfficherc.Items[0].ToString();
         }
 
         private void TxtRchDgrid_TextChanged(object sender, EventArgs e)
         {
             DataView dataView = new DataView(DataSet1.Tables["Client"]);
             dataView.RowFilter = "[" + CmbRechClientAfficher.SelectedItem.ToString() + "]like '%" + TxtRchDgrid.Text + "%'";
-
-            //if (CmbRechClientAfficher.SelectedIndex == 0)
-            //{
-            //    dataView.RowFilter = "NomClient like '%" + TxtRchDgrid.Text + "%'";
-            //}
-            //if (CmbRechClientAfficher.SelectedIndex == 1)
-            //{
-            //    dataView.RowFilter = "[Num Tel] like '%" + TxtRchDgrid.Text + "%'";
-            //}
-            //if (CmbRechClientAfficher.SelectedIndex == 2)
-            //{
-            //    dataView.RowFilter = "Adresse like '%" + TxtRchDgrid.Text + "%'";
-            //}
-            //if (CmbRechClientAfficher.SelectedIndex == 3)
-            //{
-            //    dataView.RowFilter = "Mail like '%" + TxtRchDgrid.Text + "%'";
-            //}
-            //if (CmbRechClientAfficher.SelectedIndex == 5)
-            //{
-            //    dataView.RowFilter = "[RC / CIN] like '%" + TxtRchDgrid.Text + "%'";
-            //}
-            //if (CmbRechClientAfficher.SelectedIndex == 4)
-            //{
-            //    dataView.RowFilter = "Type like '%" + TxtRchDgrid.Text + "%'";
-            //}
 
             dataGridClient.DataSource = dataView;
         }
@@ -123,36 +128,164 @@ namespace paradis_des_huiles
         private void gunaTextBox1_TextChanged_1(object sender, EventArgs e)
         {
             DataView dataView = new DataView(DataSet1.Tables["Emballage"]);
-            dataView.RowFilter = "[Code Emballage] like '%" + gunaTextBox1.Text + "%'";
+            dataView.RowFilter = "[Code Emballage] like '%" + TxtEmbafficherfind.Text + "%'";
             dataGridEmballage.DataSource = dataView;
         }
 
         private void gunaTextBox3_TextChanged_1(object sender, EventArgs e)
         {
             DataView dataView = new DataView(DataSet1.Tables["MatiereP"]);
-            dataView.RowFilter = "[Code] like '%" + gunaTextBox3.Text + "%'";
+            dataView.RowFilter = "[Code] like '%" + TxtMatierpfind.Text + "%'";
             dataGridMatiereP.DataSource = dataView;
         }
 
-        private void gunaTextBox4_TextChanged_1(object sender, EventArgs e)
-        {
-            DataView dataView = new DataView(DataSet1.Tables["HistoriqueA"]);
-            dataView.RowFilter = "[Nom Produit] like '%" + gunaTextBox4.Text + "%'";
-            dataGrideHistoriqueA.DataSource = dataView;
-        }
 
-        private void gunaTextBox5_TextChanged(object sender, EventArgs e)
-        {
-            DataView dataView = new DataView(DataSet1.Tables["HistoriqueV"]);
-            dataView.RowFilter = "[Nom Produit] like '%" + gunaTextBox5.Text + "%'";
-            dataGrideHistoriqueV.DataSource = dataView;
-        }
 
         private void txtRechAffichForni_TextChanged(object sender, EventArgs e)
         {
             DataView dataView = new DataView(DataSet1.Tables["Fournisseur"]);
             dataView.RowFilter = "[" + CmbRechFournisseurAfficher.SelectedItem.ToString() + "]like '%" + txtRechAffichForni.Text + "%'";
             dataGridFourni.DataSource = dataView;
+        }
+
+        private void TxtEmbafficherfind_TextChanged(object sender, EventArgs e)
+        {
+            DataView dataView = new DataView(DataSet1.Tables["Emballage"]);
+            dataView.RowFilter = "[" + CmbAfficheEmballageRech.SelectedItem.ToString() + "]like '%" + TxtEmbafficherfind.Text + "%'";
+            dataGridEmballage.DataSource = dataView;
+        }
+
+        private void TxtMatierpfind_TextChanged(object sender, EventArgs e)
+        {
+            DataView dataView = new DataView(DataSet1.Tables["MatierP"]);
+            dataView.RowFilter = "[" + CmbAfficherMatierpfind.SelectedItem.ToString() + "]like '%" + TxtMatierpfind.Text + "%'";
+            dataGridEmballage.DataSource = dataView;
+        }
+
+        private void TxtAfficherHistAfind_TextChanged(object sender, EventArgs e)
+        {
+            DataView dataView = new DataView(DataSet1.Tables["HistoriqueA"]);
+            dataView.RowFilter = "[" + CmbAfficherHistoriqueAfind.SelectedItem.ToString() + "]like '%" + TxtAfficherHistAfind.Text + "%'";
+            dataGridEmballage.DataSource = dataView;
+        }
+
+        private void TxtAffHistVfind_TextChanged(object sender, EventArgs e)
+        {
+            DataView dataView = new DataView(DataSet1.Tables["HistoriqueV"]);
+            dataView.RowFilter = "[" + CmbAfficherHistVfind.SelectedItem.ToString() + "]like '%" + TxtAffHistVfind.Text + "%'";
+            dataGridEmballage.DataSource = dataView;
+        }
+
+        int fdl; //fidele val
+        private void BtnAddClt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataSet1.Tables["Client"].Rows.Add(TxtNomaddclt.Text , txtaddnumclt.Text, txtaddadressclt.Text, txtaddmailclt.Text, txtaddrcclt.Text, cmbtypecltadd.SelectedItem.ToString());
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("insert Client values (@aclient, @bclient, @dclient, @eclient, @fclient, @gclient)", cn);
+                SqlParameter p1 = new SqlParameter("@aclient", txtaddrcclt.Text);
+                SqlParameter p2 = new SqlParameter("@bclient", TxtNomaddclt.Text);
+                SqlParameter p4 = new SqlParameter("@dclient", txtaddnumclt.Text);
+                SqlParameter p5 = new SqlParameter("@eclient", txtaddmailclt.Text);
+                SqlParameter p6 = new SqlParameter("@fclient", txtaddadressclt.Text);
+                if (cmbtypecltadd.SelectedItem.ToString() == "fidele")
+                {
+                    fdl = 1;
+                }
+                else
+                {
+                    fdl = 0;
+                }
+                SqlParameter p7 = new SqlParameter("@gclient", fdl);
+                cmd.Parameters.Add(p1);
+                cmd.Parameters.Add(p2);
+                cmd.Parameters.Add(p4);
+                cmd.Parameters.Add(p5);
+                cmd.Parameters.Add(p6);
+                cmd.Parameters.Add(p7);
+                cmd.ExecuteNonQuery();
+                cn.Close();
+
+                //clear txtbox
+                txtaddrcclt.Text = "";
+                TxtNomaddclt.Text = "";
+                txtaddnumclt.Text = "";
+                txtaddmailclt.Text = "";
+                txtaddmailclt.Text = "";
+                txtaddadressclt.Text = "";
+                TxtNomaddclt.Focus();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void TxtModifClientfind_TextChanged(object sender, EventArgs e)
+        {
+            DataView dataView = new DataView(DataSet1.Tables["Client"]);
+            dataView.RowFilter = "[" + CmbRechClientAfficherc.SelectedItem.ToString() + "]like '%" + TxtModifClientfind.Text + "%'";
+            DatagridModifClient.DataSource = dataView;
+        }
+
+        int indexdatamodif;
+
+        private void DatagridModifClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtnomcltmodif.Text = DatagridModifClient.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtnumcltmodif.Text = DatagridModifClient.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtadressecltmodif.Text = DatagridModifClient.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtmailcltmodif.Text = DatagridModifClient.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtrccltmodif.Text = DatagridModifClient.Rows[e.RowIndex].Cells[5].Value.ToString();
+            cmbtypecltmodife.Items.Add("infidele");
+            cmbtypecltmodife.Items.Add("fidele");
+            cmbtypecltmodife.Text = cmbtypecltmodife.Items[0].ToString();
+            indexdatamodif = e.RowIndex;
+        }
+
+
+        //val fidelite modif
+        int mfid;
+        private void BtnModifierclt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("update client set RC_CIN = @Maclient, nomClt = @Mbclient , numTel = @Mdclient, email = @Meclient, adresse = @Mfclient, fidelite = @Mg where RC_CIN = @Rc", cn);
+                SqlParameter p1 = new SqlParameter("@Maclient", txtrccltmodif.Text);
+                SqlParameter p2 = new SqlParameter("@Mbclient", txtnomcltmodif.Text);
+                SqlParameter p3 = new SqlParameter("@Mdclient", txtnumcltmodif.Text);
+                SqlParameter p4 = new SqlParameter("@Meclient", txtmailcltmodif.Text);
+                SqlParameter p5 = new SqlParameter("@Mfclient", txtadressecltmodif.Text);
+                if (cmbtypecltmodife.SelectedItem.ToString() == "fidele")
+                {
+                    mfid = 1;
+                }
+                else
+                    mfid = 0;
+                SqlParameter p6 = new SqlParameter("@Mg", mfid);
+                SqlParameter pselect = new SqlParameter("@Rc", DatagridModifClient.Rows[indexdatamodif].Cells[5].Value.ToString());
+                cmd.Parameters.Add(p1);
+                cmd.Parameters.Add(p2);
+                cmd.Parameters.Add(p3);
+                cmd.Parameters.Add(p5);
+                cmd.Parameters.Add(p4);
+                cmd.Parameters.Add(p6);
+                cmd.Parameters.Add(pselect);
+                cmd.ExecuteNonQuery();
+                cn.Close();
+
+                txtrccltmodif.Text = "";
+                txtnomcltmodif.Text = "";
+                txtnumcltmodif.Text = "";
+                txtmailcltmodif.Text = "";
+                txtadressecltmodif.Text = "";
+                txtnomcltmodif.Focus();
+            }
+            catch (Exception ex)
+            {
+            }
         }
     }
 }
