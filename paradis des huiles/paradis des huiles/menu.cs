@@ -13,13 +13,15 @@ namespace paradis_des_huiles
 {
     public partial class menu : Form
     {
-        SqlConnection cn = new SqlConnection("Server=.;Database=DB_Gestion;Integrated Security = true");
+        SqlConnection cn = new SqlConnection("Server=R_230_ROG-PC\\SQLEXPRESS;Database=DB_Gestion;Integrated Security = true");
         public menu()
         {
             InitializeComponent();
         }
         
         DataSet DataSet1 = new DataSet();
+        SqlDataAdapter dataAdapter;
+        SqlCommandBuilder commandBuilder;
         private void menu_Load(object sender, EventArgs e)
         {
 
@@ -42,7 +44,7 @@ namespace paradis_des_huiles
 
 
             cn.Open();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("select nomClt as NomClient, numTel [Num Tel] , adresse Adresse , email Mail, fidelite as Type , RC_CIN [RC / CIN] from Client ", cn);
+            dataAdapter = new SqlDataAdapter("select nomClt as NomClient, numTel [Num Tel] , adresse Adresse , email Mail, fidelite as Type , RC_CIN [RC / CIN] from Client ", cn);
             dataAdapter.Fill(DataSet1, "Client");
 
             dataAdapter = new SqlDataAdapter("select nomFournisseur [Nom Fourni] ,numTel [Num Tel] , adresse [Adresse] , email [Mail] , RCF [RC] from Fournisseur", cn);
@@ -51,7 +53,7 @@ namespace paradis_des_huiles
             dataAdapter = new SqlDataAdapter("select idEm  + codeEM [Code Emballage], nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , NomE [Type] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
             dataAdapter.Fill(DataSet1, "Emballage");
 
-            dataAdapter = new SqlDataAdapter("select idMP  + codeMP [Code], nomMP [Nom], nomFournisseur [Fournisseur] , NomE [Type] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée] from Matiere_premiere inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF inner join Etat on Etat.idE = Matiere_premiere.idE", cn);
+            dataAdapter = new SqlDataAdapter("select idMP  + codeMP [Code], nomMP [Nom], nomFournisseur [Fournisseur] , UniteE [Type] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée] from Matiere_premiere inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF inner join Etat on Etat.idE = Matiere_premiere.idE", cn);
             dataAdapter.Fill(DataSet1, "MatiereP");
 
             dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(nomMP, '') + ISNULL(codeEM + Emballage.idE, '') [Nom Produit], ISNULL(nomFournisseur, '') + ISNULL(nomFournisseur, '') [Fournisseur], qtea [Quantite], prix  [Prix], dateA [Date Achat]from historique_achat inner join Matiere_premiere on historique_achat.idMP=Matiere_premiere.idmp/* or */ inner join Emballage on Emballage.idEM = historique_achat.idEM inner join Fournisseur on Fournisseur.RCF = Emballage.RCF  or  Fournisseur.RCF=Matiere_premiere.RCF", cn);
@@ -108,6 +110,10 @@ namespace paradis_des_huiles
                 CmbRechClientAfficherc.Items.Add(CmbRechClientAfficher.Items[i]);
             }
             CmbRechClientAfficherc.Text = CmbRechClientAfficherc.Items[0].ToString();
+            //fournisseures names in MP_ADDING
+            this.cmbAddNomFourniMatierP.DisplayMember = "Nom Fourni";
+            this.cmbAddNomFourniMatierP.ValueMember = "RC";
+            this.cmbAddNomFourniMatierP.DataSource = DataSet1.Tables["Fournisseur"];
         }
 
         private void TxtRchDgrid_TextChanged(object sender, EventArgs e)
@@ -181,8 +187,16 @@ namespace paradis_des_huiles
         {
             try
             {
-                DataSet1.Tables["Client"].Rows.Add(TxtNomaddclt.Text , txtaddnumclt.Text, txtaddadressclt.Text, txtaddmailclt.Text, txtaddrcclt.Text, cmbtypecltadd.SelectedItem.ToString());
+                //Ajouter mode Déco using dataset
+                int f;
+                if (cmbtypecltadd.SelectedItem.ToString() == "fidéle") { f = 1; } else { f = 0; }
+                DataSet1.Tables["Client"].Rows.Add(TxtNomaddclt.Text , txtaddnumclt.Text, txtaddadressclt.Text, txtaddmailclt.Text,f , txtaddrcclt.Text);
+                dataAdapter = new SqlDataAdapter("select nomClt as NomClient, numTel [Num Tel] , adresse Adresse , email Mail, fidelite as Type , RC_CIN [RC / CIN] from Client ", cn);
+                commandBuilder = new SqlCommandBuilder(dataAdapter);
                 cn.Open();
+                dataAdapter.Update(DataSet1.Tables["Client"]);
+                cn.Close();
+                /*cn.Open();
                 SqlCommand cmd = new SqlCommand("insert Client values (@aclient, @bclient, @dclient, @eclient, @fclient, @gclient)", cn);
                 SqlParameter p1 = new SqlParameter("@aclient", txtaddrcclt.Text);
                 SqlParameter p2 = new SqlParameter("@bclient", TxtNomaddclt.Text);
@@ -214,11 +228,11 @@ namespace paradis_des_huiles
                 txtaddmailclt.Text = "";
                 txtaddmailclt.Text = "";
                 txtaddadressclt.Text = "";
-                TxtNomaddclt.Focus();
+                TxtNomaddclt.Focus();*/
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message.ToString());
             }
         }
 
@@ -286,6 +300,50 @@ namespace paradis_des_huiles
             catch (Exception ex)
             {
             }
+        }
+
+        private void btnAddFourni_Click(object sender, EventArgs e)
+        {
+            DataSet1.Tables["Fournisseur"].Rows.Add(txtNomAddFourni.Text, txtTelAddFourni.Text, txtAdresseAddFourni.Text, txtMailAddFourni.Text, txtRcAddFourni.Text);
+            dataAdapter = new SqlDataAdapter("select nomFournisseur [Nom Fourni] ,numTel [Num Tel] , adresse [Adresse] , email [Mail] , RCF [RC] from Fournisseur", cn);
+            commandBuilder = new SqlCommandBuilder(dataAdapter);
+            cn.Open();
+            dataAdapter.Update(DataSet1.Tables["Fournisseur"]);
+            cn.Close();
+        }
+
+        private void btnAddImageEmballage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if(open.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxEM.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBoxEM.Image = new Bitmap(open.FileName);
+                FilePathEM.Text = open.FileName;
+            }
+        }
+
+        private void btnAddEmballage_Click(object sender, EventArgs e)
+        {
+            //CHECK CODE_EM AND COMBOBOX FILL TO FINISH THIS PART /!\/!\/!\/!\/!\/!\
+            DataSet1.Tables["Emballage"].Rows.Add(null, cmbAddNomFournisseurEmballage.SelectedItem.ToString(), txtAddquantiteEmballage.Text, cmbAddTypeEmballge.SelectedItem.ToString(), txtAddSupportEmballage.Text, txtAddDescriptionEmballage.Text, cmbAddEtageEmballage.Text + cmbAddSalleEmballage.Text);
+            dataAdapter = new SqlDataAdapter("select idEm  + codeEM [Code Emballage], nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , NomE [Type] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
+            SqlCommand cmd = new SqlCommand("update emballage set img=(SELECT BulkColumn FROM Openrowset( Bulk 'C:\\Users\\R_230_ROG\\Pictures\\C3.png', Single_Blob) as img) where codeEM=",cn);
+            commandBuilder = new SqlCommandBuilder(dataAdapter);
+            cn.Open();
+            dataAdapter.Update(DataSet1.Tables["Emballage"]);
+            cn.Close();
+        }
+
+        private void batnAddMatiereP_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tabControl5_MouseClick(object sender, MouseEventArgs e)
+        {
+            
         }
     }
 }

@@ -85,3 +85,15 @@ C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huile
 C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CopyComplete
 C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.exe
 C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe.config
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.pdb
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csprojAssemblyReference.cache
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Form1.resources
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.cache
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CoreCompileInputs.cache
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CopyComplete
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.exe
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb
