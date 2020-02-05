@@ -50,10 +50,10 @@ namespace paradis_des_huiles
             dataAdapter = new SqlDataAdapter("select nomFournisseur [Nom Fourni] ,numTel [Num Tel] , adresse [Adresse] , email [Mail] , RCF [RC] from Fournisseur", cn);
             dataAdapter.Fill(DataSet1, "Fournisseur");
 
-            dataAdapter = new SqlDataAdapter("select idEm  + codeEM [Code Emballage], nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , NomE [Type] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
+            dataAdapter = new SqlDataAdapter("select codeEM [Code Emballage], nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , UniteE [Unité de mesure] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
             dataAdapter.Fill(DataSet1, "Emballage");
 
-            dataAdapter = new SqlDataAdapter("select idMP  + codeMP [Code], nomMP [Nom], nomFournisseur [Fournisseur] , UniteE [Type] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée] from Matiere_premiere inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF inner join Etat on Etat.idE = Matiere_premiere.idE", cn);
+            dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], nomFournisseur [Fournisseur] , UniteE [Unité de mesure] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée] from Matiere_premiere inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF inner join Etat on Etat.idE = Matiere_premiere.idE", cn);
             dataAdapter.Fill(DataSet1, "MatiereP");
 
             dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(nomMP, '') + ISNULL(codeEM + Emballage.idE, '') [Nom Produit], ISNULL(nomFournisseur, '') + ISNULL(nomFournisseur, '') [Fournisseur], qtea [Quantite], prix  [Prix], dateA [Date Achat]from historique_achat inner join Matiere_premiere on historique_achat.idMP=Matiere_premiere.idmp/* or */ inner join Emballage on Emballage.idEM = historique_achat.idEM inner join Fournisseur on Fournisseur.RCF = Emballage.RCF  or  Fournisseur.RCF=Matiere_premiere.RCF", cn);
@@ -61,6 +61,9 @@ namespace paradis_des_huiles
 
             dataAdapter = new SqlDataAdapter("select numVente [Num Vente], Produit_finis.idPF + codePF [Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
             dataAdapter.Fill(DataSet1, "HistoriqueV");
+
+            dataAdapter = new SqlDataAdapter("Select * from Etat", cn);
+            dataAdapter.Fill(DataSet1, "Etat");
 
             cn.Close();
 
@@ -114,6 +117,15 @@ namespace paradis_des_huiles
             this.cmbAddNomFourniMatierP.DisplayMember = "Nom Fourni";
             this.cmbAddNomFourniMatierP.ValueMember = "RC";
             this.cmbAddNomFourniMatierP.DataSource = DataSet1.Tables["Fournisseur"];
+            this.cmbAddNomFournisseurEmballage.DisplayMember = "Nom Fourni";
+            this.cmbAddNomFournisseurEmballage.ValueMember = "RC";
+            this.cmbAddNomFournisseurEmballage.DataSource = DataSet1.Tables["Fournisseur"];
+            this.cmbAddTypeEmballge.DisplayMember = "UniteE";
+            this.cmbAddTypeEmballge.ValueMember = "idE";
+            this.cmbAddTypeEmballge.DataSource = DataSet1.Tables["Etat"];
+            this.cmbAddTypeMatierP.DisplayMember = "UniteE";
+            this.cmbAddTypeMatierP.ValueMember = "idE";
+            this.cmbAddTypeMatierP.DataSource = DataSet1.Tables["Etat"];
         }
 
         private void TxtRchDgrid_TextChanged(object sender, EventArgs e)
@@ -326,18 +338,56 @@ namespace paradis_des_huiles
 
         private void btnAddEmballage_Click(object sender, EventArgs e)
         {
-            //CHECK CODE_EM AND COMBOBOX FILL TO FINISH THIS PART /!\/!\/!\/!\/!\/!\
-            DataSet1.Tables["Emballage"].Rows.Add(null, cmbAddNomFournisseurEmballage.SelectedItem.ToString(), txtAddquantiteEmballage.Text, cmbAddTypeEmballge.SelectedItem.ToString(), txtAddSupportEmballage.Text, txtAddDescriptionEmballage.Text, cmbAddEtageEmballage.Text + cmbAddSalleEmballage.Text);
-            dataAdapter = new SqlDataAdapter("select idEm  + codeEM [Code Emballage], nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , NomE [Type] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
-            SqlCommand cmd = new SqlCommand("update emballage set img=(SELECT BulkColumn FROM Openrowset( Bulk 'C:\\Users\\R_230_ROG\\Pictures\\C3.png', Single_Blob) as img) where codeEM=",cn);
-            commandBuilder = new SqlCommandBuilder(dataAdapter);
-            cn.Open();
-            dataAdapter.Update(DataSet1.Tables["Emballage"]);
-            cn.Close();
+            try
+            {
+                dataAdapter = new SqlDataAdapter("select codeEM [Code Emballage], RCF [RCsF] , qteEM [Quantite] , idE [idE] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage ", cn);
+                cn.Open();
+                dataAdapter.Fill(DataSet1, "EmballagePure");
+                cn.Close();
+                DataSet1.Tables["EmballagePure"].Rows.Add(txtAddCodeEmballage.Text, cmbAddNomFournisseurEmballage.SelectedValue.ToString(), txtAddquantiteEmballage.Text, cmbAddTypeEmballge.SelectedValue.ToString(), txtAddSupportEmballage.Text, txtAddDescriptionEmballage.Text, "E2S2");
+                SqlCommand cmd = new SqlCommand("update emballage set img=(SELECT BulkColumn FROM Openrowset( Bulk 'C:\\Users\\R_230_ROG\\Pictures\\C3.png', Single_Blob) as img) where codeEM='" + txtAddCodeEmballage.Text + "'", cn);
+                commandBuilder = new SqlCommandBuilder(dataAdapter);
+
+                cn.Open();
+                dataAdapter.Update(DataSet1.Tables["EmballagePure"]);
+                cmd.ExecuteNonQuery();
+                dataAdapter = new SqlDataAdapter("select codeEM [Code Emballage], nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , UniteE [Unité de mesure] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
+                DataSet1.Tables["Emballage"].Clear();
+                dataAdapter.Fill(DataSet1, "Emballage");
+                cn.Close();
+                MessageBox.Show("Ajouter avec succes", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void batnAddMatiereP_Click(object sender, EventArgs e)
         {
+            try
+            {
+                //Etage Salle non ajouter /!\
+                dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], RCF [RCF] , idE [idE] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée] from Matiere_premiere ", cn);
+                cn.Open();
+                dataAdapter.Fill(DataSet1, "MPPure");
+                cn.Close();
+                DataSet1.Tables["MPPure"].Rows.Add(txtaddcodemp.Text, txtAddNomMatiereP.Text, cmbAddNomFourniMatierP.SelectedValue.ToString(), cmbAddTypeMatierP.SelectedValue.ToString(), txtAddQuantiteMatiereP.Text, txtAddDescMatierP.Text, "Test");
+                DataSet1.Tables["MatiereP"].Rows.Add(txtaddcodemp.Text, txtAddNomMatiereP.Text, cmbAddNomFourniMatierP.SelectedText.ToString());
+                commandBuilder = new SqlCommandBuilder(dataAdapter);
+                cn.Open();
+                dataAdapter.Update(DataSet1.Tables["MPPure"]);
+                dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], nomFournisseur [Fournisseur] , UniteE [Unité de mesure] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée] from Matiere_premiere inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF inner join Etat on Etat.idE = Matiere_premiere.idE", cn);
+                DataSet1.Tables["MatiereP"].Clear();
+                dataAdapter.Fill(DataSet1, "MatiereP");
+                cn.Close();
+                MessageBox.Show("Ajouter avec succes", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
             
         }
 
