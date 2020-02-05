@@ -56,7 +56,7 @@ namespace paradis_des_huiles
             dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], nomFournisseur [Fournisseur] , UniteE [Unité de mesure] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée] from Matiere_premiere inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF inner join Etat on Etat.idE = Matiere_premiere.idE", cn);
             dataAdapter.Fill(DataSet1, "MatiereP");
 
-            dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(nomMP, '') + ISNULL(historique_achat.idEM + Emballage.idE, '') [Nom Produit], ISNULL(nomFournisseur, '') + ISNULL(nomFournisseur, '') [Fournisseur], qtea [Quantite], prix  [Prix], dateA [Date Achat]from historique_achat inner join Matiere_premiere on historique_achat.idMP=Matiere_premiere.idmp/* or */ inner join Emballage on Emballage.idEM = historique_achat.idEM inner join Fournisseur on Fournisseur.RCF = Emballage.RCF  or  Fournisseur.RCF=Matiere_premiere.RCF", cn);
+            dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(Matiere_premiere.nomMP,'') + ISNULL('AG' +CONVERT(varchar(50),Emballage.idEM) ,'') [Nom de Produit], Fournisseur.nomFournisseur [Nom Fournisseur], qteA [Quantite] , prix [Prix] ,dateA [Date Achat] from historique_achat inner join Matiere_premiere on Matiere_premiere.idmp = historique_achat.idMP  inner join Emballage on Emballage.idEM = historique_achat.idEM inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF or Fournisseur.RCF = Emballage.RCF", cn);
             dataAdapter.Fill(DataSet1, "HistoriqueA");
 
             dataAdapter = new SqlDataAdapter("Select * from Historique_Achat", cn);
@@ -68,12 +68,15 @@ namespace paradis_des_huiles
             dataAdapter = new SqlDataAdapter("Select * from Etat", cn);
             dataAdapter.Fill(DataSet1, "Etat");
 
-            dataAdapter = new SqlDataAdapter("select * from Produit_finis",cn);
-            dataAdapter.Fill(DataSet1, "Produit_finis");
+            /*dataAdapter = new SqlDataAdapter("select * from Produit_finis",cn);
+            dataAdapter.Fill(DataSet1, "Produit_finis");*/
 
             dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], RCF [RCF] , idE [idE] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée], idMP from Matiere_premiere ", cn);
             dataAdapter.Fill(DataSet1, "MPPure");
-       
+
+            dataAdapter = new SqlDataAdapter("select  codePF +  [type].nomType [Code Produit] , nomPF [Nom Produit], QtePF [Quantite], cordoPF [Cordonne],descPF [Description], 'AG' + CONVERT(nvarchar(50),idEM) [Code Emballage]from Produit_finis inner join [type] on [type].idType = Produit_finis.idType", cn);
+            dataAdapter.Fill(DataSet1, "Produit_finis");
+
 
             cn.Close();
 
@@ -81,8 +84,9 @@ namespace paradis_des_huiles
             dataGridFourni.DataSource = DataSet1.Tables["Fournisseur"];
             dataGridEmballage.DataSource = DataSet1.Tables["Emballage"];
             dataGridMatiereP.DataSource = DataSet1.Tables["MatiereP"];
-            dataGrideHistoriqueV.DataSource = DataSet1.Tables["HistoriqueA"];
-            dataGrideHistoriqueA.DataSource = DataSet1.Tables["HistoriqueV"];
+            dataGrideHistoriqueV.DataSource = DataSet1.Tables["HistoriqueV"];
+            dataGrideHistoriqueA.DataSource = DataSet1.Tables["HistoriqueA"];
+            datagridAffProduitF.DataSource = DataSet1.Tables["Produit_finis"];
 
             rbtnAddHistoAMatierePrem.Checked = true;
 
@@ -470,6 +474,11 @@ namespace paradis_des_huiles
                 this.cmbnomproduitaddhistoriquedachat.DisplayMember = "Code Emballage";
                 this.cmbnomproduitaddhistoriquedachat.ValueMember = "Code Emballage";
             }
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
