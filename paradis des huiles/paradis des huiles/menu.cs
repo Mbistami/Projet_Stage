@@ -59,11 +59,21 @@ namespace paradis_des_huiles
             dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(nomMP, '') + ISNULL(historique_achat.idEM + Emballage.idE, '') [Nom Produit], ISNULL(nomFournisseur, '') + ISNULL(nomFournisseur, '') [Fournisseur], qtea [Quantite], prix  [Prix], dateA [Date Achat]from historique_achat inner join Matiere_premiere on historique_achat.idMP=Matiere_premiere.idmp/* or */ inner join Emballage on Emballage.idEM = historique_achat.idEM inner join Fournisseur on Fournisseur.RCF = Emballage.RCF  or  Fournisseur.RCF=Matiere_premiere.RCF", cn);
             dataAdapter.Fill(DataSet1, "HistoriqueA");
 
+            dataAdapter = new SqlDataAdapter("Select * from Historique_Achat", cn);
+            dataAdapter.Fill(DataSet1, "HistoriqueAchatPure");
+
             dataAdapter = new SqlDataAdapter("select numVente [Num Vente], Produit_finis.idPF + codePF [Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
             dataAdapter.Fill(DataSet1, "HistoriqueV");
 
             dataAdapter = new SqlDataAdapter("Select * from Etat", cn);
             dataAdapter.Fill(DataSet1, "Etat");
+
+            dataAdapter = new SqlDataAdapter("select * from Produit_finis",cn);
+            dataAdapter.Fill(DataSet1, "Produit_finis");
+
+            dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], RCF [RCF] , idE [idE] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée], idMP from Matiere_premiere ", cn);
+            dataAdapter.Fill(DataSet1, "MPPure");
+       
 
             cn.Close();
 
@@ -71,10 +81,10 @@ namespace paradis_des_huiles
             dataGridFourni.DataSource = DataSet1.Tables["Fournisseur"];
             dataGridEmballage.DataSource = DataSet1.Tables["Emballage"];
             dataGridMatiereP.DataSource = DataSet1.Tables["MatiereP"];
-            dataGrideHistoriqueA.DataSource = DataSet1.Tables["HistoriqueA"];
-            dataGridHistoAUpdate.DataSource = DataSet1.Tables["HistoriqueA"];
-            dataGrideHistoriqueV.DataSource = DataSet1.Tables["HistoriqueV"];
-            dataGridHistoVUpdate.DataSource = DataSet1.Tables["HistoriqueV"];            
+            dataGrideHistoriqueV.DataSource = DataSet1.Tables["HistoriqueA"];
+            dataGrideHistoriqueA.DataSource = DataSet1.Tables["HistoriqueV"];
+
+            rbtnAddHistoAMatierePrem.Checked = true;
 
             //CmbRechFournisseurAfficher afficher rechercher fournisseur
             for (int i = 0; i < DataSet1.Tables["Fournisseur"].Columns.Count; i++)
@@ -108,7 +118,7 @@ namespace paradis_des_huiles
             CmbAfficherHistVfind.Text = CmbAfficherHistVfind.Items[0].ToString();
 
             
-            //fournisseures names in MP_ADDING
+            //cmbboxs
             this.cmbAddNomFourniMatierP.DisplayMember = "Nom Fourni";
             this.cmbAddNomFourniMatierP.ValueMember = "RC";
             this.cmbAddNomFourniMatierP.DataSource = DataSet1.Tables["Fournisseur"];
@@ -124,7 +134,12 @@ namespace paradis_des_huiles
             this.cmbAddHabituelHistorA.DisplayMember = "Nom Fourni";
             this.cmbAddHabituelHistorA.ValueMember = "RC";
             this.cmbAddHabituelHistorA.DataSource = DataSet1.Tables["Fournisseur"];
-            this.Labelcount.Text = "Nombre de client : " + dataGridClient.Rows.Count;
+            /*this.cmbnomproduitaddhistoriquedachat.DisplayMember = "nomProduit";
+            this.cmbnomproduitaddhistoriquedachat.ValueMember = "idPF";
+            this.cmbnomproduitaddhistoriquedachat.DataSource = DataSet1.Tables["Produit_finis"];*/
+            //labbels
+            this.Labelcount.Text = "Nombre de clients : " + dataGridClient.Rows.Count;
+            this.label8.Text = "Nombre de Fournisseurs : " + dataGridFourni.Rows.Count;
         }
 
         private void TxtRchDgrid_TextChanged(object sender, EventArgs e)
@@ -199,47 +214,12 @@ namespace paradis_des_huiles
             try
             {
                 //Ajouter mode Déco using dataset
-                int f;
-                if (cmbtypecltadd.SelectedItem.ToString() == "fidéle") { f = 1; } else { f = 0; }
-                DataSet1.Tables["Client"].Rows.Add(TxtNomaddclt.Text , txtaddnumclt.Text, txtaddadressclt.Text, txtaddmailclt.Text,f , txtaddrcclt.Text);
+                DataSet1.Tables["Client"].Rows.Add(TxtNomaddclt.Text , txtaddnumclt.Text, txtaddadressclt.Text, txtaddmailclt.Text,cmbtypecltadd.SelectedItem.ToString() , txtaddrcclt.Text);
                 dataAdapter = new SqlDataAdapter("select nomClt as NomClient, numTel [Num Tel] , adresse Adresse , email Mail, fidelite as Type , RC_CIN [RC / CIN] from Client ", cn);
                 commandBuilder = new SqlCommandBuilder(dataAdapter);
                 cn.Open();
                 dataAdapter.Update(DataSet1.Tables["Client"]);
                 cn.Close();
-                /*cn.Open();
-                SqlCommand cmd = new SqlCommand("insert Client values (@aclient, @bclient, @dclient, @eclient, @fclient, @gclient)", cn);
-                SqlParameter p1 = new SqlParameter("@aclient", txtaddrcclt.Text);
-                SqlParameter p2 = new SqlParameter("@bclient", TxtNomaddclt.Text);
-                SqlParameter p4 = new SqlParameter("@dclient", txtaddnumclt.Text);
-                SqlParameter p5 = new SqlParameter("@eclient", txtaddmailclt.Text);
-                SqlParameter p6 = new SqlParameter("@fclient", txtaddadressclt.Text);
-                if (cmbtypecltadd.SelectedItem.ToString() == "fidele")
-                {
-                    fdl = 1;
-                }
-                else
-                {
-                    fdl = 0;
-                }
-                SqlParameter p7 = new SqlParameter("@gclient", fdl);
-                cmd.Parameters.Add(p1);
-                cmd.Parameters.Add(p2);
-                cmd.Parameters.Add(p4);
-                cmd.Parameters.Add(p5);
-                cmd.Parameters.Add(p6);
-                cmd.Parameters.Add(p7);
-                cmd.ExecuteNonQuery();
-                cn.Close();
-
-                //clear txtbox
-                txtaddrcclt.Text = "";
-                TxtNomaddclt.Text = "";
-                txtaddnumclt.Text = "";
-                txtaddmailclt.Text = "";
-                txtaddmailclt.Text = "";
-                txtaddadressclt.Text = "";
-                TxtNomaddclt.Focus();*/
             }
             catch (Exception ex)
             {
@@ -264,46 +244,6 @@ namespace paradis_des_huiles
         int mfid;
         private void BtnModifierclt_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //dataAdapter = new SqlDataAdapter("select nomClt as NomClient, numTel [Num Tel] , adresse Adresse , email Mail, fidelite as Type , RC_CIN [RC / CIN] from Client ", cn);
-                //commandBuilder = new SqlCommandBuilder(dataAdapter);
-                MessageBox.Show(DataSet1.Tables["Client"].Rows[dataGridClient.SelectedRows[0].Index][dataGridClient.SelectedColumns[0].Index].ToString());
-                /*cn.Open();
-                SqlCommand cmd = new SqlCommand("update client set RC_CIN = @Maclient, nomClt = @Mbclient , numTel = @Mdclient, email = @Meclient, adresse = @Mfclient, fidelite = @Mg where RC_CIN = @Rc", cn);
-                SqlParameter p1 = new SqlParameter("@Maclient", txtrccltmodif.Text);
-                SqlParameter p2 = new SqlParameter("@Mbclient", txtnomcltmodif.Text);
-                SqlParameter p3 = new SqlParameter("@Mdclient", txtnumcltmodif.Text);
-                SqlParameter p4 = new SqlParameter("@Meclient", txtmailcltmodif.Text);
-                SqlParameter p5 = new SqlParameter("@Mfclient", txtadressecltmodif.Text);
-                if (cmbtypecltmodife.SelectedItem.ToString() == "fidele")
-                {
-                    mfid = 1;
-                }
-                else
-                    mfid = 0;
-                SqlParameter p6 = new SqlParameter("@Mg", mfid);
-                SqlParameter pselect = new SqlParameter("@Rc", DatagridModifClient.Rows[indexdatamodif].Cells[5].Value.ToString());
-                cmd.Parameters.Add(p1);
-                cmd.Parameters.Add(p2);
-                cmd.Parameters.Add(p3);
-                cmd.Parameters.Add(p5);
-                cmd.Parameters.Add(p4);
-                cmd.Parameters.Add(p6);
-                cmd.Parameters.Add(pselect);
-                cmd.ExecuteNonQuery();
-                cn.Close();
-
-                txtrccltmodif.Text = "";
-                txtnomcltmodif.Text = "";
-                txtnumcltmodif.Text = "";
-                txtmailcltmodif.Text = "";
-                txtadressecltmodif.Text = "";
-                txtnomcltmodif.Focus();*/
-            }
-            catch (Exception ex)
-            {
-            }
         }
 
         private void btnAddFourni_Click(object sender, EventArgs e)
@@ -360,7 +300,7 @@ namespace paradis_des_huiles
             try
             {
                 //Etage Salle non ajouter /!\
-                dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], RCF [RCF] , idE [idE] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée] from Matiere_premiere ", cn);
+                dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], RCF [RCF] , idE [idE] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée], idMP from Matiere_premiere ", cn);
                 cn.Open();
                 dataAdapter.Fill(DataSet1, "MPPure");
                 cn.Close();
@@ -390,12 +330,27 @@ namespace paradis_des_huiles
 
         private void btnaddhistoriquedachat_Click(object sender, EventArgs e)
         {
-            dataAdapter = new SqlDataAdapter("select RCF [RCF], qteA [Quantité], prix [prix],dateA [Date d'achat],idEM ,idMP from historique_achat", cn);
-            commandBuilder = new SqlCommandBuilder(dataAdapter);
-            cn.Open();
-            dataAdapter.Fill(DataSet1, "Historique_AchatPure");
-            cn.Close();
-            //DataSet1.Tables["Historique_AchatPure"].Rows.Add(cmbAddHabituelHistorA.SelectedValue.ToString(),txtquantiteaddhistoriquedachat.Text ,prixaddhistoriquedachat.Text ,dateventeaddhistoriquedachat.Value.ToString())
+            try
+            {
+                dataAdapter = new SqlDataAdapter("select RCF,qteA,prix,dateA,idEM,idMP from historique_achat", cn);
+                commandBuilder = new SqlCommandBuilder(dataAdapter);
+                cn.Open();
+                dataAdapter.Fill(DataSet1, "HistoriqueAP");
+                cn.Close();
+                if(rbtnAddHistoAMatierePrem.Checked)
+                    DataSet1.Tables["HistoriqueAP"].Rows.Add(cmbAddHabituelHistorA.SelectedValue.ToString(), txtquantiteaddhistoriquedachat.Text, prixaddhistoriquedachat.Text, dateventeaddhistoriquedachat.Value.ToString() ,cmbnomproduitaddhistoriquedachat.SelectedValue.ToString());
+                else
+                    DataSet1.Tables["HistoriqueAP"].Rows.Add(cmbAddHabituelHistorA.SelectedValue.ToString(), txtquantiteaddhistoriquedachat.Text, prixaddhistoriquedachat.Text, dateventeaddhistoriquedachat.Value.ToString(),null , cmbnomproduitaddhistoriquedachat.SelectedValue.ToString().Substring(2));
+                cn.Open();
+                dataAdapter.Update(DataSet1.Tables["HistoriqueAP"]);
+
+                cn.Close();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         private void gunaGradientButton6_Click(object sender, EventArgs e)
@@ -409,7 +364,7 @@ namespace paradis_des_huiles
 
         private void ClickDroitMouseSupprimer_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Voulez-Vous supprimer le client de la base de donnée","Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show("Voulez-Vous supprimer le client '"+ dataGridClient.SelectedRows[0].Cells[0].Value.ToString() +"' de la base de donnée","Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
                 dataGridClient.Rows.RemoveAt(dataGridClient.SelectedRows[0].Index);
@@ -424,7 +379,7 @@ namespace paradis_des_huiles
                 int rowindex = dataGridClient.HitTest(e.X, e.Y).RowIndex;
                 if(rowindex >= 0)
                 {
-                    ClickDroitMouse.Show(dataGridClient, new Point(e.X, e.Y));
+                    ClickDroitMouseClt.Show(dataGridClient, new Point(e.X, e.Y));
                     dataGridClient.ClearSelection();
                     dataGridClient.Rows[rowindex].Selected = true;
                 }
@@ -433,7 +388,7 @@ namespace paradis_des_huiles
 
         private void dataGridClient_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
-            this.Labelcount.Text = "Nombre de client : " + dataGridClient.Rows.Count;
+            this.Labelcount.Text = "Nombre de clients : " + dataGridClient.Rows.Count;
         }
 
         private void ClickDroirMouseVA_Click(object sender, EventArgs e)
@@ -448,6 +403,73 @@ namespace paradis_des_huiles
                 dataGridClient.ReadOnly = false;
             else
                 dataGridClient.ReadOnly = true;
+        }
+
+        private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Voulez-Vous supprimer le Frounisseur '"+dataGridFourni.SelectedRows[0].Cells[0].Value.ToString() +"' de la base de donnée", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                dataGridFourni.Rows.RemoveAt(dataGridFourni.SelectedRows[0].Index);
+                MessageBox.Show("Suppression effectuer! Veuillez Sauvgardez les modifications.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void dataGridFourni_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridFourni_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                int rowindex = dataGridFourni.HitTest(e.X, e.Y).RowIndex;
+                if(rowindex >= 0)
+                {
+                    ClickDroitMouseFourni.Show(dataGridFourni, e.X, e.Y);
+                    dataGridFourni.ClearSelection();
+                    dataGridFourni.Rows[rowindex].Selected = true;
+                }
+            }
+        }
+
+        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (modifierToolStripMenuItem.Checked)
+                dataGridFourni.ReadOnly = false;
+            else
+                dataGridFourni.ReadOnly = true;
+        }
+
+        private void gunaGradientButton2_Click(object sender, EventArgs e)
+        {
+            dataAdapter = new SqlDataAdapter("select nomFournisseur [Nom Fourni] ,numTel [Num Tel] , adresse [Adresse] , email [Mail] , RCF [RC] from Fournisseur", cn);
+            commandBuilder = new SqlCommandBuilder(dataAdapter);
+            cn.Open();
+            dataAdapter.Update(DataSet1, "Fournisseur");
+        }
+
+        private void dataGridFourni_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            this.label8.Text = "Nombre de Fournisseurs : " + dataGridFourni.Rows.Count;
+        }
+
+        private void rbtnAddHistoAMatierePrem_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (rbtnAddHistoAMatierePrem.Checked)
+            {
+                this.cmbnomproduitaddhistoriquedachat.DataSource = DataSet1.Tables["MPPure"];
+                cmbnomproduitaddhistoriquedachat.DisplayMember = "nom";
+                cmbnomproduitaddhistoriquedachat.ValueMember = "idMP";
+            }
+            else
+            {
+                this.cmbnomproduitaddhistoriquedachat.DataSource = DataSet1.Tables["Emballage"];
+                this.cmbnomproduitaddhistoriquedachat.DisplayMember = "Code Emballage";
+                this.cmbnomproduitaddhistoriquedachat.ValueMember = "Code Emballage";
+            }
         }
     }
 }
