@@ -13,7 +13,7 @@ namespace paradis_des_huiles
 {
     public partial class menu : Form
     {
-        SqlConnection cn = new SqlConnection("Server=.;Database=DB_Gestion;Integrated Security = true");
+        SqlConnection cn = new SqlConnection("Server=R_230_ROG-PC\\SQLEXPRESS;Database=DB_Gestionn;Integrated Security = true");
         public menu()
         {
             InitializeComponent();
@@ -274,29 +274,25 @@ namespace paradis_des_huiles
 
         private void btnAddEmballage_Click(object sender, EventArgs e)
         {
-            /*try
-            {
-                dataAdapter = new SqlDataAdapter("select codeEM [Code Emballage], RCF [RCsF] , qteEM [Quantite] , idE [idE] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage ", cn);
-                cn.Open();
-                dataAdapter.Fill(DataSet1, "EmballagePure");
-                cn.Close();
-                //DataSet1.Tables["EmballagePure"].Rows.Add(txtAddCodeEmballage.Text, cmbAddNomFournisseurEmballage.SelectedValue.ToString(), txtAddquantiteEmballage.Text, cmbAddTypeEmballge.SelectedValue.ToString(), txtAddSupportEmballage.Text, txtAddDescriptionEmballage.Text, "E2S2");
-                //SqlCommand cmd = new SqlCommand("update emballage set img=(SELECT BulkColumn FROM Openrowset( Bulk '"+this.FilePathEM.Text+"', Single_Blob) as img) where codeEM='" + txtAddCodeEmballage.Text + "'", cn);
-                commandBuilder = new SqlCommandBuilder(dataAdapter);
+            dataAdapter = new SqlDataAdapter("select RCF [RCsF] , qteEM [Quantite] , idE [idE] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage ", cn);
+            cn.Open();
+            dataAdapter.Fill(DataSet1, "EmballagePure");
+            cn.Close();
+            MessageBox.Show(DataSet1.Tables["EmballagePure"].Rows.Count.ToString());
+            int x = DataSet1.Tables["EmballagePure"].Rows.Count - 1;
+            DataSet1.Tables["EmballagePure"].Rows.Add(cmbAddNomFournisseurEmballage.SelectedValue.ToString(), txtAddquantiteEmballage.Text, cmbAddTypeEmballge.SelectedValue.ToString(), txtAddSupportEmballage.Text, txtAddDescriptionEmballage.Text, "E2S2");
+            SqlCommand cmd = new SqlCommand("update emballage set img=(SELECT BulkColumn FROM Openrowset( Bulk '"+this.FilePathEM.Text+"', Single_Blob) as img) where idEM='" + x.ToString() + "'", cn);
+            commandBuilder = new SqlCommandBuilder(dataAdapter);
 
-                cn.Open();
-                dataAdapter.Update(DataSet1.Tables["EmballagePure"]);
-                cmd.ExecuteNonQuery();
-                dataAdapter = new SqlDataAdapter("select codeEM [Code Emballage], nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , UniteE [Unité de mesure] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
-                DataSet1.Tables["Emballage"].Clear();
-                dataAdapter.Fill(DataSet1, "Emballage");
-                cn.Close();
-                MessageBox.Show("Ajouter avec succes", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }*/
+            cn.Open();
+            dataAdapter.Update(DataSet1.Tables["EmballagePure"]);
+            cmd.ExecuteNonQuery();
+            dataAdapter = new SqlDataAdapter("select 'AG'+convert(varchar(50),idEM) [Code Emballage], nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , UniteE [Unité de mesure] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
+            commandBuilder = new SqlCommandBuilder(dataAdapter);
+            DataSet1.Tables["Emballage"].Clear();
+            dataAdapter.Fill(DataSet1, "Emballage");
+            cn.Close();
+            MessageBox.Show("Ajouter avec succes", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);            
         }
 
         private void batnAddMatiereP_Click(object sender, EventArgs e)
@@ -477,6 +473,11 @@ namespace paradis_des_huiles
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbAddTypeEmballge_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
