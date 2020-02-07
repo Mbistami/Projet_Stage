@@ -74,8 +74,10 @@ namespace paradis_des_huiles
             dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], RCF [RCF] , idE [idE] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée], idMP from Matiere_premiere ", cn);
             dataAdapter.Fill(DataSet1, "MPPure");
 
-            dataAdapter = new SqlDataAdapter("select  codePF +  [type].nomType [Code Produit] , nomPF [Nom Produit], QtePF [Quantite], cordoPF [Cordonne],descPF [Description], 'AG' + CONVERT(nvarchar(50),idEM) [Code Emballage]from Produit_finis inner join [type] on [type].idType = Produit_finis.idType", cn);
-            dataAdapter.Fill(DataSet1, "Produit_finis");
+            dataAdapter = new SqlDataAdapter("Select 'AG'+convert(varchar(50),idEM) [CODEEM],idEM from Emballage ", cn);
+            dataAdapter.Fill(DataSet1, "EMCMBOX");
+            //dataAdapter = new SqlDataAdapter("select [type].nomType + codePF [Code Produit] ", cn);
+            //dataAdapter.Fill(DataSet1, "Produit_finis");
 
 
             cn.Close();
@@ -115,11 +117,11 @@ namespace paradis_des_huiles
             }
             CmbAfficherHistoriqueAfind.Text = CmbAfficherHistoriqueAfind.Items[0].ToString();
 
-            for (int i = 0; i < DataSet1.Tables["HistoriqueV"].Columns.Count; i++)
+            /*for (int i = 0; i < DataSet1.Tables["HistoriqueV"].Columns.Count; i++)
             {
                 CmbAfficherHistVfind.Items.Add(DataSet1.Tables["HistoriqueV"].Columns[i].ColumnName.ToString());
             }
-            CmbAfficherHistVfind.Text = CmbAfficherHistVfind.Items[0].ToString();
+            CmbAfficherHistVfind.Text = CmbAfficherHistVfind.Items[0].ToString();*/
 
             
             //cmbboxs
@@ -141,6 +143,9 @@ namespace paradis_des_huiles
             /*this.cmbnomproduitaddhistoriquedachat.DisplayMember = "nomProduit";
             this.cmbnomproduitaddhistoriquedachat.ValueMember = "idPF";
             this.cmbnomproduitaddhistoriquedachat.DataSource = DataSet1.Tables["Produit_finis"];*/
+            this.gunaComboBox3.DisplayMember = "CODEEM";
+            this.gunaComboBox3.ValueMember = "idEM";
+            this.gunaComboBox3.DataSource = DataSet1.Tables["EMCMBOX"];
             //labbels
             this.Labelcount.Text = "Nombre de clients : " + dataGridClient.Rows.Count;
             this.label8.Text = "Nombre de Fournisseurs : " + dataGridFourni.Rows.Count;
@@ -478,6 +483,24 @@ namespace paradis_des_huiles
         }
 
         private void cmbAddTypeEmballge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaGradientButton1_Click(object sender, EventArgs e)
+        {
+            dataAdapter = new SqlDataAdapter("Select * from Produit_finis", cn);
+            cn.Open();
+            dataAdapter.Fill(DataSet1, "ProduitsFPure");
+            cn.Close();
+            commandBuilder = new SqlCommandBuilder(dataAdapter);
+            DataSet1.Tables["ProduitsFPure"].Rows.Add(string.Join(null, System.Text.RegularExpressions.Regex.Split(gunaTextBox4.Text, "[^\\d]")), this.gunaTextBox5.Text.ToString(), this.gunaComboBox3.SelectedValue.ToString(),"E0S0",richTextBox1.Text.ToString(),this.gunaTextBox2.Text.ToString(), string.Join(null, System.Text.RegularExpressions.Regex.Split(gunaTextBox4.Text, "[^a-zA-Z]" )));
+            cn.Open();
+            dataAdapter.Update(DataSet1,"ProduitsFPure");
+            cn.Close();
+        }
+
+        private void btnaddhistoriqueV_Click(object sender, EventArgs e)
         {
 
         }

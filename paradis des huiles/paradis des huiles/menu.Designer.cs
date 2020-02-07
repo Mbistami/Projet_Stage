@@ -182,9 +182,12 @@
             this.TxtAffHistVfind = new Guna.UI.WinForms.GunaTextBox();
             this.dataGrideHistoriqueV = new Guna.UI.WinForms.GunaDataGridView();
             this.tabaddhv = new System.Windows.Forms.TabPage();
-            this.cmbAddHabituelHistorV = new Guna.UI.WinForms.GunaComboBox();
+            this.gunaComboBox6 = new Guna.UI.WinForms.GunaComboBox();
+            this.gunaComboBox7 = new Guna.UI.WinForms.GunaComboBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.btnaddhistoriqueV = new Guna.UI.WinForms.GunaGradientButton();
             this.label79 = new System.Windows.Forms.Label();
+            this.cmbAddHabituelHistorV = new Guna.UI.WinForms.GunaComboBox();
             this.dateventeaddhistoriqueV = new Guna.UI.WinForms.GunaDateTimePicker();
             this.label80 = new System.Windows.Forms.Label();
             this.prixaddhistoriqueVent = new Guna.UI.WinForms.GunaTextBox();
@@ -226,9 +229,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.gunaComboBox6 = new Guna.UI.WinForms.GunaComboBox();
-            this.gunaComboBox7 = new Guna.UI.WinForms.GunaComboBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.gunaTextBox4 = new Guna.UI.WinForms.GunaTextBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabClient.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -2541,23 +2543,50 @@
             this.tabaddhv.Text = "Ajouter";
             this.tabaddhv.UseVisualStyleBackColor = true;
             // 
-            // cmbAddHabituelHistorV
+            // gunaComboBox6
             // 
-            this.cmbAddHabituelHistorV.BackColor = System.Drawing.Color.Transparent;
-            this.cmbAddHabituelHistorV.BaseColor = System.Drawing.Color.White;
-            this.cmbAddHabituelHistorV.BorderColor = System.Drawing.Color.Silver;
-            this.cmbAddHabituelHistorV.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbAddHabituelHistorV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAddHabituelHistorV.FocusedColor = System.Drawing.Color.Empty;
-            this.cmbAddHabituelHistorV.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbAddHabituelHistorV.ForeColor = System.Drawing.Color.Black;
-            this.cmbAddHabituelHistorV.FormattingEnabled = true;
-            this.cmbAddHabituelHistorV.Location = new System.Drawing.Point(338, 110);
-            this.cmbAddHabituelHistorV.Name = "cmbAddHabituelHistorV";
-            this.cmbAddHabituelHistorV.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cmbAddHabituelHistorV.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cmbAddHabituelHistorV.Size = new System.Drawing.Size(326, 26);
-            this.cmbAddHabituelHistorV.TabIndex = 70;
+            this.gunaComboBox6.BackColor = System.Drawing.Color.Transparent;
+            this.gunaComboBox6.BaseColor = System.Drawing.Color.White;
+            this.gunaComboBox6.BorderColor = System.Drawing.Color.Silver;
+            this.gunaComboBox6.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.gunaComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gunaComboBox6.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaComboBox6.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaComboBox6.ForeColor = System.Drawing.Color.Black;
+            this.gunaComboBox6.FormattingEnabled = true;
+            this.gunaComboBox6.Location = new System.Drawing.Point(338, 142);
+            this.gunaComboBox6.Name = "gunaComboBox6";
+            this.gunaComboBox6.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaComboBox6.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.gunaComboBox6.Size = new System.Drawing.Size(326, 26);
+            this.gunaComboBox6.TabIndex = 83;
+            // 
+            // gunaComboBox7
+            // 
+            this.gunaComboBox7.BackColor = System.Drawing.Color.Transparent;
+            this.gunaComboBox7.BaseColor = System.Drawing.Color.White;
+            this.gunaComboBox7.BorderColor = System.Drawing.Color.Silver;
+            this.gunaComboBox7.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.gunaComboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gunaComboBox7.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaComboBox7.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaComboBox7.ForeColor = System.Drawing.Color.Black;
+            this.gunaComboBox7.FormattingEnabled = true;
+            this.gunaComboBox7.Location = new System.Drawing.Point(338, 142);
+            this.gunaComboBox7.Name = "gunaComboBox7";
+            this.gunaComboBox7.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaComboBox7.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.gunaComboBox7.Size = new System.Drawing.Size(326, 26);
+            this.gunaComboBox7.TabIndex = 85;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(238, 149);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(33, 13);
+            this.label19.TabIndex = 84;
+            this.label19.Text = "Client";
             // 
             // btnaddhistoriqueV
             // 
@@ -2586,6 +2615,7 @@
             this.btnaddhistoriqueV.TabIndex = 82;
             this.btnaddhistoriqueV.Text = "Ajouter";
             this.btnaddhistoriqueV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnaddhistoriqueV.Click += new System.EventHandler(this.btnaddhistoriqueV_Click);
             // 
             // label79
             // 
@@ -2595,6 +2625,24 @@
             this.label79.Size = new System.Drawing.Size(75, 13);
             this.label79.TabIndex = 81;
             this.label79.Text = "Date de vente";
+            // 
+            // cmbAddHabituelHistorV
+            // 
+            this.cmbAddHabituelHistorV.BackColor = System.Drawing.Color.Transparent;
+            this.cmbAddHabituelHistorV.BaseColor = System.Drawing.Color.White;
+            this.cmbAddHabituelHistorV.BorderColor = System.Drawing.Color.Silver;
+            this.cmbAddHabituelHistorV.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbAddHabituelHistorV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAddHabituelHistorV.FocusedColor = System.Drawing.Color.Empty;
+            this.cmbAddHabituelHistorV.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbAddHabituelHistorV.ForeColor = System.Drawing.Color.Black;
+            this.cmbAddHabituelHistorV.FormattingEnabled = true;
+            this.cmbAddHabituelHistorV.Location = new System.Drawing.Point(338, 110);
+            this.cmbAddHabituelHistorV.Name = "cmbAddHabituelHistorV";
+            this.cmbAddHabituelHistorV.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cmbAddHabituelHistorV.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.cmbAddHabituelHistorV.Size = new System.Drawing.Size(326, 26);
+            this.cmbAddHabituelHistorV.TabIndex = 70;
             // 
             // dateventeaddhistoriqueV
             // 
@@ -2837,6 +2885,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.gunaTextBox4);
+            this.tabPage2.Controls.Add(this.label24);
             this.tabPage2.Controls.Add(this.gunaTextBox3);
             this.tabPage2.Controls.Add(this.gunaComboBox5);
             this.tabPage2.Controls.Add(this.label16);
@@ -3011,6 +3061,7 @@
             this.gunaGradientButton1.TabIndex = 82;
             this.gunaGradientButton1.Text = "Ajouter";
             this.gunaGradientButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton1.Click += new System.EventHandler(this.gunaGradientButton1_Click);
             // 
             // label11
             // 
@@ -3165,50 +3216,30 @@
             this.modifierToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
             this.modifierToolStripMenuItem1.Text = "Modifier";
             // 
-            // gunaComboBox6
+            // gunaTextBox4
             // 
-            this.gunaComboBox6.BackColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox6.BaseColor = System.Drawing.Color.White;
-            this.gunaComboBox6.BorderColor = System.Drawing.Color.Silver;
-            this.gunaComboBox6.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox6.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox6.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.gunaComboBox6.ForeColor = System.Drawing.Color.Black;
-            this.gunaComboBox6.FormattingEnabled = true;
-            this.gunaComboBox6.Location = new System.Drawing.Point(338, 142);
-            this.gunaComboBox6.Name = "gunaComboBox6";
-            this.gunaComboBox6.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaComboBox6.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox6.Size = new System.Drawing.Size(326, 26);
-            this.gunaComboBox6.TabIndex = 83;
+            this.gunaTextBox4.BaseColor = System.Drawing.Color.White;
+            this.gunaTextBox4.BorderColor = System.Drawing.Color.Silver;
+            this.gunaTextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.gunaTextBox4.FocusedBaseColor = System.Drawing.Color.White;
+            this.gunaTextBox4.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
+            this.gunaTextBox4.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.gunaTextBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaTextBox4.Location = new System.Drawing.Point(338, 43);
+            this.gunaTextBox4.Name = "gunaTextBox4";
+            this.gunaTextBox4.PasswordChar = '\0';
+            this.gunaTextBox4.Size = new System.Drawing.Size(326, 41);
+            this.gunaTextBox4.TabIndex = 93;
+            this.gunaTextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // gunaComboBox7
+            // label24
             // 
-            this.gunaComboBox7.BackColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox7.BaseColor = System.Drawing.Color.White;
-            this.gunaComboBox7.BorderColor = System.Drawing.Color.Silver;
-            this.gunaComboBox7.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox7.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.gunaComboBox7.ForeColor = System.Drawing.Color.Black;
-            this.gunaComboBox7.FormattingEnabled = true;
-            this.gunaComboBox7.Location = new System.Drawing.Point(338, 142);
-            this.gunaComboBox7.Name = "gunaComboBox7";
-            this.gunaComboBox7.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaComboBox7.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox7.Size = new System.Drawing.Size(326, 26);
-            this.gunaComboBox7.TabIndex = 85;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(238, 149);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(33, 13);
-            this.label19.TabIndex = 84;
-            this.label19.Text = "Client";
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(238, 57);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(89, 13);
+            this.label24.TabIndex = 92;
+            this.label24.Text = "Code Produit finis";
             // 
             // menu
             // 
@@ -3460,5 +3491,7 @@
         private Guna.UI.WinForms.GunaComboBox gunaComboBox6;
         private Guna.UI.WinForms.GunaComboBox gunaComboBox7;
         private System.Windows.Forms.Label label19;
+        private Guna.UI.WinForms.GunaTextBox gunaTextBox4;
+        private System.Windows.Forms.Label label24;
     }
 }
