@@ -61,3 +61,70 @@ C:\Users\abdekrime\Desktop\Projet_Stage-5114c475d10456eb709e6416789d70d092ad0a58
 C:\Users\abdekrime\Desktop\Projet_Stage-5114c475d10456eb709e6416789d70d092ad0a58\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
 C:\Users\abdekrime\Desktop\Projet_Stage-5114c475d10456eb709e6416789d70d092ad0a58\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
 C:\Users\abdekrime\Desktop\Projet_Stage-5114c475d10456eb709e6416789d70d092ad0a58\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.Cache
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe.config
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.pdb
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\Guna.UI.dll
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csprojAssemblyReference.cache
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Form1.resources
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.cache
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CopyComplete
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.exe
+C:\Users\pc\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe.config
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.pdb
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\Guna.UI.dll
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csprojAssemblyReference.cache
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Form1.resources
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.cache
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CopyComplete
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.exe
+C:\Users\pc\Desktop\7rfty site\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe.config
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.pdb
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csprojAssemblyReference.cache
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Form1.resources
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.cache
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CoreCompileInputs.cache
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CopyComplete
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.exe
+C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb
+C:\Users\master\Documents\GitHub\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe.config
+C:\Users\master\Documents\GitHub\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe
+C:\Users\master\Documents\GitHub\Projet_Stage\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.pdb
+C:\Users\master\Documents\GitHub\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csprojAssemblyReference.cache
+C:\Users\master\Documents\GitHub\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Form1.resources
+C:\Users\master\Documents\GitHub\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
+C:\Users\master\Documents\GitHub\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
+C:\Users\master\Documents\GitHub\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.cache
+C:\Users\master\Documents\GitHub\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CopyComplete
+C:\Users\master\Documents\GitHub\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.exe
+C:\Users\master\Documents\GitHub\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe.config
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.exe
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.pdb
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\mscorlib.dll
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\System.Net.Http.dll
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\System.Net.Http.xml
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\fr\mscorlib.resources.dll
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\fr\System.Net.Http.resources.dll
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\normidna.nlp
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\normnfc.nlp
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\normnfd.nlp
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\normnfkc.nlp
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\normnfkd.nlp
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csprojResolveAssemblyReference.cache
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Form1.resources
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
+C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.Cache
