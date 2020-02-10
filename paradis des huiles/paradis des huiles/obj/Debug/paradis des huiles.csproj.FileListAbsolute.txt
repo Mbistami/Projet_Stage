@@ -128,3 +128,14 @@ C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des hu
 C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
 C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
 C:\Users\abdekrime\Desktop\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.Cache
+C:\Users\master\Documents\Scanned Documents\Documents\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe.config
+C:\Users\master\Documents\Scanned Documents\Documents\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.exe
+C:\Users\master\Documents\Scanned Documents\Documents\Projet_Stage-master\paradis des huiles\paradis des huiles\bin\Debug\paradis des huiles.pdb
+C:\Users\master\Documents\Scanned Documents\Documents\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csprojAssemblyReference.cache
+C:\Users\master\Documents\Scanned Documents\Documents\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Form1.resources
+C:\Users\master\Documents\Scanned Documents\Documents\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.menu.resources
+C:\Users\master\Documents\Scanned Documents\Documents\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Properties.Resources.resources
+C:\Users\master\Documents\Scanned Documents\Documents\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.GenerateResource.cache
+C:\Users\master\Documents\Scanned Documents\Documents\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.csproj.CopyComplete
+C:\Users\master\Documents\Scanned Documents\Documents\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.exe
+C:\Users\master\Documents\Scanned Documents\Documents\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb
