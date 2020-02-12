@@ -116,7 +116,6 @@
             this.dataGridEmballage = new Guna.UI.WinForms.GunaDataGridView();
             this.tabAddEmballage = new System.Windows.Forms.TabPage();
             this.FilePathEM = new System.Windows.Forms.Label();
-            this.pictureBoxEM = new System.Windows.Forms.PictureBox();
             this.btnAddEmballage = new Guna.UI.WinForms.GunaGradientButton();
             this.label40 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
@@ -253,6 +252,7 @@
             this.ClickDroitMouseEmballage = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItemEmba = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItemEmba = new System.Windows.Forms.ToolStripMenuItem();
+            this.plusDinformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClickDroitMouseMatiereP = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItemMP = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItemMP = new System.Windows.Forms.ToolStripMenuItem();
@@ -265,7 +265,7 @@
             this.ClickDroitMouseProdF = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItemProdF = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItemProdF = new System.Windows.Forms.ToolStripMenuItem();
-            this.plusDinformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBoxEM = new System.Windows.Forms.PictureBox();
             this.btnSaveProdF.SuspendLayout();
             this.tabClient.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -282,7 +282,6 @@
             this.tabAfficherEmballage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmballage)).BeginInit();
             this.tabAddEmballage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEM)).BeginInit();
             this.tabMatierP.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.tabAfficherMatierP.SuspendLayout();
@@ -310,6 +309,7 @@
             this.ClickDroitMouseHistoA.SuspendLayout();
             this.ClickDroitMouseHistoV.SuspendLayout();
             this.ClickDroitMouseProdF.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEM)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveProdF
@@ -491,6 +491,7 @@
             this.gunaGradientButton3.TabIndex = 21;
             this.gunaGradientButton3.Text = "Ajouter";
             this.gunaGradientButton3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton3.Click += new System.EventHandler(this.gunaGradientButton3_Click);
             // 
             // CmbRechClientAfficher
             // 
@@ -966,6 +967,7 @@
             this.gunaGradientButton9.TabIndex = 25;
             this.gunaGradientButton9.Text = "Ajouter";
             this.gunaGradientButton9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton9.Click += new System.EventHandler(this.gunaGradientButton9_Click);
             // 
             // CmbRechFournisseurAfficher
             // 
@@ -1402,6 +1404,7 @@
             this.gunaGradientButton13.TabIndex = 31;
             this.gunaGradientButton13.Text = "Ajouter";
             this.gunaGradientButton13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton13.Click += new System.EventHandler(this.gunaGradientButton13_Click);
             // 
             // label9
             // 
@@ -1522,7 +1525,6 @@
             // tabAddEmballage
             // 
             this.tabAddEmballage.Controls.Add(this.FilePathEM);
-            this.tabAddEmballage.Controls.Add(this.pictureBoxEM);
             this.tabAddEmballage.Controls.Add(this.btnAddEmballage);
             this.tabAddEmballage.Controls.Add(this.label40);
             this.tabAddEmballage.Controls.Add(this.label39);
@@ -1539,6 +1541,7 @@
             this.tabAddEmballage.Controls.Add(this.btnAddImageEmballage);
             this.tabAddEmballage.Controls.Add(this.cmbAddNomFournisseurEmballage);
             this.tabAddEmballage.Controls.Add(this.label34);
+            this.tabAddEmballage.Controls.Add(this.pictureBoxEM);
             this.tabAddEmballage.Location = new System.Drawing.Point(4, 22);
             this.tabAddEmballage.Name = "tabAddEmballage";
             this.tabAddEmballage.Padding = new System.Windows.Forms.Padding(3);
@@ -1555,14 +1558,6 @@
             this.FilePathEM.Name = "FilePathEM";
             this.FilePathEM.Size = new System.Drawing.Size(0, 9);
             this.FilePathEM.TabIndex = 66;
-            // 
-            // pictureBoxEM
-            // 
-            this.pictureBoxEM.Location = new System.Drawing.Point(771, 57);
-            this.pictureBoxEM.Name = "pictureBoxEM";
-            this.pictureBoxEM.Size = new System.Drawing.Size(215, 177);
-            this.pictureBoxEM.TabIndex = 65;
-            this.pictureBoxEM.TabStop = false;
             // 
             // btnAddEmballage
             // 
@@ -1949,6 +1944,7 @@
             this.gunaGradientButton17.TabIndex = 35;
             this.gunaGradientButton17.Text = "Ajouter";
             this.gunaGradientButton17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton17.Click += new System.EventHandler(this.gunaGradientButton17_Click);
             // 
             // CmbAfficherMatierpfind
             // 
@@ -3864,12 +3860,12 @@
             this.modifierToolStripMenuItemEmba,
             this.plusDinformationToolStripMenuItem});
             this.ClickDroitMouseEmballage.Name = "contextMenuStrip1";
-            this.ClickDroitMouseEmballage.Size = new System.Drawing.Size(181, 92);
+            this.ClickDroitMouseEmballage.Size = new System.Drawing.Size(173, 70);
             // 
             // supprimerToolStripMenuItemEmba
             // 
             this.supprimerToolStripMenuItemEmba.Name = "supprimerToolStripMenuItemEmba";
-            this.supprimerToolStripMenuItemEmba.Size = new System.Drawing.Size(180, 22);
+            this.supprimerToolStripMenuItemEmba.Size = new System.Drawing.Size(172, 22);
             this.supprimerToolStripMenuItemEmba.Text = "Supprimer";
             this.supprimerToolStripMenuItemEmba.Click += new System.EventHandler(this.supprimerToolStripMenuItemEmba_Click);
             // 
@@ -3877,9 +3873,16 @@
             // 
             this.modifierToolStripMenuItemEmba.CheckOnClick = true;
             this.modifierToolStripMenuItemEmba.Name = "modifierToolStripMenuItemEmba";
-            this.modifierToolStripMenuItemEmba.Size = new System.Drawing.Size(180, 22);
+            this.modifierToolStripMenuItemEmba.Size = new System.Drawing.Size(172, 22);
             this.modifierToolStripMenuItemEmba.Text = "Modifier";
             this.modifierToolStripMenuItemEmba.Click += new System.EventHandler(this.modifierToolStripMenuItemEmba_Click);
+            // 
+            // plusDinformationToolStripMenuItem
+            // 
+            this.plusDinformationToolStripMenuItem.Name = "plusDinformationToolStripMenuItem";
+            this.plusDinformationToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.plusDinformationToolStripMenuItem.Text = "Plus d\'information";
+            this.plusDinformationToolStripMenuItem.Click += new System.EventHandler(this.plusDinformationToolStripMenuItem_Click);
             // 
             // ClickDroitMouseMatiereP
             // 
@@ -3973,12 +3976,13 @@
             this.modifierToolStripMenuItemProdF.Text = "Modifier";
             this.modifierToolStripMenuItemProdF.Click += new System.EventHandler(this.modifierToolStripMenuItemProdF_Click);
             // 
-            // plusDinformationToolStripMenuItem
+            // pictureBoxEM
             // 
-            this.plusDinformationToolStripMenuItem.Name = "plusDinformationToolStripMenuItem";
-            this.plusDinformationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.plusDinformationToolStripMenuItem.Text = "Plus d\'information";
-            this.plusDinformationToolStripMenuItem.Click += new System.EventHandler(this.plusDinformationToolStripMenuItem_Click);
+            this.pictureBoxEM.Location = new System.Drawing.Point(771, 57);
+            this.pictureBoxEM.Name = "pictureBoxEM";
+            this.pictureBoxEM.Size = new System.Drawing.Size(215, 177);
+            this.pictureBoxEM.TabIndex = 65;
+            this.pictureBoxEM.TabStop = false;
             // 
             // menu
             // 
@@ -4014,7 +4018,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmballage)).EndInit();
             this.tabAddEmballage.ResumeLayout(false);
             this.tabAddEmballage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEM)).EndInit();
             this.tabMatierP.ResumeLayout(false);
             this.tabControl5.ResumeLayout(false);
             this.tabAfficherMatierP.ResumeLayout(false);
@@ -4050,6 +4053,7 @@
             this.ClickDroitMouseHistoA.ResumeLayout(false);
             this.ClickDroitMouseHistoV.ResumeLayout(false);
             this.ClickDroitMouseProdF.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEM)).EndInit();
             this.ResumeLayout(false);
 
         }

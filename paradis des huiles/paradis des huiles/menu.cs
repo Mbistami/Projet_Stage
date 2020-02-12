@@ -772,6 +772,35 @@ namespace paradis_des_huiles
             EM.Show();
         }
 
+        private void gunaGradientButton3_Click(object sender, EventArgs e)
+        {
+            DataSet1.WriteXmlSchema("PrintC.xml");
+            Form2 frm = new Form2();
+            frm.crstl(DataSet1.Tables["Client"]);
+            frm.Show();
+        }
+
+        private void gunaGradientButton9_Click(object sender, EventArgs e)
+        {
+            DataSet1.WriteXmlSchema("PrintC.xml");
+            Form2 frm = new Form2();
+            frm.crstl(DataSet1.Tables["Fournisseur"]);
+            frm.Show();
+        }
+
+        private void gunaGradientButton13_Click(object sender, EventArgs e)
+        {
+            DataSet1.WriteXmlSchema("PrintC.xml");
+            Form2 frm = new Form2();
+            frm.crstl(DataSet1.Tables["Emballage"]);
+            frm.Show();
+        }
+
+        private void gunaGradientButton17_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnSaveHistoA_Click(object sender, EventArgs e)
         {
             cn.Open();
