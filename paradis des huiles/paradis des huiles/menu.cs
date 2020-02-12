@@ -13,7 +13,7 @@ namespace paradis_des_huiles
 {
     public partial class menu : Form
     {
-        SqlConnection cn = new SqlConnection("Server='.';Database=DB_Gestion;Integrated Security = true");
+        SqlConnection cn = new SqlConnection("Server='R_230_ROG-PC\\SQLEXPRESS';Database=DB_Gestionn;Integrated Security = true");
         public menu()
         {
             InitializeComponent();
@@ -767,6 +767,15 @@ namespace paradis_des_huiles
             cn.Close();
         }
 
+        private void plusDinformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Emballage_Viewer EM = new Emballage_Viewer();
+            TextBox textBox = new TextBox();
+            textBox = (TextBox)EM.Controls["groupBox2"].Controls["textBox1"];
+            textBox.Text = dataGridEmballage.SelectedRows[0].Cells[0].Value.ToString();
+            EM.Show();
+        }
+
         private void btnSaveHistoA_Click(object sender, EventArgs e)
         {
             cn.Open();
@@ -800,10 +809,7 @@ namespace paradis_des_huiles
                             break;
                         }
                     }
-
-                    
                 }
-                
                 cmd.Parameters.AddWithValue("@a", dataGrideHistoriqueA.Rows[i].Cells[0].Value.ToString());              
                 cmd.Parameters.AddWithValue("@c", dataGrideHistoriqueA.Rows[i].Cells[2].Value);
                 cmd.Parameters.AddWithValue("@d", dataGrideHistoriqueA.Rows[i].Cells[3].Value.ToString());
@@ -817,14 +823,12 @@ namespace paradis_des_huiles
                     {
                         b = true;
                         break;
-
                     }
                 }
                 if (b && b2)
                     cmd.ExecuteNonQuery();
                 else
                     MessageBox.Show("la valeur " + dataGrideHistoriqueA.Rows[i].Cells[1].Value.ToString() + " ou " + dataGrideHistoriqueA.Rows[i].Cells[2].Value.ToString() + " d'achat numero : " + dataGrideHistoriqueA.Rows[i].Cells[0].Value.ToString() + " est invalide");
-
             }
             DataSet1.Tables["HistoriqueA"].Clear();
             dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(Matiere_premiere.nomMP,'') + ISNULL('AG' +CONVERT(varchar(50),Emballage.idEM) ,'') [Nom de Produit], Fournisseur.nomFournisseur [Nom Fournisseur], qteA [Quantite] , prix [Prix] ,dateA [Date Achat] from historique_achat left join Matiere_premiere on  historique_achat.idMP = Matiere_premiere.idmp  left join Emballage on   historique_achat.idEM = Emballage.idEM inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF or Fournisseur.RCF = Emballage.RCF", cn);

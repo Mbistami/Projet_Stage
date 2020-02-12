@@ -265,6 +265,7 @@
             this.ClickDroitMouseProdF = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItemProdF = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItemProdF = new System.Windows.Forms.ToolStripMenuItem();
+            this.plusDinformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSaveProdF.SuspendLayout();
             this.tabClient.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -3860,14 +3861,15 @@
             // 
             this.ClickDroitMouseEmballage.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.supprimerToolStripMenuItemEmba,
-            this.modifierToolStripMenuItemEmba});
+            this.modifierToolStripMenuItemEmba,
+            this.plusDinformationToolStripMenuItem});
             this.ClickDroitMouseEmballage.Name = "contextMenuStrip1";
-            this.ClickDroitMouseEmballage.Size = new System.Drawing.Size(130, 48);
+            this.ClickDroitMouseEmballage.Size = new System.Drawing.Size(181, 92);
             // 
             // supprimerToolStripMenuItemEmba
             // 
             this.supprimerToolStripMenuItemEmba.Name = "supprimerToolStripMenuItemEmba";
-            this.supprimerToolStripMenuItemEmba.Size = new System.Drawing.Size(129, 22);
+            this.supprimerToolStripMenuItemEmba.Size = new System.Drawing.Size(180, 22);
             this.supprimerToolStripMenuItemEmba.Text = "Supprimer";
             this.supprimerToolStripMenuItemEmba.Click += new System.EventHandler(this.supprimerToolStripMenuItemEmba_Click);
             // 
@@ -3875,7 +3877,7 @@
             // 
             this.modifierToolStripMenuItemEmba.CheckOnClick = true;
             this.modifierToolStripMenuItemEmba.Name = "modifierToolStripMenuItemEmba";
-            this.modifierToolStripMenuItemEmba.Size = new System.Drawing.Size(129, 22);
+            this.modifierToolStripMenuItemEmba.Size = new System.Drawing.Size(180, 22);
             this.modifierToolStripMenuItemEmba.Text = "Modifier";
             this.modifierToolStripMenuItemEmba.Click += new System.EventHandler(this.modifierToolStripMenuItemEmba_Click);
             // 
@@ -3970,6 +3972,13 @@
             this.modifierToolStripMenuItemProdF.Size = new System.Drawing.Size(129, 22);
             this.modifierToolStripMenuItemProdF.Text = "Modifier";
             this.modifierToolStripMenuItemProdF.Click += new System.EventHandler(this.modifierToolStripMenuItemProdF_Click);
+            // 
+            // plusDinformationToolStripMenuItem
+            // 
+            this.plusDinformationToolStripMenuItem.Name = "plusDinformationToolStripMenuItem";
+            this.plusDinformationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.plusDinformationToolStripMenuItem.Text = "Plus d\'information";
+            this.plusDinformationToolStripMenuItem.Click += new System.EventHandler(this.plusDinformationToolStripMenuItem_Click);
             // 
             // menu
             // 
@@ -4261,5 +4270,6 @@
         private Guna.UI.WinForms.GunaGradientButton gunaGradientButton27;
         private Guna.UI.WinForms.GunaGradientButton gunaGradientButton28;
         private Guna.UI.WinForms.GunaGradientButton gunaGradientButton29;
+        private System.Windows.Forms.ToolStripMenuItem plusDinformationToolStripMenuItem;
     }
 }
