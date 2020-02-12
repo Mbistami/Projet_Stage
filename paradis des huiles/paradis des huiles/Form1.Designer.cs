@@ -76,9 +76,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(398, 284);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(228, 21);
+            this.label1.Size = new System.Drawing.Size(216, 21);
             this.label1.TabIndex = 3;
-            this.label1.Text = "veuillez saisir votre information";
+            this.label1.Text = "veuillez saisir vos information";
             // 
             // gunaGradientButton1
             // 

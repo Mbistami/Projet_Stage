@@ -13,7 +13,7 @@ namespace paradis_des_huiles
 {
     public partial class menu : Form
     {
-        SqlConnection cn = new SqlConnection("Server='R_230_ROG-PC\\SQLEXPRESS';Database=DB_Gestionn;Integrated Security = true");
+        SqlConnection cn = new SqlConnection("Server='.';Database=DB_Gestion;Integrated Security = true");
         public menu()
         {
             InitializeComponent();
@@ -212,6 +212,7 @@ namespace paradis_des_huiles
 
         private void TxtAfficherHistAfind_TextChanged(object sender, EventArgs e)
         {
+            
             DataView dataView = new DataView(DataSet1.Tables["HistoriqueA"]);
             dataView.RowFilter = "[" + CmbAfficherHistoriqueAfind.SelectedItem.ToString() + "]like '%" + TxtAfficherHistAfind.Text + "%'";
             dataGridEmballage.DataSource = dataView;
@@ -219,8 +220,9 @@ namespace paradis_des_huiles
 
         private void TxtAffHistVfind_TextChanged(object sender, EventArgs e)
         {
+            MessageBox.Show(CmbAfficherHistVfind.SelectedItem.ToString());
             DataView dataView = new DataView(DataSet1.Tables["HistoriqueV"]);
-            dataView.RowFilter = "[" + CmbAfficherHistVfind.SelectedItem.ToString() + "]like '%" + TxtAffHistVfind.Text + "%'";
+            dataView.RowFilter = "[" + CmbAfficherHistVfind.SelectedItem.ToString() + "]like '%" + TxtAffHistVfind.Text.ToString() + "%'";
             dataGrideHistoriqueV.DataSource = dataView;
         }
 
@@ -247,17 +249,10 @@ namespace paradis_des_huiles
         {
 
         }
-
-        int indexdatamodif;
-
         private void DatagridModifClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
-
-        //val fidelite modif
-        int mfid;
         private void BtnModifierclt_Click(object sender, EventArgs e)
         {
         }
@@ -406,6 +401,7 @@ namespace paradis_des_huiles
 
         private void ClickDroirMouseVA_Click(object sender, EventArgs e)
         {
+            CmbAfficherHistVfind.SelectedIndex = CmbAfficherHistVfind.FindString("Nom Client");
             TxtAffHistVfind.Text = dataGridClient.SelectedRows[0].Cells[0].Value.ToString();
             btnSaveProdF.SelectedIndex = 5;
         }
