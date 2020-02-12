@@ -64,14 +64,14 @@ namespace paradis_des_huiles
             dataAdapter = new SqlDataAdapter("Select * from Historique_Achat", cn);
             dataAdapter.Fill(DataSet1, "HistoriqueAchatPure");
 
-            dataAdapter = new SqlDataAdapter("select numVente [Num Vente], Produit_finis.idPF + codePF [Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
+            dataAdapter = new SqlDataAdapter("select numVente [Num Vente],CONVERT(varchar(50),Produit_finis.nomPF)+' ' +CONVERT(varchar(50), codePF )[Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
             dataAdapter.Fill(DataSet1, "HistoriqueV");
 
             dataAdapter = new SqlDataAdapter("Select * from Etat", cn);
             dataAdapter.Fill(DataSet1, "Etat");
 
-            /*dataAdapter = new SqlDataAdapter("select * from Produit_finis",cn);
-            dataAdapter.Fill(DataSet1, "Produit_finis");*/
+            dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descEM [Descrption] from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
+            dataAdapter.Fill(DataSet1, "Produit_finis");
 
             dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], RCF [RCF] , idE [idE] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée], idMP from Matiere_premiere ", cn);
             dataAdapter.Fill(DataSet1, "MPPure");
@@ -795,11 +795,11 @@ namespace paradis_des_huiles
                 }
                 else
                 {
-                    cmd = new SqlCommand("update historique_achat set idEM = NULL, idMP = (select idmp from Matiere_premiere where nomMP = @b) , RCF = (select RCF from Fournisseur where nomFournisseur = @c),qteA = @d ,prix = @e , dateA = @f where numAchat = @a", cn);
+                    cmd = new SqlCommand("update historique_achat set idEM = NULL, idMP = (select idmp from Matiere_premiere where codeMP = @b) , RCF = (select RCF from Fournisseur where nomFournisseur = @c),qteA = @d ,prix = @e , dateA = @f where numAchat = @a", cn);
                     cmd.Parameters.AddWithValue("@b", dataGrideHistoriqueA.Rows[i].Cells[1].Value);
                     for (int k = 0; k < DataSet1.Tables["MPPure"].Rows.Count; k++)
                     {
-                        if (dataGrideHistoriqueA.Rows[i].Cells[1].Value.ToString().ToLower() == DataSet1.Tables["MPPure"].Rows[k][1].ToString().ToLower())
+                        if (dataGrideHistoriqueA.Rows[i].Cells[1].Value.ToString() == DataSet1.Tables["MPPure"].Rows[k][0].ToString())
                         {
                             b2 = true;
                             break;
@@ -829,6 +829,106 @@ namespace paradis_des_huiles
             DataSet1.Tables["HistoriqueA"].Clear();
             dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(Matiere_premiere.nomMP,'') + ISNULL('AG' +CONVERT(varchar(50),Emballage.idEM) ,'') [Nom de Produit], Fournisseur.nomFournisseur [Nom Fournisseur], qteA [Quantite] , prix [Prix] ,dateA [Date Achat] from historique_achat left join Matiere_premiere on  historique_achat.idMP = Matiere_premiere.idmp  left join Emballage on   historique_achat.idEM = Emballage.idEM inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF or Fournisseur.RCF = Emballage.RCF", cn);
             dataAdapter.Fill(DataSet1, "HistoriqueA");
+            cn.Close();
+        }
+
+        private void gunaGradientButton22_Click(object sender, EventArgs e)
+        {
+          
+            cn.Open();
+            for (int i = 0; i < dataGrideHistoriqueV.Rows.Count; i++)
+            {
+                b2 = false;
+                b = false;
+                String[] str = dataGrideHistoriqueV.Rows[i].Cells[1].Value.ToString().Split(' ');
+                if (str.Length != 2)
+                {
+                    MessageBox.Show("le Nom de produit de Vente num : " + dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString() + " est incorrect , veuillez respecter la syntaxe d'insertion 'Nom'+ espace + 'Code'");
+                    break;
+                }
+                cmd = new SqlCommand("update historique_vente set  idPF = (select idPF from Produit_finis where nomPF = @b and codePF = @c) , RC_CIN = (select RC_CIN from Client where nomClt = @d) , qteV = @e , prix = @f , dateV  = @j where numVente = @a", cn);
+                cmd.Parameters.AddWithValue("@a", dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString());
+                cmd.Parameters.AddWithValue("@b", str[0]);
+                cmd.Parameters.AddWithValue("@c", str[1]);
+                cmd.Parameters.AddWithValue("@d", dataGrideHistoriqueV.Rows[i].Cells[3].Value.ToString());
+                cmd.Parameters.AddWithValue("@e", dataGrideHistoriqueV.Rows[i].Cells[4].Value);
+                cmd.Parameters.AddWithValue("@f", dataGrideHistoriqueV.Rows[i].Cells[5].Value);
+                cmd.Parameters.AddWithValue("@j", dataGrideHistoriqueV.Rows[i].Cells[6].Value);
+
+                for (int k = 0; k < DataSet1.Tables["Produit_finis"].Rows.Count; k++)
+                {                    
+                    if (dataGrideHistoriqueV.Rows[i].Cells[1].Value.ToString().ToLower() == DataSet1.Tables["Produit_finis"].Rows[k][0].ToString().ToLower() )
+                    {
+                        b2 = true;
+                        break;
+                    }
+                }
+                
+                for (int k = 0; k < DataSet1.Tables["Client"].Rows.Count; k++)
+                {                    
+                    if (dataGrideHistoriqueV.Rows[i].Cells[2].Value.ToString().ToLower() == DataSet1.Tables["Client"].Rows[k][0].ToString().ToLower())
+                    {
+                        b = true;
+                        break;
+                    }
+                }
+
+
+                if (b & b2)
+                    cmd.ExecuteNonQuery();
+                else if (!b && !b2)
+                    MessageBox.Show("le Produit '" + dataGrideHistoriqueV.Rows[i].Cells[1].Value.ToString() + "' et le Client '" + dataGrideHistoriqueV.Rows[i].Cells[2].Value.ToString() + "' est introuvable de Vente num : " + dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString());
+                else if (!b)
+                    MessageBox.Show("le Client '" + dataGrideHistoriqueV.Rows[i].Cells[2].Value.ToString() + "' est introuvable de Vente num : " + dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString());
+                else if (!b2)
+                    MessageBox.Show("le Produit '" + dataGrideHistoriqueV.Rows[i].Cells[1].Value.ToString() + "' est introuvable de Vente num : " + dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString());                
+            }
+            DataSet1.Tables["HistoriqueV"].Clear();
+            dataAdapter = new SqlDataAdapter("select numVente [Num Vente],CONVERT(varchar(50),Produit_finis.nomPF)+' ' +CONVERT(varchar(50), codePF )[Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
+            dataAdapter.Fill(DataSet1, "HistoriqueV");
+            cn.Close();
+        }
+
+        private void gunaGradientButton26_Click(object sender, EventArgs e)
+        {
+            cn.Open();
+            for (int i = 0; i < datagridAffProduitF.Rows.Count; i++)
+            {
+                b2 = false;
+                b = false;
+                String[] str = datagridAffProduitF.Rows[i].Cells[0].Value.ToString().Split(' ');
+                cmd = new SqlCommand("update Produit_finis set idEM = @c , QtePF = @d , idE = (select idE from Etat where NomE = @e) , cordoPF = @f , descPF = @j where nomPF = @a and codePF = @b",cn);
+                cmd.Parameters.AddWithValue("@a", str[0]);
+                cmd.Parameters.AddWithValue("@b", str[1]);
+                cmd.Parameters.AddWithValue("@c", datagridAffProduitF.Rows[i].Cells[1].Value.ToString().Remove(0, 2));
+                cmd.Parameters.AddWithValue("@d", datagridAffProduitF.Rows[i].Cells[2].Value);
+                cmd.Parameters.AddWithValue("@e", datagridAffProduitF.Rows[i].Cells[3].Value);
+                cmd.Parameters.AddWithValue("@f", datagridAffProduitF.Rows[i].Cells[4].Value);
+                cmd.Parameters.AddWithValue("@j", datagridAffProduitF.Rows[i].Cells[5].Value);
+
+                for (int k = 0; k < DataSet1.Tables["Emballage"].Rows.Count; k++)
+                {
+                    if (datagridAffProduitF.Rows[i].Cells[1].Value.ToString().Remove(0, 2) == DataSet1.Tables["Emballage"].Rows[k][0].ToString().Remove(0, 2))
+                    {
+                        b2 = true;
+                        break;
+                    }
+                }
+                if(datagridAffProduitF.Rows[i].Cells[3].Value.ToString().ToLower()=="solid" || datagridAffProduitF.Rows[i].Cells[3].Value.ToString().ToLower()=="liquide")
+                    b = true;
+
+                if (!b && !b2)
+                    MessageBox.Show("l'Emballage et l'Etat de Produit est introuvable");
+                else if (!b2)
+                    MessageBox.Show("l'Emballage est introuvable");
+                else if (!b)
+                    MessageBox.Show("l'etat est introuvable");
+                else
+                    cmd.ExecuteNonQuery();
+            }
+            DataSet1.Tables["Produit_finis"].Clear();
+            dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descEM [Descrption] from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
+            dataAdapter.Fill(DataSet1, "Produit_finis");
             cn.Close();
         }
     }

@@ -253,6 +253,7 @@
             this.ClickDroitMouseEmballage = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItemEmba = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItemEmba = new System.Windows.Forms.ToolStripMenuItem();
+            this.plusDinformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClickDroitMouseMatiereP = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItemMP = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItemMP = new System.Windows.Forms.ToolStripMenuItem();
@@ -265,7 +266,6 @@
             this.ClickDroitMouseProdF = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItemProdF = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItemProdF = new System.Windows.Forms.ToolStripMenuItem();
-            this.plusDinformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSaveProdF.SuspendLayout();
             this.tabClient.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -2836,6 +2836,7 @@
             this.gunaGradientButton22.TabIndex = 42;
             this.gunaGradientButton22.Text = "Sauvgarder les modifications";
             this.gunaGradientButton22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton22.Click += new System.EventHandler(this.gunaGradientButton22_Click);
             // 
             // gunaGradientButton23
             // 
@@ -3316,6 +3317,7 @@
             this.gunaGradientButton26.TabIndex = 42;
             this.gunaGradientButton26.Text = "Sauvgarder les modifications";
             this.gunaGradientButton26.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton26.Click += new System.EventHandler(this.gunaGradientButton26_Click);
             // 
             // gunaGradientButton27
             // 
@@ -3791,24 +3793,24 @@
             this.ClickDroitMouseClt.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.ClickDroitMouseClt.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.ClickDroitMouseClt.RenderStyle.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.SystemDefault;
-            this.ClickDroitMouseClt.Size = new System.Drawing.Size(151, 76);
+            this.ClickDroitMouseClt.Size = new System.Drawing.Size(152, 76);
             // 
             // ClickDroirMouseVA
             // 
             this.ClickDroirMouseVA.Name = "ClickDroirMouseVA";
-            this.ClickDroirMouseVA.Size = new System.Drawing.Size(150, 22);
+            this.ClickDroirMouseVA.Size = new System.Drawing.Size(151, 22);
             this.ClickDroirMouseVA.Text = "Voir ses achats";
             this.ClickDroirMouseVA.Click += new System.EventHandler(this.ClickDroirMouseVA_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(148, 6);
             // 
             // ClickDroitMouseSupprimer
             // 
             this.ClickDroitMouseSupprimer.Name = "ClickDroitMouseSupprimer";
-            this.ClickDroitMouseSupprimer.Size = new System.Drawing.Size(150, 22);
+            this.ClickDroitMouseSupprimer.Size = new System.Drawing.Size(151, 22);
             this.ClickDroitMouseSupprimer.Text = "Supprimer";
             this.ClickDroitMouseSupprimer.Click += new System.EventHandler(this.ClickDroitMouseSupprimer_Click);
             // 
@@ -3816,7 +3818,7 @@
             // 
             this.ClickDroitMouseModifier.CheckOnClick = true;
             this.ClickDroitMouseModifier.Name = "ClickDroitMouseModifier";
-            this.ClickDroitMouseModifier.Size = new System.Drawing.Size(150, 22);
+            this.ClickDroitMouseModifier.Size = new System.Drawing.Size(151, 22);
             this.ClickDroitMouseModifier.Text = "Modifier";
             this.ClickDroitMouseModifier.Click += new System.EventHandler(this.ClickDroitMouseModifier_Click);
             // 
@@ -3828,24 +3830,24 @@
             this.supprimerToolStripMenuItem,
             this.modifierToolStripMenuItem});
             this.ClickDroitMouseFourni.Name = "ClickDroitMouseFourni";
-            this.ClickDroitMouseFourni.Size = new System.Drawing.Size(157, 76);
+            this.ClickDroitMouseFourni.Size = new System.Drawing.Size(158, 76);
             // 
             // ClickDroirMouseFiindFourni
             // 
             this.ClickDroirMouseFiindFourni.Name = "ClickDroirMouseFiindFourni";
-            this.ClickDroirMouseFiindFourni.Size = new System.Drawing.Size(156, 22);
+            this.ClickDroirMouseFiindFourni.Size = new System.Drawing.Size(157, 22);
             this.ClickDroirMouseFiindFourni.Text = "Voir Ses Fournis";
             this.ClickDroirMouseFiindFourni.Click += new System.EventHandler(this.ClickDroirMouseFiindAchat_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(153, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(154, 6);
             // 
             // supprimerToolStripMenuItem
             // 
             this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.supprimerToolStripMenuItem.Text = "Supprimer";
             this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
@@ -3853,7 +3855,7 @@
             // 
             this.modifierToolStripMenuItem.CheckOnClick = true;
             this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.modifierToolStripMenuItem.Text = "Modifier";
             this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
             // 
@@ -3864,12 +3866,12 @@
             this.modifierToolStripMenuItemEmba,
             this.plusDinformationToolStripMenuItem});
             this.ClickDroitMouseEmballage.Name = "contextMenuStrip1";
-            this.ClickDroitMouseEmballage.Size = new System.Drawing.Size(181, 92);
+            this.ClickDroitMouseEmballage.Size = new System.Drawing.Size(173, 70);
             // 
             // supprimerToolStripMenuItemEmba
             // 
             this.supprimerToolStripMenuItemEmba.Name = "supprimerToolStripMenuItemEmba";
-            this.supprimerToolStripMenuItemEmba.Size = new System.Drawing.Size(180, 22);
+            this.supprimerToolStripMenuItemEmba.Size = new System.Drawing.Size(172, 22);
             this.supprimerToolStripMenuItemEmba.Text = "Supprimer";
             this.supprimerToolStripMenuItemEmba.Click += new System.EventHandler(this.supprimerToolStripMenuItemEmba_Click);
             // 
@@ -3877,9 +3879,16 @@
             // 
             this.modifierToolStripMenuItemEmba.CheckOnClick = true;
             this.modifierToolStripMenuItemEmba.Name = "modifierToolStripMenuItemEmba";
-            this.modifierToolStripMenuItemEmba.Size = new System.Drawing.Size(180, 22);
+            this.modifierToolStripMenuItemEmba.Size = new System.Drawing.Size(172, 22);
             this.modifierToolStripMenuItemEmba.Text = "Modifier";
             this.modifierToolStripMenuItemEmba.Click += new System.EventHandler(this.modifierToolStripMenuItemEmba_Click);
+            // 
+            // plusDinformationToolStripMenuItem
+            // 
+            this.plusDinformationToolStripMenuItem.Name = "plusDinformationToolStripMenuItem";
+            this.plusDinformationToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.plusDinformationToolStripMenuItem.Text = "Plus d\'information";
+            this.plusDinformationToolStripMenuItem.Click += new System.EventHandler(this.plusDinformationToolStripMenuItem_Click);
             // 
             // ClickDroitMouseMatiereP
             // 
@@ -3972,13 +3981,6 @@
             this.modifierToolStripMenuItemProdF.Size = new System.Drawing.Size(129, 22);
             this.modifierToolStripMenuItemProdF.Text = "Modifier";
             this.modifierToolStripMenuItemProdF.Click += new System.EventHandler(this.modifierToolStripMenuItemProdF_Click);
-            // 
-            // plusDinformationToolStripMenuItem
-            // 
-            this.plusDinformationToolStripMenuItem.Name = "plusDinformationToolStripMenuItem";
-            this.plusDinformationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.plusDinformationToolStripMenuItem.Text = "Plus d\'information";
-            this.plusDinformationToolStripMenuItem.Click += new System.EventHandler(this.plusDinformationToolStripMenuItem_Click);
             // 
             // menu
             // 

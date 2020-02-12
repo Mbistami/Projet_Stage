@@ -141,3 +141,4 @@ C:\Users\master\Documents\Scanned Documents\Documents\Projet_Stage-master\paradi
 C:\Users\master\Documents\Scanned Documents\Documents\Projet_Stage-master\paradis des huiles\paradis des huiles\obj\Debug\paradis des huiles.pdb
 C:\Users\R_230_ROG\Documents\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Emballage_Viewer.resources
 C:\Users\master\Documents\GitHub\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Emballage_Viewer.resources
+C:\Users\abdekrime\Documents\GitHub\Projet_Stage\paradis des huiles\paradis des huiles\obj\Debug\paradis_des_huiles.Emballage_Viewer.resources
