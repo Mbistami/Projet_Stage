@@ -1,6 +1,6 @@
 # Projet_Stage
 Gestion de stock ADO.net 
-#Proc to add :
+# Proc to add :
 create table accs(
 username varchar(50),
 passuser varchar(50),
