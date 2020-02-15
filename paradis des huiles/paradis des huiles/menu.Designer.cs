@@ -218,7 +218,7 @@
             this.gunaGradientButton27 = new Guna.UI.WinForms.GunaGradientButton();
             this.gunaGradientButton28 = new Guna.UI.WinForms.GunaGradientButton();
             this.gunaGradientButton29 = new Guna.UI.WinForms.GunaGradientButton();
-            this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
+            this.cmbProduitFinis = new Guna.UI.WinForms.GunaComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
             this.datagridAffProduitF = new Guna.UI.WinForms.GunaDataGridView();
@@ -3278,7 +3278,7 @@
             this.tabPage1.Controls.Add(this.gunaGradientButton27);
             this.tabPage1.Controls.Add(this.gunaGradientButton28);
             this.tabPage1.Controls.Add(this.gunaGradientButton29);
-            this.tabPage1.Controls.Add(this.gunaComboBox1);
+            this.tabPage1.Controls.Add(this.cmbProduitFinis);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.gunaTextBox1);
             this.tabPage1.Controls.Add(this.datagridAffProduitF);
@@ -3403,23 +3403,23 @@
             this.gunaGradientButton29.Text = "Ajouter";
             this.gunaGradientButton29.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // gunaComboBox1
+            // cmbProduitFinis
             // 
-            this.gunaComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaComboBox1.BorderColor = System.Drawing.Color.Silver;
-            this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.gunaComboBox1.FormattingEnabled = true;
-            this.gunaComboBox1.Location = new System.Drawing.Point(477, 6);
-            this.gunaComboBox1.Name = "gunaComboBox1";
-            this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox1.Size = new System.Drawing.Size(177, 26);
-            this.gunaComboBox1.TabIndex = 25;
+            this.cmbProduitFinis.BackColor = System.Drawing.Color.Transparent;
+            this.cmbProduitFinis.BaseColor = System.Drawing.Color.White;
+            this.cmbProduitFinis.BorderColor = System.Drawing.Color.Silver;
+            this.cmbProduitFinis.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbProduitFinis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProduitFinis.FocusedColor = System.Drawing.Color.Empty;
+            this.cmbProduitFinis.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbProduitFinis.ForeColor = System.Drawing.Color.Black;
+            this.cmbProduitFinis.FormattingEnabled = true;
+            this.cmbProduitFinis.Location = new System.Drawing.Point(477, 6);
+            this.cmbProduitFinis.Name = "cmbProduitFinis";
+            this.cmbProduitFinis.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cmbProduitFinis.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.cmbProduitFinis.Size = new System.Drawing.Size(177, 26);
+            this.cmbProduitFinis.TabIndex = 25;
             // 
             // label10
             // 
@@ -3775,24 +3775,24 @@
             this.ClickDroitMouseClt.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.ClickDroitMouseClt.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.ClickDroitMouseClt.RenderStyle.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.SystemDefault;
-            this.ClickDroitMouseClt.Size = new System.Drawing.Size(151, 76);
+            this.ClickDroitMouseClt.Size = new System.Drawing.Size(152, 76);
             // 
             // ClickDroirMouseVA
             // 
             this.ClickDroirMouseVA.Name = "ClickDroirMouseVA";
-            this.ClickDroirMouseVA.Size = new System.Drawing.Size(150, 22);
+            this.ClickDroirMouseVA.Size = new System.Drawing.Size(151, 22);
             this.ClickDroirMouseVA.Text = "Voir ses achats";
             this.ClickDroirMouseVA.Click += new System.EventHandler(this.ClickDroirMouseVA_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(148, 6);
             // 
             // ClickDroitMouseSupprimer
             // 
             this.ClickDroitMouseSupprimer.Name = "ClickDroitMouseSupprimer";
-            this.ClickDroitMouseSupprimer.Size = new System.Drawing.Size(150, 22);
+            this.ClickDroitMouseSupprimer.Size = new System.Drawing.Size(151, 22);
             this.ClickDroitMouseSupprimer.Text = "Supprimer";
             this.ClickDroitMouseSupprimer.Click += new System.EventHandler(this.ClickDroitMouseSupprimer_Click);
             // 
@@ -3800,7 +3800,7 @@
             // 
             this.ClickDroitMouseModifier.CheckOnClick = true;
             this.ClickDroitMouseModifier.Name = "ClickDroitMouseModifier";
-            this.ClickDroitMouseModifier.Size = new System.Drawing.Size(150, 22);
+            this.ClickDroitMouseModifier.Size = new System.Drawing.Size(151, 22);
             this.ClickDroitMouseModifier.Text = "Modifier";
             this.ClickDroitMouseModifier.Click += new System.EventHandler(this.ClickDroitMouseModifier_Click);
             // 
@@ -3812,24 +3812,24 @@
             this.supprimerToolStripMenuItem,
             this.modifierToolStripMenuItem});
             this.ClickDroitMouseFourni.Name = "ClickDroitMouseFourni";
-            this.ClickDroitMouseFourni.Size = new System.Drawing.Size(157, 76);
+            this.ClickDroitMouseFourni.Size = new System.Drawing.Size(158, 76);
             // 
             // ClickDroirMouseFiindFourni
             // 
             this.ClickDroirMouseFiindFourni.Name = "ClickDroirMouseFiindFourni";
-            this.ClickDroirMouseFiindFourni.Size = new System.Drawing.Size(156, 22);
+            this.ClickDroirMouseFiindFourni.Size = new System.Drawing.Size(157, 22);
             this.ClickDroirMouseFiindFourni.Text = "Voir Ses Fournis";
             this.ClickDroirMouseFiindFourni.Click += new System.EventHandler(this.ClickDroirMouseFiindAchat_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(153, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(154, 6);
             // 
             // supprimerToolStripMenuItem
             // 
             this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.supprimerToolStripMenuItem.Text = "Supprimer";
             this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
@@ -3837,7 +3837,7 @@
             // 
             this.modifierToolStripMenuItem.CheckOnClick = true;
             this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.modifierToolStripMenuItem.Text = "Modifier";
             this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
             // 
@@ -4195,7 +4195,7 @@
         private System.Windows.Forms.TabPage tabProdFini;
         private System.Windows.Forms.TabControl tabControl8;
         private System.Windows.Forms.TabPage tabPage1;
-        private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
+        private Guna.UI.WinForms.GunaComboBox cmbProduitFinis;
         private System.Windows.Forms.Label label10;
         private Guna.UI.WinForms.GunaTextBox gunaTextBox1;
         private Guna.UI.WinForms.GunaDataGridView datagridAffProduitF;
