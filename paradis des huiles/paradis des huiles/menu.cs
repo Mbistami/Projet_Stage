@@ -13,7 +13,7 @@ namespace paradis_des_huiles
 {
     public partial class menu : Form
     {
-        SqlConnection cn = new SqlConnection("Server='.'; Database= DB_Gestionn ;Integrated Security = true");
+        SqlConnection cn = new SqlConnection("Server='.';Database=DB_Gestion;Integrated Security = true");
         public menu()
         {
             InitializeComponent();
@@ -220,7 +220,7 @@ namespace paradis_des_huiles
 
         private void TxtAffHistVfind_TextChanged(object sender, EventArgs e)
         {
-            //maimknch ndiro filter l colon dyal date
+            MessageBox.Show(CmbAfficherHistVfind.SelectedItem.ToString());
             DataView dataView = new DataView(DataSet1.Tables["HistoriqueV"]);
             dataView.RowFilter = "[" + CmbAfficherHistVfind.SelectedItem.ToString() + "]like '%" + TxtAffHistVfind.Text.ToString() + "%'";
             dataGrideHistoriqueV.DataSource = dataView;
