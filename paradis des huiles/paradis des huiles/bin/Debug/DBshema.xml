@@ -1,0 +1,138 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Client">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NomClient" type="xs:string" minOccurs="0" />
+              <xs:element name="Num_x0020_Tel" type="xs:string" minOccurs="0" />
+              <xs:element name="Adresse" type="xs:string" minOccurs="0" />
+              <xs:element name="Mail" type="xs:string" minOccurs="0" />
+              <xs:element name="Type" type="xs:string" minOccurs="0" />
+              <xs:element name="RC_x0020__x002F__x0020_CIN" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Fournisseur">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nom_x0020_Fourni" type="xs:string" minOccurs="0" />
+              <xs:element name="Num_x0020_Tel" type="xs:string" minOccurs="0" />
+              <xs:element name="Adresse" type="xs:string" minOccurs="0" />
+              <xs:element name="Mail" type="xs:string" minOccurs="0" />
+              <xs:element name="RC" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Emballage">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Code_x0020_Emballage" type="xs:string" minOccurs="0" />
+              <xs:element name="Nom_x0020_Fournisseur" type="xs:string" minOccurs="0" />
+              <xs:element name="Quantite" type="xs:int" minOccurs="0" />
+              <xs:element name="Unité_x0020_de_x0020_mesure" type="xs:string" minOccurs="0" />
+              <xs:element name="Support" type="xs:int" minOccurs="0" />
+              <xs:element name="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="Coordonnée" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MatiereP">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Code" type="xs:int" minOccurs="0" />
+              <xs:element name="Nom" type="xs:string" minOccurs="0" />
+              <xs:element name="Fournisseur" type="xs:string" minOccurs="0" />
+              <xs:element name="Unité_x0020_de_x0020_mesure" type="xs:string" minOccurs="0" />
+              <xs:element name="Quantite" type="xs:int" minOccurs="0" />
+              <xs:element name="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="Cordonnée" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HistoriqueA">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Num_x0020_Achat" type="xs:int" minOccurs="0" />
+              <xs:element name="Nom_x0020_de_x0020_Produit" type="xs:string" minOccurs="0" />
+              <xs:element name="Nom_x0020_Fournisseur" type="xs:string" minOccurs="0" />
+              <xs:element name="Quantite" type="xs:int" minOccurs="0" />
+              <xs:element name="Prix" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Date_x0020_Achat" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HistoriqueAchatPure">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="numAchat" type="xs:int" minOccurs="0" />
+              <xs:element name="RCF" type="xs:string" minOccurs="0" />
+              <xs:element name="qteA" type="xs:int" minOccurs="0" />
+              <xs:element name="prix" type="xs:decimal" minOccurs="0" />
+              <xs:element name="dateA" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="idEM" type="xs:int" minOccurs="0" />
+              <xs:element name="idMP" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HistoriqueV">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Num_x0020_Vente" type="xs:int" minOccurs="0" />
+              <xs:element name="Nom_x0020_Produit" type="xs:string" minOccurs="0" />
+              <xs:element name="Nom_x0020_Client" type="xs:string" minOccurs="0" />
+              <xs:element name="Quantite" type="xs:int" minOccurs="0" />
+              <xs:element name="Prix" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Date_x0020_Vente" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Etat">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idE" type="xs:int" minOccurs="0" />
+              <xs:element name="NomE" type="xs:string" minOccurs="0" />
+              <xs:element name="UniteE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Produit_finis">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Code_x0020_Prodiuit" type="xs:string" minOccurs="0" />
+              <xs:element name="Emballage" type="xs:string" minOccurs="0" />
+              <xs:element name="Quantite" type="xs:int" minOccurs="0" />
+              <xs:element name="Etat" type="xs:string" minOccurs="0" />
+              <xs:element name="Cordonnees" type="xs:string" minOccurs="0" />
+              <xs:element name="Descrption" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MPPure">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Code" type="xs:int" minOccurs="0" />
+              <xs:element name="Nom" type="xs:string" minOccurs="0" />
+              <xs:element name="RCF" type="xs:string" minOccurs="0" />
+              <xs:element name="idE" type="xs:int" minOccurs="0" />
+              <xs:element name="Quantite" type="xs:int" minOccurs="0" />
+              <xs:element name="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="Cordonnée" type="xs:string" minOccurs="0" />
+              <xs:element name="idMP" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EMCMBOX">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODEEM" type="xs:string" minOccurs="0" />
+              <xs:element name="idEM" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

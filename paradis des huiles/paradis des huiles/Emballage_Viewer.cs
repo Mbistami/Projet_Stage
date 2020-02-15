@@ -19,7 +19,7 @@ namespace paradis_des_huiles
             InitializeComponent();
         }
 
-        SqlConnection cn = new SqlConnection("Server='.';Database=DB_Gestion;Integrated Security = true");
+        SqlConnection cn = new SqlConnection("Server='R_230_ROG-PC\\SQLEXPRESS';Database=DB_Gestionn;Integrated Security = true");
         DataSet DataSet = new DataSet();
         int Check;
 

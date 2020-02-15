@@ -107,6 +107,7 @@
             this.gunaGradientButton1.TabIndex = 4;
             this.gunaGradientButton1.Text = "Login";
             this.gunaGradientButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton1.Click += new System.EventHandler(this.gunaGradientButton1_Click);
             // 
             // gunaTextBox1
             // 

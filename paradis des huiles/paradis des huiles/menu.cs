@@ -13,7 +13,11 @@ namespace paradis_des_huiles
 {
     public partial class menu : Form
     {
-        SqlConnection cn = new SqlConnection("Server='.';Database=DB_Gestion;Integrated Security = true");
+<<<<<<< HEAD
+        SqlConnection cn = new SqlConnection("Server='R_230_ROG-PC\\SQLEXPRESS';Database=DB_Gestionn;Integrated Security = true");
+=======
+        SqlConnection cn = new SqlConnection("Server='.'; Database= DB_Gestionn ;Integrated Security = true");
+>>>>>>> 8906389a96d07d69ed7732bc3cfd94170d581025
         public menu()
         {
             InitializeComponent();
@@ -141,13 +145,16 @@ namespace paradis_des_huiles
             this.cmbAddTypeEmballge.DisplayMember = "UniteE";
             this.cmbAddTypeEmballge.ValueMember = "idE";
             this.cmbAddTypeEmballge.DataSource = DataSet1.Tables["Etat"];
+            this.gunaComboBox5.DisplayMember = "UniteE";
+            this.gunaComboBox5.ValueMember = "idE";
+            this.gunaComboBox5.DataSource = DataSet1.Tables["Eatat"];
             this.cmbAddTypeMatierP.DisplayMember = "UniteE";
             this.cmbAddTypeMatierP.ValueMember = "idE";
             this.cmbAddTypeMatierP.DataSource = DataSet1.Tables["Etat"];
             this.cmbAddHabituelHistorA.DisplayMember = "Nom Fourni";
             this.cmbAddHabituelHistorA.ValueMember = "RC";
             this.cmbAddHabituelHistorA.DataSource = DataSet1.Tables["Fournisseur"];
-            /*this.cmbnomproduitaddhistoriquedachat.DisplayMember = "nomProduit";
+            /*this.cmbnomproduitaddhistoriquedachat.DisplayMember = "nomPF";
             this.cmbnomproduitaddhistoriquedachat.ValueMember = "idPF";
             this.cmbnomproduitaddhistoriquedachat.DataSource = DataSet1.Tables["Produit_finis"];*/
             this.gunaComboBox3.DisplayMember = "CODEEM";
@@ -220,7 +227,7 @@ namespace paradis_des_huiles
 
         private void TxtAffHistVfind_TextChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(CmbAfficherHistVfind.SelectedItem.ToString());
+            //maimknch ndiro filter l colon dyal date
             DataView dataView = new DataView(DataSet1.Tables["HistoriqueV"]);
             dataView.RowFilter = "[" + CmbAfficherHistVfind.SelectedItem.ToString() + "]like '%" + TxtAffHistVfind.Text.ToString() + "%'";
             dataGrideHistoriqueV.DataSource = dataView;
@@ -887,6 +894,14 @@ namespace paradis_des_huiles
             dataAdapter = new SqlDataAdapter("select numVente [Num Vente],CONVERT(varchar(50),Produit_finis.nomPF)+' ' +CONVERT(varchar(50), codePF )[Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
             dataAdapter.Fill(DataSet1, "HistoriqueV");
             cn.Close();
+        }
+
+        private void gunaGradientButton3_Click(object sender, EventArgs e)
+        {
+            DataSet1.WriteXmlSchema("DBshema.xml");
+            Print_Form print_Form = new Print_Form();
+            print_Form.Printer(DataSet1.Tables["Client"]);
+            print_Form.Show();
         }
 
         private void gunaGradientButton26_Click(object sender, EventArgs e)
