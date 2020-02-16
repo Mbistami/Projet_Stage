@@ -170,7 +170,6 @@
             this.label91 = new System.Windows.Forms.Label();
             this.btnaddhistoriquedachat = new Guna.UI.WinForms.GunaGradientButton();
             this.label64 = new System.Windows.Forms.Label();
-            this.cmbAddHabituelHistorA = new Guna.UI.WinForms.GunaComboBox();
             this.dateventeaddhistoriquedachat = new Guna.UI.WinForms.GunaDateTimePicker();
             this.label63 = new System.Windows.Forms.Label();
             this.prixaddhistoriquedachat = new Guna.UI.WinForms.GunaTextBox();
@@ -255,6 +254,7 @@
             this.ClickDroitMouseProdF = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItemProdF = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItemProdF = new System.Windows.Forms.ToolStripMenuItem();
+            this.gunaTextBox3 = new Guna.UI.WinForms.GunaTextBox();
             this.btnSaveProdF.SuspendLayout();
             this.tabClient.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -606,9 +606,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(322, 344);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(22, 13);
+            this.label6.Size = new System.Drawing.Size(51, 13);
             this.label6.TabIndex = 19;
-            this.label6.Text = "RC";
+            this.label6.Text = "RC / CIN";
             // 
             // txtaddrcclt
             // 
@@ -1854,7 +1854,7 @@
             // label90
             // 
             this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(237, 22);
+            this.label90.Location = new System.Drawing.Point(237, 56);
             this.label90.Name = "label90";
             this.label90.Size = new System.Drawing.Size(70, 13);
             this.label90.TabIndex = 70;
@@ -1869,7 +1869,7 @@
             this.txtaddcodemp.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
             this.txtaddcodemp.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtaddcodemp.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtaddcodemp.Location = new System.Drawing.Point(337, 6);
+            this.txtaddcodemp.Location = new System.Drawing.Point(337, 40);
             this.txtaddcodemp.Name = "txtaddcodemp";
             this.txtaddcodemp.PasswordChar = '\0';
             this.txtaddcodemp.Size = new System.Drawing.Size(326, 41);
@@ -1890,7 +1890,7 @@
             this.batnAddMatiereP.ForeColor = System.Drawing.Color.White;
             this.batnAddMatiereP.Image = null;
             this.batnAddMatiereP.ImageSize = new System.Drawing.Size(20, 20);
-            this.batnAddMatiereP.Location = new System.Drawing.Point(337, 473);
+            this.batnAddMatiereP.Location = new System.Drawing.Point(337, 507);
             this.batnAddMatiereP.Name = "batnAddMatiereP";
             this.batnAddMatiereP.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
             this.batnAddMatiereP.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
@@ -1908,7 +1908,7 @@
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(237, 433);
+            this.label57.Location = new System.Drawing.Point(237, 467);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(66, 13);
             this.label57.TabIndex = 67;
@@ -1925,7 +1925,7 @@
             this.cmbAddSaleMatiereP.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbAddSaleMatiereP.ForeColor = System.Drawing.Color.Black;
             this.cmbAddSaleMatiereP.FormattingEnabled = true;
-            this.cmbAddSaleMatiereP.Location = new System.Drawing.Point(523, 427);
+            this.cmbAddSaleMatiereP.Location = new System.Drawing.Point(523, 461);
             this.cmbAddSaleMatiereP.Name = "cmbAddSaleMatiereP";
             this.cmbAddSaleMatiereP.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cmbAddSaleMatiereP.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -1943,7 +1943,7 @@
             this.cmbAddEtageMatiereP.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbAddEtageMatiereP.ForeColor = System.Drawing.Color.Black;
             this.cmbAddEtageMatiereP.FormattingEnabled = true;
-            this.cmbAddEtageMatiereP.Location = new System.Drawing.Point(337, 427);
+            this.cmbAddEtageMatiereP.Location = new System.Drawing.Point(337, 461);
             this.cmbAddEtageMatiereP.Name = "cmbAddEtageMatiereP";
             this.cmbAddEtageMatiereP.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cmbAddEtageMatiereP.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -1952,7 +1952,7 @@
             // 
             // txtAddDescMatierP
             // 
-            this.txtAddDescMatierP.Location = new System.Drawing.Point(337, 308);
+            this.txtAddDescMatierP.Location = new System.Drawing.Point(337, 342);
             this.txtAddDescMatierP.Name = "txtAddDescMatierP";
             this.txtAddDescMatierP.Size = new System.Drawing.Size(326, 92);
             this.txtAddDescMatierP.TabIndex = 62;
@@ -1961,7 +1961,7 @@
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(237, 320);
+            this.label56.Location = new System.Drawing.Point(237, 354);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(60, 13);
             this.label56.TabIndex = 61;
@@ -1970,7 +1970,7 @@
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(237, 251);
+            this.label55.Location = new System.Drawing.Point(237, 285);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(47, 13);
             this.label55.TabIndex = 60;
@@ -1985,7 +1985,7 @@
             this.txtAddQuantiteMatiereP.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
             this.txtAddQuantiteMatiereP.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtAddQuantiteMatiereP.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtAddQuantiteMatiereP.Location = new System.Drawing.Point(337, 235);
+            this.txtAddQuantiteMatiereP.Location = new System.Drawing.Point(337, 269);
             this.txtAddQuantiteMatiereP.Name = "txtAddQuantiteMatiereP";
             this.txtAddQuantiteMatiereP.PasswordChar = '\0';
             this.txtAddQuantiteMatiereP.Size = new System.Drawing.Size(326, 41);
@@ -2003,7 +2003,7 @@
             this.cmbAddTypeMatierP.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbAddTypeMatierP.ForeColor = System.Drawing.Color.Black;
             this.cmbAddTypeMatierP.FormattingEnabled = true;
-            this.cmbAddTypeMatierP.Location = new System.Drawing.Point(337, 178);
+            this.cmbAddTypeMatierP.Location = new System.Drawing.Point(337, 212);
             this.cmbAddTypeMatierP.Name = "cmbAddTypeMatierP";
             this.cmbAddTypeMatierP.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cmbAddTypeMatierP.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -2013,7 +2013,7 @@
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(237, 184);
+            this.label54.Location = new System.Drawing.Point(237, 218);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(84, 13);
             this.label54.TabIndex = 57;
@@ -2030,7 +2030,7 @@
             this.cmbAddNomFourniMatierP.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbAddNomFourniMatierP.ForeColor = System.Drawing.Color.Black;
             this.cmbAddNomFourniMatierP.FormattingEnabled = true;
-            this.cmbAddNomFourniMatierP.Location = new System.Drawing.Point(337, 121);
+            this.cmbAddNomFourniMatierP.Location = new System.Drawing.Point(337, 155);
             this.cmbAddNomFourniMatierP.Name = "cmbAddNomFourniMatierP";
             this.cmbAddNomFourniMatierP.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cmbAddNomFourniMatierP.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -2040,7 +2040,7 @@
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(237, 128);
+            this.label53.Location = new System.Drawing.Point(237, 162);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(86, 13);
             this.label53.TabIndex = 55;
@@ -2049,7 +2049,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(237, 77);
+            this.label52.Location = new System.Drawing.Point(237, 111);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(29, 13);
             this.label52.TabIndex = 54;
@@ -2064,7 +2064,7 @@
             this.txtAddNomMatiereP.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
             this.txtAddNomMatiereP.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtAddNomMatiereP.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtAddNomMatiereP.Location = new System.Drawing.Point(337, 61);
+            this.txtAddNomMatiereP.Location = new System.Drawing.Point(337, 95);
             this.txtAddNomMatiereP.Name = "txtAddNomMatiereP";
             this.txtAddNomMatiereP.PasswordChar = '\0';
             this.txtAddNomMatiereP.Size = new System.Drawing.Size(326, 41);
@@ -2284,12 +2284,12 @@
             // 
             // tabAddHA
             // 
+            this.tabAddHA.Controls.Add(this.gunaTextBox3);
             this.tabAddHA.Controls.Add(this.rbtnAddHistoAProdFin);
             this.tabAddHA.Controls.Add(this.rbtnAddHistoAMatierePrem);
             this.tabAddHA.Controls.Add(this.label91);
             this.tabAddHA.Controls.Add(this.btnaddhistoriquedachat);
             this.tabAddHA.Controls.Add(this.label64);
-            this.tabAddHA.Controls.Add(this.cmbAddHabituelHistorA);
             this.tabAddHA.Controls.Add(this.dateventeaddhistoriquedachat);
             this.tabAddHA.Controls.Add(this.label63);
             this.tabAddHA.Controls.Add(this.prixaddhistoriquedachat);
@@ -2374,24 +2374,6 @@
             this.label64.Size = new System.Drawing.Size(75, 13);
             this.label64.TabIndex = 66;
             this.label64.Text = "Date de vente";
-            // 
-            // cmbAddHabituelHistorA
-            // 
-            this.cmbAddHabituelHistorA.BackColor = System.Drawing.Color.Transparent;
-            this.cmbAddHabituelHistorA.BaseColor = System.Drawing.Color.White;
-            this.cmbAddHabituelHistorA.BorderColor = System.Drawing.Color.Silver;
-            this.cmbAddHabituelHistorA.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbAddHabituelHistorA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAddHabituelHistorA.FocusedColor = System.Drawing.Color.Empty;
-            this.cmbAddHabituelHistorA.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbAddHabituelHistorA.ForeColor = System.Drawing.Color.Black;
-            this.cmbAddHabituelHistorA.FormattingEnabled = true;
-            this.cmbAddHabituelHistorA.Location = new System.Drawing.Point(342, 221);
-            this.cmbAddHabituelHistorA.Name = "cmbAddHabituelHistorA";
-            this.cmbAddHabituelHistorA.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cmbAddHabituelHistorA.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cmbAddHabituelHistorA.Size = new System.Drawing.Size(326, 26);
-            this.cmbAddHabituelHistorA.TabIndex = 70;
             // 
             // dateventeaddhistoriquedachat
             // 
@@ -2482,6 +2464,7 @@
             this.cmbnomproduitaddhistoriquedachat.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cmbnomproduitaddhistoriquedachat.Size = new System.Drawing.Size(326, 26);
             this.cmbnomproduitaddhistoriquedachat.TabIndex = 58;
+            this.cmbnomproduitaddhistoriquedachat.SelectedIndexChanged += new System.EventHandler(this.cmbnomproduitaddhistoriquedachat_SelectedIndexChanged);
             // 
             // label60
             // 
@@ -2737,7 +2720,7 @@
             this.gunaComboBox6.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gunaComboBox6.ForeColor = System.Drawing.Color.Black;
             this.gunaComboBox6.FormattingEnabled = true;
-            this.gunaComboBox6.Location = new System.Drawing.Point(338, 142);
+            this.gunaComboBox6.Location = new System.Drawing.Point(338, 176);
             this.gunaComboBox6.Name = "gunaComboBox6";
             this.gunaComboBox6.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.gunaComboBox6.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -2755,7 +2738,7 @@
             this.gunaComboBox7.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gunaComboBox7.ForeColor = System.Drawing.Color.Black;
             this.gunaComboBox7.FormattingEnabled = true;
-            this.gunaComboBox7.Location = new System.Drawing.Point(338, 142);
+            this.gunaComboBox7.Location = new System.Drawing.Point(338, 176);
             this.gunaComboBox7.Name = "gunaComboBox7";
             this.gunaComboBox7.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.gunaComboBox7.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -2765,7 +2748,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(238, 149);
+            this.label19.Location = new System.Drawing.Point(238, 183);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(33, 13);
             this.label19.TabIndex = 84;
@@ -2785,7 +2768,7 @@
             this.btnaddhistoriqueV.ForeColor = System.Drawing.Color.White;
             this.btnaddhistoriqueV.Image = null;
             this.btnaddhistoriqueV.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnaddhistoriqueV.Location = new System.Drawing.Point(338, 337);
+            this.btnaddhistoriqueV.Location = new System.Drawing.Point(338, 371);
             this.btnaddhistoriqueV.Name = "btnaddhistoriqueV";
             this.btnaddhistoriqueV.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
             this.btnaddhistoriqueV.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
@@ -2803,7 +2786,7 @@
             // label79
             // 
             this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(238, 282);
+            this.label79.Location = new System.Drawing.Point(238, 316);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(75, 13);
             this.label79.TabIndex = 81;
@@ -2820,7 +2803,7 @@
             this.cmbAddHabituelHistorV.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbAddHabituelHistorV.ForeColor = System.Drawing.Color.Black;
             this.cmbAddHabituelHistorV.FormattingEnabled = true;
-            this.cmbAddHabituelHistorV.Location = new System.Drawing.Point(338, 110);
+            this.cmbAddHabituelHistorV.Location = new System.Drawing.Point(338, 144);
             this.cmbAddHabituelHistorV.Name = "cmbAddHabituelHistorV";
             this.cmbAddHabituelHistorV.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cmbAddHabituelHistorV.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -2836,7 +2819,7 @@
             this.dateventeaddhistoriqueV.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dateventeaddhistoriqueV.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dateventeaddhistoriqueV.ForeColor = System.Drawing.Color.Black;
-            this.dateventeaddhistoriqueV.Location = new System.Drawing.Point(338, 269);
+            this.dateventeaddhistoriqueV.Location = new System.Drawing.Point(338, 303);
             this.dateventeaddhistoriqueV.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateventeaddhistoriqueV.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dateventeaddhistoriqueV.Name = "dateventeaddhistoriqueV";
@@ -2852,7 +2835,7 @@
             // label80
             // 
             this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(238, 237);
+            this.label80.Location = new System.Drawing.Point(238, 271);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(24, 13);
             this.label80.TabIndex = 79;
@@ -2867,7 +2850,7 @@
             this.prixaddhistoriqueVent.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
             this.prixaddhistoriqueVent.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.prixaddhistoriqueVent.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.prixaddhistoriqueVent.Location = new System.Drawing.Point(338, 221);
+            this.prixaddhistoriqueVent.Location = new System.Drawing.Point(338, 255);
             this.prixaddhistoriqueVent.Name = "prixaddhistoriqueVent";
             this.prixaddhistoriqueVent.PasswordChar = '\0';
             this.prixaddhistoriqueVent.Size = new System.Drawing.Size(326, 41);
@@ -2877,7 +2860,7 @@
             // label81
             // 
             this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(238, 190);
+            this.label81.Location = new System.Drawing.Point(238, 224);
             this.label81.Name = "label81";
             this.label81.Size = new System.Drawing.Size(47, 13);
             this.label81.TabIndex = 77;
@@ -2892,7 +2875,7 @@
             this.txtquantiteaddhistoriqueVent.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
             this.txtquantiteaddhistoriqueVent.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtquantiteaddhistoriqueVent.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtquantiteaddhistoriqueVent.Location = new System.Drawing.Point(338, 174);
+            this.txtquantiteaddhistoriqueVent.Location = new System.Drawing.Point(338, 208);
             this.txtquantiteaddhistoriqueVent.Name = "txtquantiteaddhistoriqueVent";
             this.txtquantiteaddhistoriqueVent.PasswordChar = '\0';
             this.txtquantiteaddhistoriqueVent.Size = new System.Drawing.Size(326, 41);
@@ -2910,7 +2893,7 @@
             this.cmbnomproduitaddhistoriquedcmbnomproduitaddhistoriquedVent.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbnomproduitaddhistoriquedcmbnomproduitaddhistoriquedVent.ForeColor = System.Drawing.Color.Black;
             this.cmbnomproduitaddhistoriquedcmbnomproduitaddhistoriquedVent.FormattingEnabled = true;
-            this.cmbnomproduitaddhistoriquedcmbnomproduitaddhistoriquedVent.Location = new System.Drawing.Point(338, 110);
+            this.cmbnomproduitaddhistoriquedcmbnomproduitaddhistoriquedVent.Location = new System.Drawing.Point(338, 144);
             this.cmbnomproduitaddhistoriquedcmbnomproduitaddhistoriquedVent.Name = "cmbnomproduitaddhistoriquedcmbnomproduitaddhistoriquedVent";
             this.cmbnomproduitaddhistoriquedcmbnomproduitaddhistoriquedVent.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cmbnomproduitaddhistoriquedcmbnomproduitaddhistoriquedVent.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -2920,7 +2903,7 @@
             // label82
             // 
             this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(238, 117);
+            this.label82.Location = new System.Drawing.Point(238, 151);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(40, 13);
             this.label82.TabIndex = 74;
@@ -3592,6 +3575,23 @@
             this.modifierToolStripMenuItemProdF.Text = "Modifier";
             this.modifierToolStripMenuItemProdF.Click += new System.EventHandler(this.modifierToolStripMenuItemProdF_Click);
             // 
+            // gunaTextBox3
+            // 
+            this.gunaTextBox3.BaseColor = System.Drawing.Color.White;
+            this.gunaTextBox3.BorderColor = System.Drawing.Color.Silver;
+            this.gunaTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.gunaTextBox3.Enabled = false;
+            this.gunaTextBox3.FocusedBaseColor = System.Drawing.Color.White;
+            this.gunaTextBox3.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
+            this.gunaTextBox3.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.gunaTextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaTextBox3.Location = new System.Drawing.Point(342, 221);
+            this.gunaTextBox3.Name = "gunaTextBox3";
+            this.gunaTextBox3.PasswordChar = '\0';
+            this.gunaTextBox3.Size = new System.Drawing.Size(326, 26);
+            this.gunaTextBox3.TabIndex = 74;
+            this.gunaTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3717,7 +3717,6 @@
         private System.Windows.Forms.Label label55;
         private Guna.UI.WinForms.GunaTextBox txtAddQuantiteMatiereP;
         private Guna.UI.WinForms.GunaDataGridView dataGrideHistoriqueA;
-        private Guna.UI.WinForms.GunaComboBox cmbAddHabituelHistorA;
         private Guna.UI.WinForms.GunaGradientButton btnaddhistoriquedachat;
         private System.Windows.Forms.Label label64;
         private Guna.UI.WinForms.GunaDateTimePicker dateventeaddhistoriquedachat;
@@ -3872,5 +3871,6 @@
         private System.Windows.Forms.Label lblCountHistoA;
         private System.Windows.Forms.Label lblCountHistorV;
         private System.Windows.Forms.Label lblCountProdF;
+        private Guna.UI.WinForms.GunaTextBox gunaTextBox3;
     }
 }
