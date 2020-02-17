@@ -399,6 +399,7 @@
             this.gunaButton6.TabIndex = 21;
             this.gunaButton6.Text = "Imprimer";
             this.gunaButton6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaButton6.Click += new System.EventHandler(this.gunaButton6_Click);
             // 
             // gunaDragControl1
             // 

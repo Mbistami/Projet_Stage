@@ -13,10 +13,10 @@ namespace paradis_des_huiles
 {
     public partial class menu : Form
     {
-/*<<<<<<< HEAD
-        SqlConnection cn = new SqlConnection("Server='R_230_ROG-PC\\SQLEXPRESS';Database=DB_Gestionn;Integrated Security = true");
-=======*/
-        SqlConnection cn = new SqlConnection("Server='.'; Database= DB_Gestionn ;Integrated Security = true");
+        /*<<<<<<< HEAD
+                SqlConnection cn = new SqlConnection("Server='R_230_ROG-PC\\SQLEXPRESS';Database=DB_Gestionn;Integrated Security = true");
+        =======*/
+        SqlConnection cn = new SqlConnection("Server='192.168.1.30, 1433'; Database= DB_Gestion ;user id='admin';password='admin'");
         //>>>>>>> 8906389a96d07d69ed7732bc3cfd94170d581025
         public menu()
         {
@@ -30,101 +30,102 @@ namespace paradis_des_huiles
         private void menu_Load(object sender, EventArgs e)
         {
 
-            try
-            {
-                
-                if (permleve != 4)
-                    btnSaveProdF.TabPages.RemoveAt(btnSaveProdF.TabPages.Count - 1);
-                String[] etage = { "E0", "E1", "E2" };
-                String[] salle = { "S1", "S2", "S3" };
-                cmbAddEtageEmballage.Items.AddRange(etage);
-                cmbAddEtageEmballage.Text = cmbAddEtageEmballage.Items[0].ToString();
+            /*try
+            {*/
 
-                cmbAddSalleEmballage.Items.AddRange(salle);
-                cmbAddSalleEmballage.Text = cmbAddSalleEmballage.Items[0].ToString();
+            if (permleve != 4)
+                btnSaveProdF.TabPages.RemoveAt(btnSaveProdF.TabPages.Count - 1);
+            String[] etage = { "E0", "E1", "E2" };
+            String[] salle = { "S1", "S2", "S3" };
+            /* cmbAddEtageEmballage.Items.AddRange(etage);
+             cmbAddEtageEmballage.Text = cmbAddEtageEmballage.Items[0].ToString();
 
-                cmbAddEtageMatiereP.Items.AddRange(etage);
-                cmbAddEtageMatiereP.Text = cmbAddEtageMatiereP.Items[0].ToString();
+             cmbAddSalleEmballage.Items.AddRange(salle);
+             cmbAddSalleEmballage.Text = cmbAddSalleEmballage.Items[0].ToString();*/
 
-                cmbAddSaleMatiereP.Items.AddRange(salle);
-                cmbAddSaleMatiereP.Text = cmbAddSaleMatiereP.Items[0].ToString();
+            /*  cmbAddEtageMatiereP.Items.AddRange(etage);
+              cmbAddEtageMatiereP.Text = cmbAddEtageMatiereP.Items[0].ToString();
 
-                gunaComboBox4.Items.AddRange(etage);
+              cmbAddSaleMatiereP.Items.AddRange(salle);
+              cmbAddSaleMatiereP.Text = cmbAddSaleMatiereP.Items[0].ToString();*/
+
+            /*    gunaComboBox4.Items.AddRange(etage);
                 gunaComboBox4.Text = gunaComboBox4.Items[0].ToString();
 
                 gunaComboBox2.Items.AddRange(salle);
-                gunaComboBox2.Text = gunaComboBox2.Items[0].ToString();
+                gunaComboBox2.Text = gunaComboBox2.Items[0].ToString();*/
 
 
 
-                //combobox rechercher afficher clinet 
-                CmbRechClientAfficher.Items.Add("NomClient");
-                CmbRechClientAfficher.Items.Add("Num Tel");
-                CmbRechClientAfficher.Items.Add("Adresse");
-                CmbRechClientAfficher.Items.Add("Mail");
-                CmbRechClientAfficher.Items.Add("Type");
-                CmbRechClientAfficher.Items.Add("RC / CIN");
+            //combobox rechercher afficher clinet 
+            CmbRechClientAfficher.Items.Add("NomClient");
+            CmbRechClientAfficher.Items.Add("Num Tel");
+            CmbRechClientAfficher.Items.Add("Adresse");
+            CmbRechClientAfficher.Items.Add("Mail");
+            CmbRechClientAfficher.Items.Add("Type");
+            CmbRechClientAfficher.Items.Add("RC / CIN");
 
-                CmbRechClientAfficher.Text = CmbRechClientAfficher.Items[0].ToString();
+            CmbRechClientAfficher.Text = CmbRechClientAfficher.Items[0].ToString();
 
-                //cmbtypecltadd type client add
-                cmbtypecltadd.Items.Add("infidele");
-                cmbtypecltadd.Items.Add("fidele");
-                cmbtypecltadd.Text = cmbtypecltadd.Items[0].ToString();
-
-
-                //cmbTypeAddFourni type fournisseur Add
-
-                if (ConnectionState.Open == cn.State)
-                {
-                    cn.Close();
-                }
-                cn.Open();
-                dataAdapter = new SqlDataAdapter("select nomClt as NomClient, numTel [Num Tel] , adresse Adresse , email Mail, fidelite as Type , RC_CIN [RC / CIN] from Client ", cn);
-                dataAdapter.Fill(DataSet1, "Client");
-
-                dataAdapter = new SqlDataAdapter("select nomFournisseur [Nom Fourni] ,numTel [Num Tel] , adresse [Adresse] , email [Mail] , RCF [RC] from Fournisseur", cn);
-                dataAdapter.Fill(DataSet1, "Fournisseur");
-
-                dataAdapter = new SqlDataAdapter("select  'AG'+convert(varchar(50),idEM) [Code Emballage],nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , UniteE [Unité de mesure] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
-                dataAdapter.Fill(DataSet1, "Emballage");
-
-                dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], nomFournisseur [Fournisseur] , UniteE [Unité de mesure] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée] from Matiere_premiere inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF inner join Etat on Etat.idE = Matiere_premiere.idE", cn);
-                dataAdapter.Fill(DataSet1, "MatiereP");
-
-                dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(Matiere_premiere.nomMP,'') + ISNULL('AG' +CONVERT(varchar(50),Emballage.idEM) ,'') [Nom de Produit], Fournisseur.nomFournisseur [Nom Fournisseur], qteA [Quantite] , prix [Prix] ,dateA [Date Achat] from historique_achat left join Matiere_premiere on  historique_achat.idMP = Matiere_premiere.idmp  left join Emballage on   historique_achat.idEM = Emballage.idEM inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF or Fournisseur.RCF = Emballage.RCF", cn);
-                dataAdapter.Fill(DataSet1, "HistoriqueA");
-
-                dataAdapter = new SqlDataAdapter("select numVente [Num Vente],CONVERT(varchar(50),Produit_finis.nomPF)+' ' +CONVERT(varchar(50), codePF )[Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
-                dataAdapter.Fill(DataSet1, "HistoriqueV");
-
-                dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descPF [Descrption] from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
-                dataAdapter.Fill(DataSet1, "Produit_finis");
-
-                dataAdapter = new SqlDataAdapter("Select * from Historique_Achat", cn);
-                dataAdapter.Fill(DataSet1, "HistoriqueAchatPure");
-
-                dataAdapter = new SqlDataAdapter("Select * from Etat", cn);
-                dataAdapter.Fill(DataSet1, "Etat");
-
-                dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], RCF [RCF] , idE [idE] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée], idMP from Matiere_premiere ", cn);
-                dataAdapter.Fill(DataSet1, "MPPure");
-
-                dataAdapter = new SqlDataAdapter("Select 'AG'+convert(varchar(50),idEM) [CODEEM],idEM from Emballage ", cn);
-                dataAdapter.Fill(DataSet1, "EMCMBOX");
-                //dataAdapter = new SqlDataAdapter("select [type].nomType + codePF [Code Produit] ", cn);
-                //dataAdapter.Fill(DataSet1, "Produit_finis");
+            //cmbtypecltadd type client add
+            cmbtypecltadd.Items.Add("infidele");
+            cmbtypecltadd.Items.Add("fidele");
+            cmbtypecltadd.Text = cmbtypecltadd.Items[0].ToString();
 
 
+            //cmbTypeAddFourni type fournisseur Add
+
+            if (ConnectionState.Open == cn.State)
+            {
                 cn.Close();
+            }
+            cn.Open();
+            dataAdapter = new SqlDataAdapter("select nomClt as NomClient, numTel [Num Tel] , adresse Adresse , email Mail, fidelite as Type , RC_CIN [RC / CIN] from Client ", cn);
+            dataAdapter.Fill(DataSet1, "Client");
 
-                dataGridClient.DataSource = DataSet1.Tables["Client"];
-                dataGridFourni.DataSource = DataSet1.Tables["Fournisseur"];
-                dataGridEmballage.DataSource = DataSet1.Tables["Emballage"];
-                dataGridMatiereP.DataSource = DataSet1.Tables["MatiereP"];
-                dataGrideHistoriqueV.DataSource = DataSet1.Tables["HistoriqueV"];
-                dataGrideHistoriqueA.DataSource = DataSet1.Tables["HistoriqueA"];
-                datagridAffProduitF.DataSource = DataSet1.Tables["Produit_finis"];
+            dataAdapter = new SqlDataAdapter("select nomFournisseur [Nom Fourni] ,numTel [Num Tel] , adresse [Adresse] , email [Mail] , RCF [RC] from Fournisseur", cn);
+            dataAdapter.Fill(DataSet1, "Fournisseur");
+
+            dataAdapter = new SqlDataAdapter("select  'AG'+convert(varchar(50),idEM) [Code Emballage],nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , UniteE [Unité de mesure] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
+            dataAdapter.Fill(DataSet1, "Emballage");
+
+            dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], nomFournisseur [Fournisseur] , UniteE [Unité de mesure] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée] from Matiere_premiere inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF inner join Etat on Etat.idE = Matiere_premiere.idE", cn);
+            dataAdapter.Fill(DataSet1, "MatiereP");
+
+            dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(Matiere_premiere.nomMP,'') + ISNULL('AG' +CONVERT(varchar(50),Emballage.idEM) ,'') [Nom de Produit], Fournisseur.nomFournisseur [Nom Fournisseur], qteA [Quantite] , prix [Prix] ,dateA [Date Achat] from historique_achat left join Matiere_premiere on  historique_achat.idMP = Matiere_premiere.idmp  left join Emballage on   historique_achat.idEM = Emballage.idEM inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF or Fournisseur.RCF = Emballage.RCF", cn);
+            dataAdapter.Fill(DataSet1, "HistoriqueA");
+
+            dataAdapter = new SqlDataAdapter("select numVente [Num Vente],CONVERT(varchar(50),Produit_finis.nomPF)+' ' +CONVERT(varchar(50), codePF )[Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
+            dataAdapter.Fill(DataSet1, "HistoriqueV");
+
+            dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descPF [Descrption], idPF from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
+            dataAdapter.Fill(DataSet1, "Produit_finis");
+
+            dataAdapter = new SqlDataAdapter("Select * from Historique_Achat", cn);
+            dataAdapter.Fill(DataSet1, "HistoriqueAchatPure");
+
+            dataAdapter = new SqlDataAdapter("Select * from Etat", cn);
+            dataAdapter.Fill(DataSet1, "Etat");
+
+            dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], RCF [RCF] , idE [idE] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée], idMP from Matiere_premiere ", cn);
+            dataAdapter.Fill(DataSet1, "MPPure");
+
+            dataAdapter = new SqlDataAdapter("Select 'AG'+convert(varchar(50),idEM) [CODEEM],idEM from Emballage ", cn);
+            dataAdapter.Fill(DataSet1, "EMCMBOX");
+            //dataAdapter = new SqlDataAdapter("select [type].nomType + codePF [Code Produit] ", cn);
+            //dataAdapter.Fill(DataSet1, "Produit_finis");
+
+
+            cn.Close();
+
+            dataGridClient.DataSource = DataSet1.Tables["Client"];
+            dataGridFourni.DataSource = DataSet1.Tables["Fournisseur"];
+            dataGridEmballage.DataSource = DataSet1.Tables["Emballage"];
+            dataGridMatiereP.DataSource = DataSet1.Tables["MatiereP"];
+            dataGrideHistoriqueV.DataSource = DataSet1.Tables["HistoriqueV"];
+            dataGrideHistoriqueA.DataSource = DataSet1.Tables["HistoriqueA"];
+            datagridAffProduitF.DataSource = DataSet1.Tables["Produit_finis"];
+            datagridAffProduitF.Columns[datagridAffProduitF.Columns["idPF"].Index].Visible = false;
 
                 rbtnAddHistoAMatierePrem.Checked = true;
 
@@ -200,25 +201,24 @@ namespace paradis_des_huiles
                 this.lblCountHistorV.Text = "Nombre des Historique : " + dataGrideHistoriqueV.Rows.Count;
                 this.lblCountProdF.Text = "Nombre des Produits : " + datagridAffProduitF.Rows.Count;
 
-                this.cmbAddHabituelHistorV.DataSource = DataSet1.Tables["MPPure"];
-                cmbAddHabituelHistorV.DisplayMember = "nom";
-                cmbAddHabituelHistorV.ValueMember = "idMP";
+                this.cmbAddHabituelHistorV.DataSource = DataSet1.Tables["produit_finis"];
+                cmbAddHabituelHistorV.DisplayMember = "nomPF";
+                cmbAddHabituelHistorV.ValueMember = "idPF";
 
                 this.gunaComboBox6.DataSource = DataSet1.Tables["Client"];
                 this.gunaComboBox6.DisplayMember = "NomClient";
                 this.gunaComboBox6.ValueMember = "NomClient";
-
-                gunaComboBox5.Items.Add("KG");
-                gunaComboBox5.Items.Add("L");
-                gunaComboBox5.Text = gunaComboBox5.Items[0].ToString();
-
+                this.gunaComboBox5.DisplayMember = "UniteE";
+                this.gunaComboBox5.ValueMember = "idE";
+                this.gunaComboBox5.DataSource = DataSet1.Tables["Etat"];
+            if(DataSet1.Tables["MatiereP"].Rows.Count != 0)
                 gunaTextBox3.Text = DataSet1.Tables["MatiereP"].Rows[0][2].ToString();
-            }
+            /*}
             catch (Exception)
             {
                 
                 throw;
-            }
+            }*/
         }
 
         private void TxtRchDgrid_TextChanged(object sender, EventArgs e)
@@ -481,7 +481,7 @@ namespace paradis_des_huiles
                 dataAdapter.Fill(DataSet1, "EmballagePure");
                 cn.Close();
                 int x = DataSet1.Tables["EmballagePure"].Rows.Count - 1;
-                DataSet1.Tables["EmballagePure"].Rows.Add(cmbAddNomFournisseurEmballage.SelectedValue.ToString(), txtAddquantiteEmballage.Text, cmbAddTypeEmballge.SelectedValue.ToString(), txtAddSupportEmballage.Text, txtAddDescriptionEmballage.Text, cmbAddEtageEmballage.SelectedItem.ToString() + cmbAddSalleEmballage.SelectedItem.ToString());
+                DataSet1.Tables["EmballagePure"].Rows.Add(cmbAddNomFournisseurEmballage.SelectedValue.ToString(), txtAddquantiteEmballage.Text, cmbAddTypeEmballge.SelectedValue.ToString(), txtAddSupportEmballage.Text, txtAddDescriptionEmballage.Text, txtAddEmballageCordonn.Text);
                 SqlCommand cmd = new SqlCommand("update emballage set img=(SELECT BulkColumn FROM Openrowset( Bulk '" + this.FilePathEM.Text + "', Single_Blob) as img) where idEM='" + x.ToString() + "'", cn);
                 commandBuilder = new SqlCommandBuilder(dataAdapter);
                 if (ConnectionState.Open == cn.State)
@@ -530,7 +530,7 @@ namespace paradis_des_huiles
                 cn.Open();
                 dataAdapter.Fill(DataSet1, "MPPure");
                 cn.Close();
-                DataSet1.Tables["MPPure"].Rows.Add(txtaddcodemp.Text, txtAddNomMatiereP.Text, cmbAddNomFourniMatierP.SelectedValue.ToString(), cmbAddTypeMatierP.SelectedValue.ToString(), txtAddQuantiteMatiereP.Text, txtAddDescMatierP.Text, "Test");
+                DataSet1.Tables["MPPure"].Rows.Add(txtaddcodemp.Text, txtAddNomMatiereP.Text, cmbAddNomFourniMatierP.SelectedValue.ToString(), cmbAddTypeMatierP.SelectedValue.ToString(), txtAddQuantiteMatiereP.Text, txtAddDescMatierP.Text, txtAddMatierPCordo.Text);
                 DataSet1.Tables["MatiereP"].Rows.Add(txtaddcodemp.Text, txtAddNomMatiereP.Text, cmbAddNomFourniMatierP.SelectedText.ToString());
                 commandBuilder = new SqlCommandBuilder(dataAdapter);
                 if (ConnectionState.Open == cn.State)
@@ -800,8 +800,10 @@ namespace paradis_des_huiles
 
         private void gunaGradientButton1_Click(object sender, EventArgs e)
         {
-            try
-            {
+            /*try
+            {*/
+                
+
                 dataAdapter = new SqlDataAdapter("Select * from Produit_finis", cn);
                 if (ConnectionState.Open == cn.State)
                 {
@@ -811,7 +813,7 @@ namespace paradis_des_huiles
                 dataAdapter.Fill(DataSet1, "ProduitsFPure");
                 cn.Close();
                 commandBuilder = new SqlCommandBuilder(dataAdapter);
-                DataSet1.Tables["ProduitsFPure"].Rows.Add(string.Join(null, System.Text.RegularExpressions.Regex.Split(gunaTextBox4.Text, "[^\\d]")), this.gunaTextBox5.Text.ToString(), this.gunaComboBox3.SelectedValue.ToString(), "E0S0", richTextBox1.Text.ToString(), this.gunaTextBox2.Text.ToString(), string.Join(null, System.Text.RegularExpressions.Regex.Split(gunaTextBox4.Text, "[^a-zA-Z]")),"1","1");
+                DataSet1.Tables["ProduitsFPure"].Rows.Add(string.Join(null, System.Text.RegularExpressions.Regex.Split(gunaTextBox4.Text, "[^\\d]")), this.gunaTextBox5.Text.ToString(), this.gunaComboBox3.SelectedValue.ToString(), txtAddProdFCordo.Text, richTextBox1.Text.ToString(), this.gunaTextBox2.Text.ToString(), string.Join(null, System.Text.RegularExpressions.Regex.Split(gunaTextBox4.Text, "[^a-zA-Z]")),"1", gunaComboBox5.SelectedValue.ToString());
                 if (ConnectionState.Open == cn.State)
                 {
                     cn.Close();
@@ -826,16 +828,16 @@ namespace paradis_des_huiles
                 MessageBox.Show("Ajouter avec succes", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
                 DataSet1.Tables["Produit_finis"].Clear();
-                dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descEM [Descrption] from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
+                dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descEM [Descrption], idPF from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
                 dataAdapter.Fill(DataSet1, "Produit_finis");
 
                 cn.Close();
-            }
+            /*}
             catch (Exception)
             {
                 MessageBox.Show("quelque chose a mal tourné");
                 return;
-            }
+            }*/
 
 
         }
@@ -1147,7 +1149,7 @@ namespace paradis_des_huiles
                 dataAdapter.Fill(DataSet1, "HistoriqueA");
 
                 DataSet1.Tables["Produit_finis"].Clear();
-                dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descEM [Descrption] from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
+                dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descEM [Descrption],idpf from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
                 dataAdapter.Fill(DataSet1, "Produit_finis");
                 cn.Close();
             }
@@ -1459,6 +1461,70 @@ namespace paradis_des_huiles
             print_Form.Show();
         }
         bool msgbx;
+
+        private void gunaGradientButton9_Click(object sender, EventArgs e)
+        {
+            DataSet1.WriteXmlSchema("DBshema.xml");
+            Print_Form print_Form = new Print_Form();
+            print_Form.Printer(DataSet1.Tables["Fournisseur"]);
+            print_Form.Show();
+        }
+
+        private void gunaGradientButton13_Click(object sender, EventArgs e)
+        {
+            DataSet1.WriteXmlSchema("DBshema.xml");
+            Print_Form print_Form = new Print_Form();
+            print_Form.Printer(DataSet1.Tables["Emballage"]);
+            print_Form.Show();
+        }
+
+        private void gunaGradientButton17_Click(object sender, EventArgs e)
+        {
+            DataSet1.WriteXmlSchema("DBshema.xml");
+            Print_Form print_Form = new Print_Form();
+            print_Form.Printer(DataSet1.Tables["MatiereP"]);
+            print_Form.Show();
+        }
+
+        private void gunaGradientButton21_Click(object sender, EventArgs e)
+        {
+            DataSet1.WriteXmlSchema("DBshema.xml");
+            Print_Form print_Form = new Print_Form();
+            print_Form.Printer(DataSet1.Tables["HistoriqueA"]);
+            print_Form.Show();
+        }
+
+        private void gunaGradientButton25_Click(object sender, EventArgs e)
+        {
+            DataSet1.WriteXmlSchema("DBshema.xml");
+            Print_Form print_Form = new Print_Form();
+            print_Form.Printer(DataSet1.Tables["HistoriqueV"]);
+            print_Form.Show();
+        }
+
+        private void gunaGradientButton29_Click(object sender, EventArgs e)
+        {
+            DataSet1.WriteXmlSchema("DBshema.xml");
+            Print_Form print_Form = new Print_Form();
+            print_Form.Printer(DataSet1.Tables["Produit_finis"]);
+            print_Form.Show();
+        }
+
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaButton1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void gunaButton2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         private void gunaGradientButton26_Click(object sender, EventArgs e)
         {
             msgbx = true;
@@ -1523,7 +1589,7 @@ namespace paradis_des_huiles
                 }
 
                 DataSet1.Tables["Produit_finis"].Clear();
-                dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descEM [Descrption] from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
+                dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descEM [Descrption],idpf from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
                 dataAdapter.Fill(DataSet1, "Produit_finis");
 
                 DataSet1.Tables["HistoriqueV"].Clear();
@@ -1535,7 +1601,7 @@ namespace paradis_des_huiles
             {
                 MessageBox.Show("quelque chose a mal tourné");
                 DataSet1.Tables["Produit_finis"].Clear();
-                dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descEM [Descrption] from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
+                dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descEM [Descrption],idpf from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
                 dataAdapter.Fill(DataSet1, "Produit_finis");
                 return;
             }

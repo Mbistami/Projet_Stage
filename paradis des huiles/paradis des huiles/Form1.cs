@@ -19,7 +19,7 @@ namespace paradis_des_huiles
             InitializeComponent();
         }
         // perm level [1 = read only / 2 = update read / 3 = read update insert / 4 = fullperms]
-        SqlConnection cn = new SqlConnection("Server='.'; Database= DB_Gestionn ;Integrated Security = true");
+        SqlConnection cn = new SqlConnection("Server='192.168.1.30, 1433'; Database= DB_Gestion ;user id='Admin';password='admin'");
 
         private void gunaGradientButton1_Click(object sender, EventArgs e)
         {
@@ -70,6 +70,11 @@ namespace paradis_des_huiles
         private void gunaButton1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void gunaButton2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

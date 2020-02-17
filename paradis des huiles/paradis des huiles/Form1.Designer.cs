@@ -204,6 +204,7 @@
             this.gunaButton2.Radius = 9;
             this.gunaButton2.Size = new System.Drawing.Size(17, 17);
             this.gunaButton2.TabIndex = 9;
+            this.gunaButton2.Click += new System.EventHandler(this.gunaButton2_Click);
             // 
             // gunaElipse1
             // 

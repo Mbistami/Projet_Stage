@@ -64,6 +64,31 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="HistoriqueV">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Num_x0020_Vente" type="xs:int" minOccurs="0" />
+              <xs:element name="Nom_x0020_Produit" type="xs:string" minOccurs="0" />
+              <xs:element name="Nom_x0020_Client" type="xs:string" minOccurs="0" />
+              <xs:element name="Quantite" type="xs:int" minOccurs="0" />
+              <xs:element name="Prix" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Date_x0020_Vente" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Produit_finis">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Code_x0020_Prodiuit" type="xs:string" minOccurs="0" />
+              <xs:element name="Emballage" type="xs:string" minOccurs="0" />
+              <xs:element name="Quantite" type="xs:int" minOccurs="0" />
+              <xs:element name="Etat" type="xs:string" minOccurs="0" />
+              <xs:element name="Cordonnees" type="xs:string" minOccurs="0" />
+              <xs:element name="Descrption" type="xs:string" minOccurs="0" />
+              <xs:element name="idPF" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="HistoriqueAchatPure">
           <xs:complexType>
             <xs:sequence>
@@ -77,36 +102,12 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HistoriqueV">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Num_x0020_Vente" type="xs:int" minOccurs="0" />
-              <xs:element name="Nom_x0020_Produit" type="xs:string" minOccurs="0" />
-              <xs:element name="Nom_x0020_Client" type="xs:string" minOccurs="0" />
-              <xs:element name="Quantite" type="xs:int" minOccurs="0" />
-              <xs:element name="Prix" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Date_x0020_Vente" type="xs:dateTime" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
         <xs:element name="Etat">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idE" type="xs:int" minOccurs="0" />
               <xs:element name="NomE" type="xs:string" minOccurs="0" />
               <xs:element name="UniteE" type="xs:string" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Produit_finis">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Code_x0020_Prodiuit" type="xs:string" minOccurs="0" />
-              <xs:element name="Emballage" type="xs:string" minOccurs="0" />
-              <xs:element name="Quantite" type="xs:int" minOccurs="0" />
-              <xs:element name="Etat" type="xs:string" minOccurs="0" />
-              <xs:element name="Cordonnees" type="xs:string" minOccurs="0" />
-              <xs:element name="Descrption" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

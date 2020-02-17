@@ -109,13 +109,12 @@
             this.TxtEmbafficherfind = new Guna.UI.WinForms.GunaTextBox();
             this.dataGridEmballage = new Guna.UI.WinForms.GunaDataGridView();
             this.tabAddEmballage = new System.Windows.Forms.TabPage();
+            this.txtAddEmballageCordonn = new Guna.UI.WinForms.GunaTextBox();
             this.FilePathEM = new System.Windows.Forms.Label();
             this.pictureBoxEM = new System.Windows.Forms.PictureBox();
             this.btnAddEmballage = new Guna.UI.WinForms.GunaGradientButton();
             this.label40 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
-            this.cmbAddSalleEmballage = new Guna.UI.WinForms.GunaComboBox();
-            this.cmbAddEtageEmballage = new Guna.UI.WinForms.GunaComboBox();
             this.txtAddDescriptionEmballage = new System.Windows.Forms.RichTextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -138,12 +137,11 @@
             this.TxtMatierpfind = new Guna.UI.WinForms.GunaTextBox();
             this.dataGridMatiereP = new Guna.UI.WinForms.GunaDataGridView();
             this.tabAddMAtierP = new System.Windows.Forms.TabPage();
+            this.txtAddMatierPCordo = new Guna.UI.WinForms.GunaTextBox();
             this.label90 = new System.Windows.Forms.Label();
             this.txtaddcodemp = new Guna.UI.WinForms.GunaTextBox();
             this.batnAddMatiereP = new Guna.UI.WinForms.GunaGradientButton();
             this.label57 = new System.Windows.Forms.Label();
-            this.cmbAddSaleMatiereP = new Guna.UI.WinForms.GunaComboBox();
-            this.cmbAddEtageMatiereP = new Guna.UI.WinForms.GunaComboBox();
             this.txtAddDescMatierP = new System.Windows.Forms.RichTextBox();
             this.label56 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
@@ -213,6 +211,7 @@
             this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
             this.datagridAffProduitF = new Guna.UI.WinForms.GunaDataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtAddProdFCordo = new Guna.UI.WinForms.GunaTextBox();
             this.gunaTextBox4 = new Guna.UI.WinForms.GunaTextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.gunaComboBox5 = new Guna.UI.WinForms.GunaComboBox();
@@ -221,8 +220,6 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.gunaComboBox2 = new Guna.UI.WinForms.GunaComboBox();
-            this.gunaComboBox4 = new Guna.UI.WinForms.GunaComboBox();
             this.gunaGradientButton1 = new Guna.UI.WinForms.GunaGradientButton();
             this.label11 = new System.Windows.Forms.Label();
             this.gunaComboBox3 = new Guna.UI.WinForms.GunaComboBox();
@@ -230,6 +227,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.gunaTextBox5 = new Guna.UI.WinForms.GunaTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
+            this.gunaTextBox7 = new Guna.UI.WinForms.GunaTextBox();
+            this.gunaTextBox6 = new Guna.UI.WinForms.GunaTextBox();
             this.ClickDroitMouseClt = new Guna.UI.WinForms.GunaContextMenuStrip();
             this.ClickDroirMouseVA = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -256,13 +260,8 @@
             this.ClickDroitMouseProdF = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItemProdF = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItemProdF = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gunaTextBox6 = new Guna.UI.WinForms.GunaTextBox();
-            this.gunaTextBox7 = new Guna.UI.WinForms.GunaTextBox();
-            this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
+            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.btnSaveProdF.SuspendLayout();
             this.tabClient.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -301,6 +300,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.datagridAffProduitF)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.ClickDroitMouseClt.SuspendLayout();
             this.ClickDroitMouseFourni.SuspendLayout();
             this.ClickDroitMouseEmballage.SuspendLayout();
@@ -308,7 +308,6 @@
             this.ClickDroitMouseHistoA.SuspendLayout();
             this.ClickDroitMouseHistoV.SuspendLayout();
             this.ClickDroitMouseProdF.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSaveProdF
@@ -321,11 +320,11 @@
             this.btnSaveProdF.Controls.Add(this.tabHvente);
             this.btnSaveProdF.Controls.Add(this.tabProdFini);
             this.btnSaveProdF.Controls.Add(this.tabPage3);
-            this.btnSaveProdF.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSaveProdF.Location = new System.Drawing.Point(0, 0);
+            this.btnSaveProdF.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSaveProdF.Location = new System.Drawing.Point(0, 24);
             this.btnSaveProdF.Name = "btnSaveProdF";
             this.btnSaveProdF.SelectedIndex = 0;
-            this.btnSaveProdF.Size = new System.Drawing.Size(1008, 681);
+            this.btnSaveProdF.Size = new System.Drawing.Size(1008, 686);
             this.btnSaveProdF.TabIndex = 0;
             // 
             // tabClient
@@ -334,7 +333,7 @@
             this.tabClient.Location = new System.Drawing.Point(4, 22);
             this.tabClient.Name = "tabClient";
             this.tabClient.Padding = new System.Windows.Forms.Padding(3);
-            this.tabClient.Size = new System.Drawing.Size(1000, 655);
+            this.tabClient.Size = new System.Drawing.Size(1000, 660);
             this.tabClient.TabIndex = 0;
             this.tabClient.Text = "Client";
             this.tabClient.UseVisualStyleBackColor = true;
@@ -347,7 +346,7 @@
             this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(994, 649);
+            this.tabControl2.Size = new System.Drawing.Size(994, 654);
             this.tabControl2.TabIndex = 0;
             // 
             // tabafficher
@@ -362,7 +361,7 @@
             this.tabafficher.Location = new System.Drawing.Point(4, 22);
             this.tabafficher.Name = "tabafficher";
             this.tabafficher.Padding = new System.Windows.Forms.Padding(3);
-            this.tabafficher.Size = new System.Drawing.Size(986, 623);
+            this.tabafficher.Size = new System.Drawing.Size(986, 628);
             this.tabafficher.TabIndex = 1;
             this.tabafficher.Text = "Afficher";
             this.tabafficher.UseVisualStyleBackColor = true;
@@ -752,7 +751,7 @@
             this.tabFournisseur.Location = new System.Drawing.Point(4, 22);
             this.tabFournisseur.Name = "tabFournisseur";
             this.tabFournisseur.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFournisseur.Size = new System.Drawing.Size(1000, 655);
+            this.tabFournisseur.Size = new System.Drawing.Size(1000, 643);
             this.tabFournisseur.TabIndex = 1;
             this.tabFournisseur.Text = "Fournisseur";
             this.tabFournisseur.UseVisualStyleBackColor = true;
@@ -765,7 +764,7 @@
             this.tabControl3.Location = new System.Drawing.Point(3, 3);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(994, 649);
+            this.tabControl3.Size = new System.Drawing.Size(994, 637);
             this.tabControl3.TabIndex = 1;
             // 
             // tabAfficherFourni
@@ -780,7 +779,7 @@
             this.tabAfficherFourni.Location = new System.Drawing.Point(4, 22);
             this.tabAfficherFourni.Name = "tabAfficherFourni";
             this.tabAfficherFourni.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAfficherFourni.Size = new System.Drawing.Size(986, 623);
+            this.tabAfficherFourni.Size = new System.Drawing.Size(986, 611);
             this.tabAfficherFourni.TabIndex = 1;
             this.tabAfficherFourni.Text = "Afficher";
             this.tabAfficherFourni.UseVisualStyleBackColor = true;
@@ -851,6 +850,7 @@
             this.gunaGradientButton9.TabIndex = 25;
             this.gunaGradientButton9.Text = "Imprimer";
             this.gunaGradientButton9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton9.Click += new System.EventHandler(this.gunaGradientButton9_Click);
             // 
             // CmbRechFournisseurAfficher
             // 
@@ -1140,7 +1140,7 @@
             this.tabEmballage.Controls.Add(this.tabControl4);
             this.tabEmballage.Location = new System.Drawing.Point(4, 22);
             this.tabEmballage.Name = "tabEmballage";
-            this.tabEmballage.Size = new System.Drawing.Size(1000, 655);
+            this.tabEmballage.Size = new System.Drawing.Size(1000, 643);
             this.tabEmballage.TabIndex = 3;
             this.tabEmballage.Text = "Emballage";
             this.tabEmballage.UseVisualStyleBackColor = true;
@@ -1153,7 +1153,7 @@
             this.tabControl4.Location = new System.Drawing.Point(0, 0);
             this.tabControl4.Name = "tabControl4";
             this.tabControl4.SelectedIndex = 0;
-            this.tabControl4.Size = new System.Drawing.Size(1000, 655);
+            this.tabControl4.Size = new System.Drawing.Size(1000, 643);
             this.tabControl4.TabIndex = 1;
             // 
             // tabAfficherEmballage
@@ -1168,7 +1168,7 @@
             this.tabAfficherEmballage.Location = new System.Drawing.Point(4, 22);
             this.tabAfficherEmballage.Name = "tabAfficherEmballage";
             this.tabAfficherEmballage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAfficherEmballage.Size = new System.Drawing.Size(992, 629);
+            this.tabAfficherEmballage.Size = new System.Drawing.Size(992, 617);
             this.tabAfficherEmballage.TabIndex = 1;
             this.tabAfficherEmballage.Text = "Afficher";
             this.tabAfficherEmballage.UseVisualStyleBackColor = true;
@@ -1229,6 +1229,7 @@
             this.gunaGradientButton13.TabIndex = 31;
             this.gunaGradientButton13.Text = "Imprimer";
             this.gunaGradientButton13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton13.Click += new System.EventHandler(this.gunaGradientButton13_Click);
             // 
             // lblCountEmballage
             // 
@@ -1348,13 +1349,12 @@
             // 
             // tabAddEmballage
             // 
+            this.tabAddEmballage.Controls.Add(this.txtAddEmballageCordonn);
             this.tabAddEmballage.Controls.Add(this.FilePathEM);
             this.tabAddEmballage.Controls.Add(this.pictureBoxEM);
             this.tabAddEmballage.Controls.Add(this.btnAddEmballage);
             this.tabAddEmballage.Controls.Add(this.label40);
             this.tabAddEmballage.Controls.Add(this.label39);
-            this.tabAddEmballage.Controls.Add(this.cmbAddSalleEmballage);
-            this.tabAddEmballage.Controls.Add(this.cmbAddEtageEmballage);
             this.tabAddEmballage.Controls.Add(this.txtAddDescriptionEmballage);
             this.tabAddEmballage.Controls.Add(this.label38);
             this.tabAddEmballage.Controls.Add(this.label37);
@@ -1373,6 +1373,22 @@
             this.tabAddEmballage.TabIndex = 0;
             this.tabAddEmballage.Text = "Ajouter";
             this.tabAddEmballage.UseVisualStyleBackColor = true;
+            // 
+            // txtAddEmballageCordonn
+            // 
+            this.txtAddEmballageCordonn.BaseColor = System.Drawing.Color.White;
+            this.txtAddEmballageCordonn.BorderColor = System.Drawing.Color.Silver;
+            this.txtAddEmballageCordonn.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddEmballageCordonn.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtAddEmballageCordonn.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
+            this.txtAddEmballageCordonn.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtAddEmballageCordonn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtAddEmballageCordonn.Location = new System.Drawing.Point(333, 412);
+            this.txtAddEmballageCordonn.Name = "txtAddEmballageCordonn";
+            this.txtAddEmballageCordonn.PasswordChar = '\0';
+            this.txtAddEmballageCordonn.Size = new System.Drawing.Size(326, 41);
+            this.txtAddEmballageCordonn.TabIndex = 67;
+            this.txtAddEmballageCordonn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FilePathEM
             // 
@@ -1434,45 +1450,9 @@
             this.label39.AutoSize = true;
             this.label39.Location = new System.Drawing.Point(233, 428);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(66, 13);
+            this.label39.Size = new System.Drawing.Size(64, 13);
             this.label39.TabIndex = 62;
-            this.label39.Text = "Etage | Salle";
-            // 
-            // cmbAddSalleEmballage
-            // 
-            this.cmbAddSalleEmballage.BackColor = System.Drawing.Color.Transparent;
-            this.cmbAddSalleEmballage.BaseColor = System.Drawing.Color.White;
-            this.cmbAddSalleEmballage.BorderColor = System.Drawing.Color.Silver;
-            this.cmbAddSalleEmballage.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbAddSalleEmballage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAddSalleEmballage.FocusedColor = System.Drawing.Color.Empty;
-            this.cmbAddSalleEmballage.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbAddSalleEmballage.ForeColor = System.Drawing.Color.Black;
-            this.cmbAddSalleEmballage.FormattingEnabled = true;
-            this.cmbAddSalleEmballage.Location = new System.Drawing.Point(519, 422);
-            this.cmbAddSalleEmballage.Name = "cmbAddSalleEmballage";
-            this.cmbAddSalleEmballage.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cmbAddSalleEmballage.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cmbAddSalleEmballage.Size = new System.Drawing.Size(140, 26);
-            this.cmbAddSalleEmballage.TabIndex = 61;
-            // 
-            // cmbAddEtageEmballage
-            // 
-            this.cmbAddEtageEmballage.BackColor = System.Drawing.Color.Transparent;
-            this.cmbAddEtageEmballage.BaseColor = System.Drawing.Color.White;
-            this.cmbAddEtageEmballage.BorderColor = System.Drawing.Color.Silver;
-            this.cmbAddEtageEmballage.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbAddEtageEmballage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAddEtageEmballage.FocusedColor = System.Drawing.Color.Empty;
-            this.cmbAddEtageEmballage.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbAddEtageEmballage.ForeColor = System.Drawing.Color.Black;
-            this.cmbAddEtageEmballage.FormattingEnabled = true;
-            this.cmbAddEtageEmballage.Location = new System.Drawing.Point(333, 422);
-            this.cmbAddEtageEmballage.Name = "cmbAddEtageEmballage";
-            this.cmbAddEtageEmballage.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cmbAddEtageEmballage.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cmbAddEtageEmballage.Size = new System.Drawing.Size(140, 26);
-            this.cmbAddEtageEmballage.TabIndex = 60;
+            this.label39.Text = "Cordonnées";
             // 
             // txtAddDescriptionEmballage
             // 
@@ -1629,7 +1609,7 @@
             this.tabMatierP.Controls.Add(this.tabControl5);
             this.tabMatierP.Location = new System.Drawing.Point(4, 22);
             this.tabMatierP.Name = "tabMatierP";
-            this.tabMatierP.Size = new System.Drawing.Size(1000, 655);
+            this.tabMatierP.Size = new System.Drawing.Size(1000, 643);
             this.tabMatierP.TabIndex = 2;
             this.tabMatierP.Text = "Matiere première";
             this.tabMatierP.UseVisualStyleBackColor = true;
@@ -1642,7 +1622,7 @@
             this.tabControl5.Location = new System.Drawing.Point(0, 0);
             this.tabControl5.Name = "tabControl5";
             this.tabControl5.SelectedIndex = 0;
-            this.tabControl5.Size = new System.Drawing.Size(1000, 655);
+            this.tabControl5.Size = new System.Drawing.Size(1000, 643);
             this.tabControl5.TabIndex = 1;
             this.tabControl5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tabControl5_MouseClick);
             // 
@@ -1658,7 +1638,7 @@
             this.tabAfficherMatierP.Location = new System.Drawing.Point(4, 22);
             this.tabAfficherMatierP.Name = "tabAfficherMatierP";
             this.tabAfficherMatierP.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAfficherMatierP.Size = new System.Drawing.Size(992, 629);
+            this.tabAfficherMatierP.Size = new System.Drawing.Size(992, 617);
             this.tabAfficherMatierP.TabIndex = 1;
             this.tabAfficherMatierP.Text = "Afficher";
             this.tabAfficherMatierP.UseVisualStyleBackColor = true;
@@ -1729,6 +1709,7 @@
             this.gunaGradientButton17.TabIndex = 35;
             this.gunaGradientButton17.Text = "Imprimer";
             this.gunaGradientButton17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton17.Click += new System.EventHandler(this.gunaGradientButton17_Click);
             // 
             // CmbAfficherMatierpfind
             // 
@@ -1838,12 +1819,11 @@
             // 
             // tabAddMAtierP
             // 
+            this.tabAddMAtierP.Controls.Add(this.txtAddMatierPCordo);
             this.tabAddMAtierP.Controls.Add(this.label90);
             this.tabAddMAtierP.Controls.Add(this.txtaddcodemp);
             this.tabAddMAtierP.Controls.Add(this.batnAddMatiereP);
             this.tabAddMAtierP.Controls.Add(this.label57);
-            this.tabAddMAtierP.Controls.Add(this.cmbAddSaleMatiereP);
-            this.tabAddMAtierP.Controls.Add(this.cmbAddEtageMatiereP);
             this.tabAddMAtierP.Controls.Add(this.txtAddDescMatierP);
             this.tabAddMAtierP.Controls.Add(this.label56);
             this.tabAddMAtierP.Controls.Add(this.label55);
@@ -1861,6 +1841,22 @@
             this.tabAddMAtierP.TabIndex = 0;
             this.tabAddMAtierP.Text = "Ajouter";
             this.tabAddMAtierP.UseVisualStyleBackColor = true;
+            // 
+            // txtAddMatierPCordo
+            // 
+            this.txtAddMatierPCordo.BaseColor = System.Drawing.Color.White;
+            this.txtAddMatierPCordo.BorderColor = System.Drawing.Color.Silver;
+            this.txtAddMatierPCordo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddMatierPCordo.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtAddMatierPCordo.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
+            this.txtAddMatierPCordo.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtAddMatierPCordo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtAddMatierPCordo.Location = new System.Drawing.Point(337, 450);
+            this.txtAddMatierPCordo.Name = "txtAddMatierPCordo";
+            this.txtAddMatierPCordo.PasswordChar = '\0';
+            this.txtAddMatierPCordo.Size = new System.Drawing.Size(326, 41);
+            this.txtAddMatierPCordo.TabIndex = 71;
+            this.txtAddMatierPCordo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label90
             // 
@@ -1921,45 +1917,9 @@
             this.label57.AutoSize = true;
             this.label57.Location = new System.Drawing.Point(237, 467);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(66, 13);
+            this.label57.Size = new System.Drawing.Size(64, 13);
             this.label57.TabIndex = 67;
-            this.label57.Text = "Etage | Salle";
-            // 
-            // cmbAddSaleMatiereP
-            // 
-            this.cmbAddSaleMatiereP.BackColor = System.Drawing.Color.Transparent;
-            this.cmbAddSaleMatiereP.BaseColor = System.Drawing.Color.White;
-            this.cmbAddSaleMatiereP.BorderColor = System.Drawing.Color.Silver;
-            this.cmbAddSaleMatiereP.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbAddSaleMatiereP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAddSaleMatiereP.FocusedColor = System.Drawing.Color.Empty;
-            this.cmbAddSaleMatiereP.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbAddSaleMatiereP.ForeColor = System.Drawing.Color.Black;
-            this.cmbAddSaleMatiereP.FormattingEnabled = true;
-            this.cmbAddSaleMatiereP.Location = new System.Drawing.Point(523, 461);
-            this.cmbAddSaleMatiereP.Name = "cmbAddSaleMatiereP";
-            this.cmbAddSaleMatiereP.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cmbAddSaleMatiereP.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cmbAddSaleMatiereP.Size = new System.Drawing.Size(140, 26);
-            this.cmbAddSaleMatiereP.TabIndex = 66;
-            // 
-            // cmbAddEtageMatiereP
-            // 
-            this.cmbAddEtageMatiereP.BackColor = System.Drawing.Color.Transparent;
-            this.cmbAddEtageMatiereP.BaseColor = System.Drawing.Color.White;
-            this.cmbAddEtageMatiereP.BorderColor = System.Drawing.Color.Silver;
-            this.cmbAddEtageMatiereP.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbAddEtageMatiereP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAddEtageMatiereP.FocusedColor = System.Drawing.Color.Empty;
-            this.cmbAddEtageMatiereP.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbAddEtageMatiereP.ForeColor = System.Drawing.Color.Black;
-            this.cmbAddEtageMatiereP.FormattingEnabled = true;
-            this.cmbAddEtageMatiereP.Location = new System.Drawing.Point(337, 461);
-            this.cmbAddEtageMatiereP.Name = "cmbAddEtageMatiereP";
-            this.cmbAddEtageMatiereP.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cmbAddEtageMatiereP.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cmbAddEtageMatiereP.Size = new System.Drawing.Size(140, 26);
-            this.cmbAddEtageMatiereP.TabIndex = 65;
+            this.label57.Text = "Cordonnées";
             // 
             // txtAddDescMatierP
             // 
@@ -2087,7 +2047,7 @@
             this.tabHAchat.Controls.Add(this.tabControl6);
             this.tabHAchat.Location = new System.Drawing.Point(4, 22);
             this.tabHAchat.Name = "tabHAchat";
-            this.tabHAchat.Size = new System.Drawing.Size(1000, 655);
+            this.tabHAchat.Size = new System.Drawing.Size(1000, 643);
             this.tabHAchat.TabIndex = 4;
             this.tabHAchat.Text = "Historique d\'achats";
             this.tabHAchat.UseVisualStyleBackColor = true;
@@ -2100,7 +2060,7 @@
             this.tabControl6.Location = new System.Drawing.Point(0, 0);
             this.tabControl6.Name = "tabControl6";
             this.tabControl6.SelectedIndex = 0;
-            this.tabControl6.Size = new System.Drawing.Size(1000, 655);
+            this.tabControl6.Size = new System.Drawing.Size(1000, 643);
             this.tabControl6.TabIndex = 1;
             // 
             // tabAfficherHA
@@ -2115,7 +2075,7 @@
             this.tabAfficherHA.Location = new System.Drawing.Point(4, 22);
             this.tabAfficherHA.Name = "tabAfficherHA";
             this.tabAfficherHA.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAfficherHA.Size = new System.Drawing.Size(992, 629);
+            this.tabAfficherHA.Size = new System.Drawing.Size(992, 617);
             this.tabAfficherHA.TabIndex = 1;
             this.tabAfficherHA.Text = "Afficher";
             this.tabAfficherHA.UseVisualStyleBackColor = true;
@@ -2186,6 +2146,7 @@
             this.gunaGradientButton21.TabIndex = 39;
             this.gunaGradientButton21.Text = "Imprimer";
             this.gunaGradientButton21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton21.Click += new System.EventHandler(this.gunaGradientButton21_Click);
             // 
             // CmbAfficherHistoriqueAfind
             // 
@@ -2508,7 +2469,7 @@
             this.tabHvente.Controls.Add(this.tabControl7);
             this.tabHvente.Location = new System.Drawing.Point(4, 22);
             this.tabHvente.Name = "tabHvente";
-            this.tabHvente.Size = new System.Drawing.Size(1000, 655);
+            this.tabHvente.Size = new System.Drawing.Size(1000, 643);
             this.tabHvente.TabIndex = 5;
             this.tabHvente.Text = "Historique des ventes";
             this.tabHvente.UseVisualStyleBackColor = true;
@@ -2521,7 +2482,7 @@
             this.tabControl7.Location = new System.Drawing.Point(0, 0);
             this.tabControl7.Name = "tabControl7";
             this.tabControl7.SelectedIndex = 0;
-            this.tabControl7.Size = new System.Drawing.Size(1000, 655);
+            this.tabControl7.Size = new System.Drawing.Size(1000, 643);
             this.tabControl7.TabIndex = 1;
             // 
             // tabafficherhv
@@ -2536,7 +2497,7 @@
             this.tabafficherhv.Location = new System.Drawing.Point(4, 22);
             this.tabafficherhv.Name = "tabafficherhv";
             this.tabafficherhv.Padding = new System.Windows.Forms.Padding(3);
-            this.tabafficherhv.Size = new System.Drawing.Size(992, 629);
+            this.tabafficherhv.Size = new System.Drawing.Size(992, 617);
             this.tabafficherhv.TabIndex = 1;
             this.tabafficherhv.Text = "Afficher";
             this.tabafficherhv.UseVisualStyleBackColor = true;
@@ -2607,6 +2568,7 @@
             this.gunaGradientButton25.TabIndex = 39;
             this.gunaGradientButton25.Text = "Imprimer";
             this.gunaGradientButton25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton25.Click += new System.EventHandler(this.gunaGradientButton25_Click);
             // 
             // CmbAfficherHistVfind
             // 
@@ -2942,7 +2904,7 @@
             this.tabProdFini.Controls.Add(this.tabControl8);
             this.tabProdFini.Location = new System.Drawing.Point(4, 22);
             this.tabProdFini.Name = "tabProdFini";
-            this.tabProdFini.Size = new System.Drawing.Size(1000, 655);
+            this.tabProdFini.Size = new System.Drawing.Size(1000, 643);
             this.tabProdFini.TabIndex = 6;
             this.tabProdFini.Text = "Produits Finis";
             this.tabProdFini.UseVisualStyleBackColor = true;
@@ -2955,7 +2917,7 @@
             this.tabControl8.Location = new System.Drawing.Point(0, 0);
             this.tabControl8.Name = "tabControl8";
             this.tabControl8.SelectedIndex = 0;
-            this.tabControl8.Size = new System.Drawing.Size(1000, 655);
+            this.tabControl8.Size = new System.Drawing.Size(1000, 643);
             this.tabControl8.TabIndex = 2;
             // 
             // tabPage1
@@ -2970,7 +2932,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(992, 629);
+            this.tabPage1.Size = new System.Drawing.Size(992, 617);
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Afficher";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3041,6 +3003,7 @@
             this.gunaGradientButton29.TabIndex = 39;
             this.gunaGradientButton29.Text = "Imprimer";
             this.gunaGradientButton29.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton29.Click += new System.EventHandler(this.gunaGradientButton29_Click);
             // 
             // cmbProduitFinis
             // 
@@ -3150,6 +3113,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txtAddProdFCordo);
             this.tabPage2.Controls.Add(this.gunaTextBox4);
             this.tabPage2.Controls.Add(this.label24);
             this.tabPage2.Controls.Add(this.gunaComboBox5);
@@ -3158,8 +3122,6 @@
             this.tabPage2.Controls.Add(this.richTextBox1);
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.gunaComboBox2);
-            this.tabPage2.Controls.Add(this.gunaComboBox4);
             this.tabPage2.Controls.Add(this.gunaGradientButton1);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.gunaComboBox3);
@@ -3169,11 +3131,27 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(992, 629);
+            this.tabPage2.Size = new System.Drawing.Size(992, 627);
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "Ajouter";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // txtAddProdFCordo
+            // 
+            this.txtAddProdFCordo.BaseColor = System.Drawing.Color.White;
+            this.txtAddProdFCordo.BorderColor = System.Drawing.Color.Silver;
+            this.txtAddProdFCordo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddProdFCordo.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtAddProdFCordo.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
+            this.txtAddProdFCordo.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtAddProdFCordo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtAddProdFCordo.Location = new System.Drawing.Point(338, 419);
+            this.txtAddProdFCordo.Name = "txtAddProdFCordo";
+            this.txtAddProdFCordo.PasswordChar = '\0';
+            this.txtAddProdFCordo.Size = new System.Drawing.Size(326, 41);
+            this.txtAddProdFCordo.TabIndex = 94;
+            this.txtAddProdFCordo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // gunaTextBox4
             // 
@@ -3211,7 +3189,7 @@
             this.gunaComboBox5.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gunaComboBox5.ForeColor = System.Drawing.Color.Black;
             this.gunaComboBox5.FormattingEnabled = true;
-            this.gunaComboBox5.Location = new System.Drawing.Point(338, 412);
+            this.gunaComboBox5.Location = new System.Drawing.Point(338, 374);
             this.gunaComboBox5.Name = "gunaComboBox5";
             this.gunaComboBox5.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.gunaComboBox5.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -3221,7 +3199,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(238, 419);
+            this.label16.Location = new System.Drawing.Point(238, 381);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(84, 13);
             this.label16.TabIndex = 89;
@@ -3237,7 +3215,7 @@
             this.gunaTextBox2.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
             this.gunaTextBox2.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.gunaTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaTextBox2.Location = new System.Drawing.Point(338, 346);
+            this.gunaTextBox2.Location = new System.Drawing.Point(338, 308);
             this.gunaTextBox2.Name = "gunaTextBox2";
             this.gunaTextBox2.PasswordChar = '\0';
             this.gunaTextBox2.Size = new System.Drawing.Size(326, 41);
@@ -3246,7 +3224,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(338, 235);
+            this.richTextBox1.Location = new System.Drawing.Point(338, 197);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(326, 92);
             this.richTextBox1.TabIndex = 87;
@@ -3255,7 +3233,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(238, 247);
+            this.label13.Location = new System.Drawing.Point(238, 209);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 13);
             this.label13.TabIndex = 86;
@@ -3264,47 +3242,11 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(238, 196);
+            this.label12.Location = new System.Drawing.Point(238, 434);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 13);
+            this.label12.Size = new System.Drawing.Size(64, 13);
             this.label12.TabIndex = 85;
-            this.label12.Text = "Etage | Salle";
-            // 
-            // gunaComboBox2
-            // 
-            this.gunaComboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox2.BaseColor = System.Drawing.Color.White;
-            this.gunaComboBox2.BorderColor = System.Drawing.Color.Silver;
-            this.gunaComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.gunaComboBox2.ForeColor = System.Drawing.Color.Black;
-            this.gunaComboBox2.FormattingEnabled = true;
-            this.gunaComboBox2.Location = new System.Drawing.Point(524, 190);
-            this.gunaComboBox2.Name = "gunaComboBox2";
-            this.gunaComboBox2.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaComboBox2.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox2.Size = new System.Drawing.Size(140, 26);
-            this.gunaComboBox2.TabIndex = 84;
-            // 
-            // gunaComboBox4
-            // 
-            this.gunaComboBox4.BackColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox4.BaseColor = System.Drawing.Color.White;
-            this.gunaComboBox4.BorderColor = System.Drawing.Color.Silver;
-            this.gunaComboBox4.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox4.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.gunaComboBox4.ForeColor = System.Drawing.Color.Black;
-            this.gunaComboBox4.FormattingEnabled = true;
-            this.gunaComboBox4.Location = new System.Drawing.Point(338, 190);
-            this.gunaComboBox4.Name = "gunaComboBox4";
-            this.gunaComboBox4.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaComboBox4.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox4.Size = new System.Drawing.Size(140, 26);
-            this.gunaComboBox4.TabIndex = 83;
+            this.label12.Text = "Cordonnées";
             // 
             // gunaGradientButton1
             // 
@@ -3338,7 +3280,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(238, 360);
+            this.label11.Location = new System.Drawing.Point(238, 322);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 13);
             this.label11.TabIndex = 81;
@@ -3355,7 +3297,7 @@
             this.gunaComboBox3.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gunaComboBox3.ForeColor = System.Drawing.Color.Black;
             this.gunaComboBox3.FormattingEnabled = true;
-            this.gunaComboBox3.Location = new System.Drawing.Point(338, 142);
+            this.gunaComboBox3.Location = new System.Drawing.Point(338, 152);
             this.gunaComboBox3.Name = "gunaComboBox3";
             this.gunaComboBox3.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.gunaComboBox3.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -3365,7 +3307,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(238, 149);
+            this.label14.Location = new System.Drawing.Point(238, 159);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(56, 13);
             this.label14.TabIndex = 74;
@@ -3403,10 +3345,103 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1000, 655);
+            this.tabPage3.Size = new System.Drawing.Size(1000, 643);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Utilisateurs";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.gunaLabel3);
+            this.groupBox1.Controls.Add(this.gunaLabel2);
+            this.groupBox1.Controls.Add(this.gunaLabel1);
+            this.groupBox1.Controls.Add(this.gunaComboBox1);
+            this.groupBox1.Controls.Add(this.gunaTextBox7);
+            this.groupBox1.Controls.Add(this.gunaTextBox6);
+            this.groupBox1.Location = new System.Drawing.Point(6, 21);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(441, 179);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Ajouter nouveau utilisateur";
+            // 
+            // gunaLabel3
+            // 
+            this.gunaLabel3.AutoSize = true;
+            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel3.Location = new System.Drawing.Point(6, 138);
+            this.gunaLabel3.Name = "gunaLabel3";
+            this.gunaLabel3.Size = new System.Drawing.Size(70, 15);
+            this.gunaLabel3.TabIndex = 5;
+            this.gunaLabel3.Text = "Permissions";
+            // 
+            // gunaLabel2
+            // 
+            this.gunaLabel2.AutoSize = true;
+            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel2.Location = new System.Drawing.Point(6, 88);
+            this.gunaLabel2.Name = "gunaLabel2";
+            this.gunaLabel2.Size = new System.Drawing.Size(77, 15);
+            this.gunaLabel2.TabIndex = 4;
+            this.gunaLabel2.Text = "Mot de passe";
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel1.Location = new System.Drawing.Point(6, 36);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(99, 15);
+            this.gunaLabel1.TabIndex = 3;
+            this.gunaLabel1.Text = "Nom d\'utilisateur";
+            // 
+            // gunaComboBox1
+            // 
+            this.gunaComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaComboBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaComboBox1.BorderColor = System.Drawing.Color.Silver;
+            this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
+            this.gunaComboBox1.FormattingEnabled = true;
+            this.gunaComboBox1.Location = new System.Drawing.Point(220, 133);
+            this.gunaComboBox1.Name = "gunaComboBox1";
+            this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.gunaComboBox1.Size = new System.Drawing.Size(215, 26);
+            this.gunaComboBox1.TabIndex = 2;
+            // 
+            // gunaTextBox7
+            // 
+            this.gunaTextBox7.BaseColor = System.Drawing.Color.White;
+            this.gunaTextBox7.BorderColor = System.Drawing.Color.Silver;
+            this.gunaTextBox7.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.gunaTextBox7.FocusedBaseColor = System.Drawing.Color.White;
+            this.gunaTextBox7.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaTextBox7.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.gunaTextBox7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaTextBox7.Location = new System.Drawing.Point(220, 81);
+            this.gunaTextBox7.Name = "gunaTextBox7";
+            this.gunaTextBox7.PasswordChar = '\0';
+            this.gunaTextBox7.Size = new System.Drawing.Size(215, 30);
+            this.gunaTextBox7.TabIndex = 1;
+            // 
+            // gunaTextBox6
+            // 
+            this.gunaTextBox6.BaseColor = System.Drawing.Color.White;
+            this.gunaTextBox6.BorderColor = System.Drawing.Color.Silver;
+            this.gunaTextBox6.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.gunaTextBox6.FocusedBaseColor = System.Drawing.Color.White;
+            this.gunaTextBox6.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaTextBox6.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.gunaTextBox6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaTextBox6.Location = new System.Drawing.Point(220, 28);
+            this.gunaTextBox6.Name = "gunaTextBox6";
+            this.gunaTextBox6.PasswordChar = '\0';
+            this.gunaTextBox6.Size = new System.Drawing.Size(215, 30);
+            this.gunaTextBox6.TabIndex = 0;
             // 
             // ClickDroitMouseClt
             // 
@@ -3614,107 +3649,68 @@
             this.modifierToolStripMenuItemProdF.Text = "Modifier";
             this.modifierToolStripMenuItemProdF.Click += new System.EventHandler(this.modifierToolStripMenuItemProdF_Click);
             // 
-            // groupBox1
+            // gunaButton2
             // 
-            this.groupBox1.Controls.Add(this.gunaLabel3);
-            this.groupBox1.Controls.Add(this.gunaLabel2);
-            this.groupBox1.Controls.Add(this.gunaLabel1);
-            this.groupBox1.Controls.Add(this.gunaComboBox1);
-            this.groupBox1.Controls.Add(this.gunaTextBox7);
-            this.groupBox1.Controls.Add(this.gunaTextBox6);
-            this.groupBox1.Location = new System.Drawing.Point(6, 21);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(441, 179);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ajouter nouveau utilisateur";
+            this.gunaButton2.AnimationHoverSpeed = 0.07F;
+            this.gunaButton2.AnimationSpeed = 0.03F;
+            this.gunaButton2.BackColor = System.Drawing.Color.Transparent;
+            this.gunaButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
+            this.gunaButton2.BorderColor = System.Drawing.Color.Black;
+            this.gunaButton2.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaButton2.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaButton2.ForeColor = System.Drawing.Color.White;
+            this.gunaButton2.Image = null;
+            this.gunaButton2.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton2.Location = new System.Drawing.Point(964, 1);
+            this.gunaButton2.Name = "gunaButton2";
+            this.gunaButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(208)))), ((int)(((byte)(10)))));
+            this.gunaButton2.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaButton2.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaButton2.OnHoverImage = null;
+            this.gunaButton2.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaButton2.Radius = 9;
+            this.gunaButton2.Size = new System.Drawing.Size(17, 17);
+            this.gunaButton2.TabIndex = 11;
+            this.gunaButton2.Click += new System.EventHandler(this.gunaButton2_Click);
             // 
-            // gunaTextBox6
+            // gunaButton1
             // 
-            this.gunaTextBox6.BaseColor = System.Drawing.Color.White;
-            this.gunaTextBox6.BorderColor = System.Drawing.Color.Silver;
-            this.gunaTextBox6.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox6.FocusedBaseColor = System.Drawing.Color.White;
-            this.gunaTextBox6.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaTextBox6.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.gunaTextBox6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaTextBox6.Location = new System.Drawing.Point(220, 28);
-            this.gunaTextBox6.Name = "gunaTextBox6";
-            this.gunaTextBox6.PasswordChar = '\0';
-            this.gunaTextBox6.Size = new System.Drawing.Size(215, 30);
-            this.gunaTextBox6.TabIndex = 0;
-            // 
-            // gunaTextBox7
-            // 
-            this.gunaTextBox7.BaseColor = System.Drawing.Color.White;
-            this.gunaTextBox7.BorderColor = System.Drawing.Color.Silver;
-            this.gunaTextBox7.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox7.FocusedBaseColor = System.Drawing.Color.White;
-            this.gunaTextBox7.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaTextBox7.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.gunaTextBox7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaTextBox7.Location = new System.Drawing.Point(220, 81);
-            this.gunaTextBox7.Name = "gunaTextBox7";
-            this.gunaTextBox7.PasswordChar = '\0';
-            this.gunaTextBox7.Size = new System.Drawing.Size(215, 30);
-            this.gunaTextBox7.TabIndex = 1;
-            // 
-            // gunaComboBox1
-            // 
-            this.gunaComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaComboBox1.BorderColor = System.Drawing.Color.Silver;
-            this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.gunaComboBox1.FormattingEnabled = true;
-            this.gunaComboBox1.Location = new System.Drawing.Point(220, 133);
-            this.gunaComboBox1.Name = "gunaComboBox1";
-            this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox1.Size = new System.Drawing.Size(215, 26);
-            this.gunaComboBox1.TabIndex = 2;
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel1.Location = new System.Drawing.Point(6, 36);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(99, 15);
-            this.gunaLabel1.TabIndex = 3;
-            this.gunaLabel1.Text = "Nom d\'utilisateur";
-            // 
-            // gunaLabel2
-            // 
-            this.gunaLabel2.AutoSize = true;
-            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel2.Location = new System.Drawing.Point(6, 88);
-            this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(77, 15);
-            this.gunaLabel2.TabIndex = 4;
-            this.gunaLabel2.Text = "Mot de passe";
-            // 
-            // gunaLabel3
-            // 
-            this.gunaLabel3.AutoSize = true;
-            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel3.Location = new System.Drawing.Point(6, 138);
-            this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(70, 15);
-            this.gunaLabel3.TabIndex = 5;
-            this.gunaLabel3.Text = "Permissions";
+            this.gunaButton1.AnimationHoverSpeed = 0.07F;
+            this.gunaButton1.AnimationSpeed = 0.03F;
+            this.gunaButton1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.gunaButton1.BorderColor = System.Drawing.Color.Black;
+            this.gunaButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaButton1.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaButton1.ForeColor = System.Drawing.Color.White;
+            this.gunaButton1.Image = null;
+            this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton1.Location = new System.Drawing.Point(987, 1);
+            this.gunaButton1.Name = "gunaButton1";
+            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(18)))), ((int)(((byte)(25)))));
+            this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaButton1.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaButton1.OnHoverImage = null;
+            this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaButton1.Radius = 9;
+            this.gunaButton1.Size = new System.Drawing.Size(17, 17);
+            this.gunaButton1.TabIndex = 10;
+            this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click_1);
             // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 681);
+            this.CausesValidation = false;
+            this.ClientSize = new System.Drawing.Size(1008, 710);
+            this.Controls.Add(this.gunaButton2);
+            this.Controls.Add(this.gunaButton1);
             this.Controls.Add(this.btnSaveProdF);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "menu";
@@ -3771,6 +3767,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ClickDroitMouseClt.ResumeLayout(false);
             this.ClickDroitMouseFourni.ResumeLayout(false);
             this.ClickDroitMouseEmballage.ResumeLayout(false);
@@ -3778,8 +3776,6 @@
             this.ClickDroitMouseHistoA.ResumeLayout(false);
             this.ClickDroitMouseHistoV.ResumeLayout(false);
             this.ClickDroitMouseProdF.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3806,8 +3802,6 @@
         private Guna.UI.WinForms.GunaGradientButton btnAddEmballage;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label39;
-        private Guna.UI.WinForms.GunaComboBox cmbAddSalleEmballage;
-        private Guna.UI.WinForms.GunaComboBox cmbAddEtageEmballage;
         private System.Windows.Forms.RichTextBox txtAddDescriptionEmballage;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
@@ -3828,8 +3822,6 @@
         private Guna.UI.WinForms.GunaTextBox txtAddNomMatiereP;
         private Guna.UI.WinForms.GunaGradientButton batnAddMatiereP;
         private System.Windows.Forms.Label label57;
-        private Guna.UI.WinForms.GunaComboBox cmbAddSaleMatiereP;
-        private Guna.UI.WinForms.GunaComboBox cmbAddEtageMatiereP;
         private System.Windows.Forms.RichTextBox txtAddDescMatierP;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label55;
@@ -3945,8 +3937,6 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private Guna.UI.WinForms.GunaComboBox gunaComboBox2;
-        private Guna.UI.WinForms.GunaComboBox gunaComboBox4;
         private Guna.UI.WinForms.GunaGradientButton gunaGradientButton1;
         private System.Windows.Forms.Label label11;
         private Guna.UI.WinForms.GunaComboBox gunaComboBox3;
@@ -3998,5 +3988,10 @@
         private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
         private Guna.UI.WinForms.GunaTextBox gunaTextBox7;
         private Guna.UI.WinForms.GunaTextBox gunaTextBox6;
+        private Guna.UI.WinForms.GunaTextBox txtAddEmballageCordonn;
+        private Guna.UI.WinForms.GunaTextBox txtAddMatierPCordo;
+        private Guna.UI.WinForms.GunaTextBox txtAddProdFCordo;
+        private Guna.UI.WinForms.GunaButton gunaButton2;
+        private Guna.UI.WinForms.GunaButton gunaButton1;
     }
 }

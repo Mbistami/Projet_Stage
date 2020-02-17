@@ -19,7 +19,7 @@ namespace paradis_des_huiles
             InitializeComponent();
         }
 
-        SqlConnection cn = new SqlConnection("Server='R_230_ROG-PC\\SQLEXPRESS';Database=DB_Gestionn;Integrated Security = true");
+        SqlConnection cn = new SqlConnection("Server='192.168.1.30, 1433'; Database= DB_Gestion ;user id='admin';password='admin'");
         DataSet DataSet = new DataSet();
         int Check;
 
@@ -140,6 +140,11 @@ namespace paradis_des_huiles
             cn.Close();
             MessageBox.Show("Modification Enregistrer","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
             Check = 2;
+        }
+
+        private void gunaButton6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
