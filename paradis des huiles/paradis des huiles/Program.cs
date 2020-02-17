@@ -14,16 +14,12 @@ namespace paradis_des_huiles
         [STAThread]
         static void Main()
         {
-            try
-            {
+            
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new menu());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                Application.Run(new Form1());
+            
+            
         }
     }
 }

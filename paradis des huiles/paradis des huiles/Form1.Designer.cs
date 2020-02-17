@@ -41,6 +41,7 @@
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.txtWrong = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,18 +132,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(344, 329);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(98, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Login";
+            this.label2.Text = "Nom d\'ultilisateur";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(344, 392);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.Size = new System.Drawing.Size(76, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Password";
+            this.label3.Text = "Mot de passe";
             // 
             // label4
             // 
@@ -207,12 +208,22 @@
             // 
             this.gunaElipse1.TargetControl = this;
             // 
+            // txtWrong
+            // 
+            this.txtWrong.AutoSize = true;
+            this.txtWrong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWrong.Location = new System.Drawing.Point(265, 517);
+            this.txtWrong.Name = "txtWrong";
+            this.txtWrong.Size = new System.Drawing.Size(0, 21);
+            this.txtWrong.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1024, 680);
+            this.Controls.Add(this.txtWrong);
             this.Controls.Add(this.gunaButton2);
             this.Controls.Add(this.gunaButton1);
             this.Controls.Add(this.label4);
@@ -248,6 +259,7 @@
         private Guna.UI.WinForms.GunaButton gunaButton1;
         private Guna.UI.WinForms.GunaButton gunaButton2;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
+        private System.Windows.Forms.Label txtWrong;
     }
 }
 

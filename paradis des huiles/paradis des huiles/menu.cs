@@ -215,10 +215,6 @@ namespace paradis_des_huiles
                 
                 throw;
             }
-
-            
-            
-
         }
 
         private void TxtRchDgrid_TextChanged(object sender, EventArgs e)
@@ -490,7 +486,8 @@ namespace paradis_des_huiles
                 }
                 cn.Open();
                 dataAdapter.Update(DataSet1.Tables["EmballagePure"]);
-                cmd.ExecuteNonQuery();
+                if (FilePathEM.Text != null)
+                    cmd.ExecuteNonQuery();
                 dataAdapter = new SqlDataAdapter("select 'AG'+convert(varchar(50),idEM) [Code Emballage], nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , UniteE [Unité de mesure] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
                 commandBuilder = new SqlCommandBuilder(dataAdapter);
                 DataSet1.Tables["Emballage"].Clear();
@@ -1158,11 +1155,6 @@ namespace paradis_des_huiles
                 dataAdapter.Fill(DataSet1, "Emballage");
                 return;
             }
-            
-            
-            
-
-
         }
         SqlCommand cmd = new SqlCommand();
 
@@ -1572,8 +1564,5 @@ namespace paradis_des_huiles
                 }
             }
         }
-
-
-
     }
 }

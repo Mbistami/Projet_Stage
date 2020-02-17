@@ -165,6 +165,7 @@
             this.TxtAfficherHistAfind = new Guna.UI.WinForms.GunaTextBox();
             this.dataGrideHistoriqueA = new Guna.UI.WinForms.GunaDataGridView();
             this.tabAddHA = new System.Windows.Forms.TabPage();
+            this.gunaTextBox3 = new Guna.UI.WinForms.GunaTextBox();
             this.rbtnAddHistoAProdFin = new System.Windows.Forms.RadioButton();
             this.rbtnAddHistoAMatierePrem = new System.Windows.Forms.RadioButton();
             this.label91 = new System.Windows.Forms.Label();
@@ -228,6 +229,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.gunaTextBox5 = new Guna.UI.WinForms.GunaTextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.ClickDroitMouseClt = new Guna.UI.WinForms.GunaContextMenuStrip();
             this.ClickDroirMouseVA = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -254,7 +256,13 @@
             this.ClickDroitMouseProdF = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItemProdF = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItemProdF = new System.Windows.Forms.ToolStripMenuItem();
-            this.gunaTextBox3 = new Guna.UI.WinForms.GunaTextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gunaTextBox6 = new Guna.UI.WinForms.GunaTextBox();
+            this.gunaTextBox7 = new Guna.UI.WinForms.GunaTextBox();
+            this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.btnSaveProdF.SuspendLayout();
             this.tabClient.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -292,6 +300,7 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridAffProduitF)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.ClickDroitMouseClt.SuspendLayout();
             this.ClickDroitMouseFourni.SuspendLayout();
             this.ClickDroitMouseEmballage.SuspendLayout();
@@ -299,6 +308,7 @@
             this.ClickDroitMouseHistoA.SuspendLayout();
             this.ClickDroitMouseHistoV.SuspendLayout();
             this.ClickDroitMouseProdF.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSaveProdF
@@ -310,6 +320,7 @@
             this.btnSaveProdF.Controls.Add(this.tabHAchat);
             this.btnSaveProdF.Controls.Add(this.tabHvente);
             this.btnSaveProdF.Controls.Add(this.tabProdFini);
+            this.btnSaveProdF.Controls.Add(this.tabPage3);
             this.btnSaveProdF.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSaveProdF.Location = new System.Drawing.Point(0, 0);
             this.btnSaveProdF.Name = "btnSaveProdF";
@@ -2305,6 +2316,23 @@
             this.tabAddHA.Text = "Ajouter";
             this.tabAddHA.UseVisualStyleBackColor = true;
             // 
+            // gunaTextBox3
+            // 
+            this.gunaTextBox3.BaseColor = System.Drawing.Color.White;
+            this.gunaTextBox3.BorderColor = System.Drawing.Color.Silver;
+            this.gunaTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.gunaTextBox3.Enabled = false;
+            this.gunaTextBox3.FocusedBaseColor = System.Drawing.Color.White;
+            this.gunaTextBox3.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
+            this.gunaTextBox3.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.gunaTextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaTextBox3.Location = new System.Drawing.Point(342, 221);
+            this.gunaTextBox3.Name = "gunaTextBox3";
+            this.gunaTextBox3.PasswordChar = '\0';
+            this.gunaTextBox3.Size = new System.Drawing.Size(326, 26);
+            this.gunaTextBox3.TabIndex = 74;
+            this.gunaTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // rbtnAddHistoAProdFin
             // 
             this.rbtnAddHistoAProdFin.AutoSize = true;
@@ -3369,6 +3397,17 @@
             this.gunaTextBox5.TabIndex = 72;
             this.gunaTextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1000, 655);
+            this.tabPage3.TabIndex = 7;
+            this.tabPage3.Text = "Utilisateurs";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // ClickDroitMouseClt
             // 
             this.ClickDroitMouseClt.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -3386,24 +3425,24 @@
             this.ClickDroitMouseClt.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.ClickDroitMouseClt.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.ClickDroitMouseClt.RenderStyle.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.SystemDefault;
-            this.ClickDroitMouseClt.Size = new System.Drawing.Size(152, 76);
+            this.ClickDroitMouseClt.Size = new System.Drawing.Size(151, 76);
             // 
             // ClickDroirMouseVA
             // 
             this.ClickDroirMouseVA.Name = "ClickDroirMouseVA";
-            this.ClickDroirMouseVA.Size = new System.Drawing.Size(151, 22);
+            this.ClickDroirMouseVA.Size = new System.Drawing.Size(150, 22);
             this.ClickDroirMouseVA.Text = "Voir ses achats";
             this.ClickDroirMouseVA.Click += new System.EventHandler(this.ClickDroirMouseVA_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(148, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
             // 
             // ClickDroitMouseSupprimer
             // 
             this.ClickDroitMouseSupprimer.Name = "ClickDroitMouseSupprimer";
-            this.ClickDroitMouseSupprimer.Size = new System.Drawing.Size(151, 22);
+            this.ClickDroitMouseSupprimer.Size = new System.Drawing.Size(150, 22);
             this.ClickDroitMouseSupprimer.Text = "Supprimer";
             this.ClickDroitMouseSupprimer.Click += new System.EventHandler(this.ClickDroitMouseSupprimer_Click);
             // 
@@ -3411,7 +3450,7 @@
             // 
             this.ClickDroitMouseModifier.CheckOnClick = true;
             this.ClickDroitMouseModifier.Name = "ClickDroitMouseModifier";
-            this.ClickDroitMouseModifier.Size = new System.Drawing.Size(151, 22);
+            this.ClickDroitMouseModifier.Size = new System.Drawing.Size(150, 22);
             this.ClickDroitMouseModifier.Text = "Modifier";
             this.ClickDroitMouseModifier.Click += new System.EventHandler(this.ClickDroitMouseModifier_Click);
             // 
@@ -3423,24 +3462,24 @@
             this.supprimerToolStripMenuItem,
             this.modifierToolStripMenuItem});
             this.ClickDroitMouseFourni.Name = "ClickDroitMouseFourni";
-            this.ClickDroitMouseFourni.Size = new System.Drawing.Size(158, 76);
+            this.ClickDroitMouseFourni.Size = new System.Drawing.Size(157, 76);
             // 
             // ClickDroirMouseFiindFourni
             // 
             this.ClickDroirMouseFiindFourni.Name = "ClickDroirMouseFiindFourni";
-            this.ClickDroirMouseFiindFourni.Size = new System.Drawing.Size(157, 22);
+            this.ClickDroirMouseFiindFourni.Size = new System.Drawing.Size(156, 22);
             this.ClickDroirMouseFiindFourni.Text = "Voir Ses Fournis";
             this.ClickDroirMouseFiindFourni.Click += new System.EventHandler(this.ClickDroirMouseFiindAchat_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(154, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(153, 6);
             // 
             // supprimerToolStripMenuItem
             // 
             this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.supprimerToolStripMenuItem.Text = "Supprimer";
             this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
@@ -3448,7 +3487,7 @@
             // 
             this.modifierToolStripMenuItem.CheckOnClick = true;
             this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.modifierToolStripMenuItem.Text = "Modifier";
             this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
             // 
@@ -3575,22 +3614,98 @@
             this.modifierToolStripMenuItemProdF.Text = "Modifier";
             this.modifierToolStripMenuItemProdF.Click += new System.EventHandler(this.modifierToolStripMenuItemProdF_Click);
             // 
-            // gunaTextBox3
+            // groupBox1
             // 
-            this.gunaTextBox3.BaseColor = System.Drawing.Color.White;
-            this.gunaTextBox3.BorderColor = System.Drawing.Color.Silver;
-            this.gunaTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox3.Enabled = false;
-            this.gunaTextBox3.FocusedBaseColor = System.Drawing.Color.White;
-            this.gunaTextBox3.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
-            this.gunaTextBox3.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.gunaTextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaTextBox3.Location = new System.Drawing.Point(342, 221);
-            this.gunaTextBox3.Name = "gunaTextBox3";
-            this.gunaTextBox3.PasswordChar = '\0';
-            this.gunaTextBox3.Size = new System.Drawing.Size(326, 26);
-            this.gunaTextBox3.TabIndex = 74;
-            this.gunaTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.groupBox1.Controls.Add(this.gunaLabel3);
+            this.groupBox1.Controls.Add(this.gunaLabel2);
+            this.groupBox1.Controls.Add(this.gunaLabel1);
+            this.groupBox1.Controls.Add(this.gunaComboBox1);
+            this.groupBox1.Controls.Add(this.gunaTextBox7);
+            this.groupBox1.Controls.Add(this.gunaTextBox6);
+            this.groupBox1.Location = new System.Drawing.Point(6, 21);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(441, 179);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Ajouter nouveau utilisateur";
+            // 
+            // gunaTextBox6
+            // 
+            this.gunaTextBox6.BaseColor = System.Drawing.Color.White;
+            this.gunaTextBox6.BorderColor = System.Drawing.Color.Silver;
+            this.gunaTextBox6.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.gunaTextBox6.FocusedBaseColor = System.Drawing.Color.White;
+            this.gunaTextBox6.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaTextBox6.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.gunaTextBox6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaTextBox6.Location = new System.Drawing.Point(220, 28);
+            this.gunaTextBox6.Name = "gunaTextBox6";
+            this.gunaTextBox6.PasswordChar = '\0';
+            this.gunaTextBox6.Size = new System.Drawing.Size(215, 30);
+            this.gunaTextBox6.TabIndex = 0;
+            // 
+            // gunaTextBox7
+            // 
+            this.gunaTextBox7.BaseColor = System.Drawing.Color.White;
+            this.gunaTextBox7.BorderColor = System.Drawing.Color.Silver;
+            this.gunaTextBox7.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.gunaTextBox7.FocusedBaseColor = System.Drawing.Color.White;
+            this.gunaTextBox7.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaTextBox7.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.gunaTextBox7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaTextBox7.Location = new System.Drawing.Point(220, 81);
+            this.gunaTextBox7.Name = "gunaTextBox7";
+            this.gunaTextBox7.PasswordChar = '\0';
+            this.gunaTextBox7.Size = new System.Drawing.Size(215, 30);
+            this.gunaTextBox7.TabIndex = 1;
+            // 
+            // gunaComboBox1
+            // 
+            this.gunaComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaComboBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaComboBox1.BorderColor = System.Drawing.Color.Silver;
+            this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
+            this.gunaComboBox1.FormattingEnabled = true;
+            this.gunaComboBox1.Location = new System.Drawing.Point(220, 133);
+            this.gunaComboBox1.Name = "gunaComboBox1";
+            this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.gunaComboBox1.Size = new System.Drawing.Size(215, 26);
+            this.gunaComboBox1.TabIndex = 2;
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel1.Location = new System.Drawing.Point(6, 36);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(99, 15);
+            this.gunaLabel1.TabIndex = 3;
+            this.gunaLabel1.Text = "Nom d\'utilisateur";
+            // 
+            // gunaLabel2
+            // 
+            this.gunaLabel2.AutoSize = true;
+            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel2.Location = new System.Drawing.Point(6, 88);
+            this.gunaLabel2.Name = "gunaLabel2";
+            this.gunaLabel2.Size = new System.Drawing.Size(77, 15);
+            this.gunaLabel2.TabIndex = 4;
+            this.gunaLabel2.Text = "Mot de passe";
+            // 
+            // gunaLabel3
+            // 
+            this.gunaLabel3.AutoSize = true;
+            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel3.Location = new System.Drawing.Point(6, 138);
+            this.gunaLabel3.Name = "gunaLabel3";
+            this.gunaLabel3.Size = new System.Drawing.Size(70, 15);
+            this.gunaLabel3.TabIndex = 5;
+            this.gunaLabel3.Text = "Permissions";
             // 
             // menu
             // 
@@ -3655,6 +3770,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.datagridAffProduitF)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
             this.ClickDroitMouseClt.ResumeLayout(false);
             this.ClickDroitMouseFourni.ResumeLayout(false);
             this.ClickDroitMouseEmballage.ResumeLayout(false);
@@ -3662,6 +3778,8 @@
             this.ClickDroitMouseHistoA.ResumeLayout(false);
             this.ClickDroitMouseHistoV.ResumeLayout(false);
             this.ClickDroitMouseProdF.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3872,5 +3990,13 @@
         private System.Windows.Forms.Label lblCountHistorV;
         private System.Windows.Forms.Label lblCountProdF;
         private Guna.UI.WinForms.GunaTextBox gunaTextBox3;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private Guna.UI.WinForms.GunaLabel gunaLabel3;
+        private Guna.UI.WinForms.GunaLabel gunaLabel2;
+        private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
+        private Guna.UI.WinForms.GunaTextBox gunaTextBox7;
+        private Guna.UI.WinForms.GunaTextBox gunaTextBox6;
     }
 }

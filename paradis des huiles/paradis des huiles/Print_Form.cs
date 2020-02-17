@@ -19,46 +19,51 @@ namespace paradis_des_huiles
         }
         public void Printer(DataTable data)
         {
-             if (data.TableName == "Client")
+            if (data.TableName == "Client")
             {
                 CrystalReport4 cr = new CrystalReport4();
                 crystalReportViewer1.ReportSource = cr;
                 cr.SetDataSource(data);
             }
-            else if(data.TableName == "Fournisseur")
+            else if (data.TableName == "Fournisseur")
             {
+                CrystalReport5 cr = new CrystalReport5();
+                crystalReportViewer1.ReportSource = cr;
+                cr.SetDataSource(data);
+            }
+            else if (data.TableName == "Emballage")
+            {
+                CrystalReport6 cr = new CrystalReport6();
+                crystalReportViewer1.ReportSource = cr;
+                cr.SetDataSource(data);
 
+            }
+            else if (data.TableName == "HistoriqueV")
+            {
+                CrystalReport7 cr = new CrystalReport7();
+                crystalReportViewer1.ReportSource = cr;
+                cr.SetDataSource(data);
+            }
+            else if (data.TableName == "MatiereP")
+            {
+                CrystalReport8 cr = new CrystalReport8();
+                crystalReportViewer1.ReportSource = cr;
+                cr.SetDataSource(data);
+            }
+            else if (data.TableName == "HistoriqueA")
+            {
+                CrystalReport9 cr = new CrystalReport9();
+                crystalReportViewer1.ReportSource = cr;
+                cr.SetDataSource(data);
+            }
+            else if (data.TableName == "Produit_finis")
+            {
+                CrystalReport10 cr = new CrystalReport10();
+                crystalReportViewer1.ReportSource = cr;
+                cr.SetDataSource(data);
             }
 
             
-        }
-        /*public string crypt(string pass)
-        {
-            MD5 mD = new MD5CryptoServiceProvider();
-            mD.ComputeHash(ASCIIEncoding.ASCII.GetBytes(pass));
-
-            byte[] result = mD.Hash;
-            StringBuilder stringBuilder = new StringBuilder();
-            for(int i = 0; i < result.Length; i++)
-            {
-                stringBuilder.Append(result[i].ToString("x2"));
-            }
-            return stringBuilder.ToString();
-        }*/
-        public string CalculateMD5Hash(string input)
-        {
-            // step 1, calculate MD5 hash from input
-            MD5 md5 = System.Security.Cryptography.MD5.Create();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-            byte[] hash = md5.ComputeHash(inputBytes);
-
-            // step 2, convert byte array to hex string
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
-            {
-                sb.Append(hash[i].ToString("X2"));
-            }
-            return sb.ToString();
         }
     }
 }
