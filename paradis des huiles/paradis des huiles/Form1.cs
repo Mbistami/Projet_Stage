@@ -18,7 +18,7 @@ namespace paradis_des_huiles
         {
             InitializeComponent();
         }
-
+        // perm level [1 = read only / 2 = update read / 3 = read update insert / 4 = fullperms]
         SqlConnection cn = new SqlConnection("Server='.'; Database= DB_Gestionn ;Integrated Security = true");
 
         private void gunaGradientButton1_Click(object sender, EventArgs e)
@@ -31,7 +31,10 @@ namespace paradis_des_huiles
                 string s1 = CalculateMD5Hash(gunaTextBox1.Text).ToString();
                 if ( s1.ToString() == s.ToString())
                 {
+                    SqlCommand cmd1 = new SqlCommand("Select permLevel from Accounts where username = '" + TxtLogin.Text.ToString() + "'", cn);
+                    int permlvl = Convert.ToInt32(cmd1.ExecuteScalar());
                     menu menu = new menu();
+                    menu.permleve = permlvl;
                     menu.Show();
                     menu.Text = "Menu Principal Session : [" + TxtLogin.Text.ToString() + "]";
                     this.Hide();
@@ -64,5 +67,9 @@ namespace paradis_des_huiles
             return sb.ToString().ToLower();
         }
 
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

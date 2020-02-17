@@ -179,6 +179,7 @@
             this.gunaButton1.Radius = 9;
             this.gunaButton1.Size = new System.Drawing.Size(17, 17);
             this.gunaButton1.TabIndex = 8;
+            this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click);
             // 
             // gunaButton2
             // 

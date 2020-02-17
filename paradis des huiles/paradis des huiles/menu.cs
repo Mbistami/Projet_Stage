@@ -26,11 +26,15 @@ namespace paradis_des_huiles
         DataSet DataSet1 = new DataSet();
         SqlDataAdapter dataAdapter;
         SqlCommandBuilder commandBuilder;
+        public static int permleve;
         private void menu_Load(object sender, EventArgs e)
         {
 
             try
             {
+                
+                if (permleve != 4)
+                    btnSaveProdF.TabPages.RemoveAt(btnSaveProdF.TabPages.Count - 1);
                 String[] etage = { "E0", "E1", "E2" };
                 String[] salle = { "S1", "S2", "S3" };
                 cmbAddEtageEmballage.Items.AddRange(etage);
