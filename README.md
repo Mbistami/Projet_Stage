@@ -1,4 +1,4 @@
-# Projet_Stage
+# Projet Stage Fin d'etudes
 Gestion de stock ADO.net 
 # Description  de l'application :
 L'application est pour bute de gérer un stock d'une entreprise  avec une base de donées ;
