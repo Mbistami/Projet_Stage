@@ -30,8 +30,8 @@ namespace paradis_des_huiles
         private void menu_Load(object sender, EventArgs e)
         {
 
-            /*try
-            {*/
+            try
+            {
 
             if (permleve != 4)
                 btnSaveProdF.TabPages.RemoveAt(btnSaveProdF.TabPages.Count - 1);
@@ -200,8 +200,11 @@ namespace paradis_des_huiles
                 this.lblCountHistoA.Text = "Nombre des Historique : " + dataGrideHistoriqueA.Rows.Count;
                 this.lblCountHistorV.Text = "Nombre des Historique : " + dataGrideHistoriqueV.Rows.Count;
                 this.lblCountProdF.Text = "Nombre des Produits : " + datagridAffProduitF.Rows.Count;
-
-                this.cmbAddHabituelHistorV.DataSource = DataSet1.Tables["produit_finis"];
+                this.gunaComboBox1.Items.Add("Voire");
+                this.gunaComboBox1.Items.Add("Lire et voire");
+                this.gunaComboBox1.Items.Add("Voir, lire modifier");
+                this.gunaComboBox1.Items.Add("Administrateur");
+            this.cmbAddHabituelHistorV.DataSource = DataSet1.Tables["produit_finis"];
                 cmbAddHabituelHistorV.DisplayMember = "nomPF";
                 cmbAddHabituelHistorV.ValueMember = "idPF";
 
@@ -213,12 +216,11 @@ namespace paradis_des_huiles
                 this.gunaComboBox5.DataSource = DataSet1.Tables["Etat"];
             if(DataSet1.Tables["MatiereP"].Rows.Count != 0)
                 gunaTextBox3.Text = DataSet1.Tables["MatiereP"].Rows[0][2].ToString();
-            /*}
-            catch (Exception)
+            }
+            catch (Exception ex)
             {
-                
-                throw;
-            }*/
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void TxtRchDgrid_TextChanged(object sender, EventArgs e)
@@ -621,7 +623,7 @@ namespace paradis_des_huiles
                 return ;
             }
         }
-
+        
         private void gunaGradientButton6_Click(object sender, EventArgs e)
         {
             try
@@ -729,7 +731,7 @@ namespace paradis_des_huiles
             else
                 dataGridFourni.ReadOnly = true;
         }
-
+        
         private void gunaGradientButton2_Click(object sender, EventArgs e)
         {
             try
@@ -1525,11 +1527,47 @@ namespace paradis_des_huiles
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void gunaGradientButton26_Click(object sender, EventArgs e)
+        private void gunaGradientButton2_Click_1(object sender, EventArgs e)
         {
-            msgbx = true;
             try
             {
+                SqlCommand cmd = new SqlCommand("exec sp_addacc");
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("username", gunaTextBox6.Text.ToString());
+                cmd.Parameters.AddWithValue("pass", gunaTextBox7.Text.ToString());
+                cmd.Parameters.AddWithValue("permLvl", gunaComboBox1.SelectedText.ToString());
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                cn.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+          
+        }
+
+        private void gunaGradientButton4_Click(object sender, EventArgs e)
+        {
+            actualiser();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            gunaGradientButton4.PerformClick();
+        }
+
+        private void gunaGradientButton5_Click(object sender, EventArgs e)
+        {
+            actualiser();
+        }
+
+        private void gunaGradientButton26_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                msgbx = true;
                 if (ConnectionState.Open == cn.State)
                 {
                     cn.Close();
@@ -1609,6 +1647,112 @@ namespace paradis_des_huiles
             
         }
 
+        private void gunaGradientButton6_Click_1(object sender, EventArgs e)
+        {
+            actualiser();
+        }
+
+        private void gunaGradientButton7_Click(object sender, EventArgs e)
+        {
+            actualiser();
+        }
+
+        private void gunaGradientButton8_Click(object sender, EventArgs e)
+        {
+            actualiser();
+        }
+
+        private void gunaGradientButton10_Click(object sender, EventArgs e)
+        {
+            actualiser();
+        }
+
+        private void gunaGradientButton11_Click(object sender, EventArgs e)
+        {
+            actualiser();
+        }
+        bool fermerFourni = true, fermerClient = true, fermerEmballage = true, fermerMatiereP = true, fermerHistoA = true, fermerHistoV = true, fermerProdF = true;
+        private void menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            for (int i = 0; i < DataSet1.Tables["Client"].Rows.Count; i++)
+            {
+                if (DataSet1.Tables["Client"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["Client"].Rows[i].RowState == DataRowState.Deleted)
+                {
+                    fermerClient = false;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < DataSet1.Tables["fournisseur"].Rows.Count; i++)
+            {
+                if (DataSet1.Tables["fournisseur"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["fournisseur"].Rows[i].RowState == DataRowState.Deleted)
+                {
+                    fermerFourni = false;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < DataSet1.Tables["Emballage"].Rows.Count; i++)
+            {
+                if (DataSet1.Tables["Emballage"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["Emballage"].Rows[i].RowState == DataRowState.Deleted)
+                {
+                    fermerEmballage = false;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < DataSet1.Tables["MatiereP"].Rows.Count; i++)
+            {
+                if (DataSet1.Tables["MatiereP"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["MatiereP"].Rows[i].RowState == DataRowState.Deleted)
+                {
+                    fermerMatiereP = false;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < DataSet1.Tables["HistoriqueA"].Rows.Count; i++)
+            {
+                if (DataSet1.Tables["HistoriqueA"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["HistoriqueA"].Rows[i].RowState == DataRowState.Deleted)
+                {
+                    fermerHistoA = false;
+                    break;
+                }
+            }            
+
+            for (int i = 0; i < DataSet1.Tables["HistoriqueV"].Rows.Count; i++)
+            {
+                if (DataSet1.Tables["HistoriqueV"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["HistoriqueV"].Rows[i].RowState == DataRowState.Deleted)
+                {
+                    fermerHistoV = false;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < DataSet1.Tables["Produit_finis"].Rows.Count; i++)
+            {
+                if (DataSet1.Tables["Produit_finis"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["Produit_finis"].Rows[i].RowState == DataRowState.Deleted)
+                {
+                    fermerProdF = false;
+                    break;
+                }
+            }
+
+            if (!fermerClient || !fermerFourni || !fermerEmballage || !fermerHistoA || !fermerHistoV || !fermerMatiereP || !fermerProdF)
+            {
+                DialogResult dialogResult = MessageBox.Show("voulez-Vous Enregist...?","attention",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    save();
+                    MessageBox.Show("Modification effectues avec succes");
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+            }
+            
+        }
+
         private void cmbnomproduitaddhistoriquedachat_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (rbtnAddHistoAMatierePrem.Checked)
@@ -1634,5 +1778,494 @@ namespace paradis_des_huiles
                 }
             }
         }
+
+        void actualiser()
+        {
+            try
+            {
+                DataSet1.Tables["Client"].Clear();
+                DataSet1.Tables["Fournisseur"].Clear();
+                DataSet1.Tables["Emballage"].Clear();
+                DataSet1.Tables["MatiereP"].Clear();
+                DataSet1.Tables["HistoriqueA"].Clear();
+                DataSet1.Tables["HistoriqueV"].Clear();
+                DataSet1.Tables["Produit_finis"].Clear();
+                if (ConnectionState.Open == cn.State)
+                {
+                    cn.Close();
+                }
+                cn.Open();
+                dataAdapter = new SqlDataAdapter("select nomClt as NomClient, numTel [Num Tel] , adresse Adresse , email Mail, fidelite as Type , RC_CIN [RC / CIN] from Client ", cn);
+                dataAdapter.Fill(DataSet1, "Client");
+
+                dataAdapter = new SqlDataAdapter("select nomFournisseur [Nom Fourni] ,numTel [Num Tel] , adresse [Adresse] , email [Mail] , RCF [RC] from Fournisseur", cn);
+                dataAdapter.Fill(DataSet1, "Fournisseur");
+
+                dataAdapter = new SqlDataAdapter("select  'AG'+convert(varchar(50),idEM) [Code Emballage],nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , UniteE [Unité de mesure] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
+                dataAdapter.Fill(DataSet1, "Emballage");
+
+                dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], nomFournisseur [Fournisseur] , UniteE [Unité de mesure] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée] from Matiere_premiere inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF inner join Etat on Etat.idE = Matiere_premiere.idE", cn);
+                dataAdapter.Fill(DataSet1, "MatiereP");
+
+                dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(Matiere_premiere.nomMP,'') + ISNULL('AG' +CONVERT(varchar(50),Emballage.idEM) ,'') [Nom de Produit], Fournisseur.nomFournisseur [Nom Fournisseur], qteA [Quantite] , prix [Prix] ,dateA [Date Achat] from historique_achat left join Matiere_premiere on  historique_achat.idMP = Matiere_premiere.idmp  left join Emballage on   historique_achat.idEM = Emballage.idEM inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF or Fournisseur.RCF = Emballage.RCF", cn);
+                dataAdapter.Fill(DataSet1, "HistoriqueA");
+
+                dataAdapter = new SqlDataAdapter("select numVente [Num Vente],CONVERT(varchar(50),Produit_finis.nomPF)+' ' +CONVERT(varchar(50), codePF )[Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
+                dataAdapter.Fill(DataSet1, "HistoriqueV");
+
+                dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descPF [Descrption], idPF from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
+                dataAdapter.Fill(DataSet1, "Produit_finis");
+
+                dataAdapter = new SqlDataAdapter("Select * from Historique_Achat", cn);
+                dataAdapter.Fill(DataSet1, "HistoriqueAchatPure");
+
+                dataAdapter = new SqlDataAdapter("Select * from Etat", cn);
+                dataAdapter.Fill(DataSet1, "Etat");
+
+                dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], RCF [RCF] , idE [idE] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée], idMP from Matiere_premiere ", cn);
+                dataAdapter.Fill(DataSet1, "MPPure");
+
+                dataAdapter = new SqlDataAdapter("Select 'AG'+convert(varchar(50),idEM) [CODEEM],idEM from Emballage ", cn);
+                dataAdapter.Fill(DataSet1, "EMCMBOX");
+                cn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        void save()
+        {
+            try
+            {
+                dataAdapter = new SqlDataAdapter("select nomClt as NomClient, numTel [Num Tel] , adresse Adresse , email Mail, fidelite as Type , RC_CIN [RC / CIN] from Client ", cn);
+                commandBuilder = new SqlCommandBuilder(dataAdapter);
+                if (ConnectionState.Open == cn.State)
+                {
+                    cn.Close();
+                }
+                cn.Open();
+                dataAdapter.Update(DataSet1, "Client");
+
+                DataSet1.Tables["HistoriqueV"].Clear();
+                dataAdapter = new SqlDataAdapter("select numVente [Num Vente],CONVERT(varchar(50),Produit_finis.nomPF)+' ' +CONVERT(varchar(50), codePF )[Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
+                dataAdapter.Fill(DataSet1, "HistoriqueV");
+
+                cn.Close();
+
+
+                //fourni
+                dataAdapter = new SqlDataAdapter("select nomFournisseur [Nom Fourni] ,numTel [Num Tel] , adresse [Adresse] , email [Mail] , RCF [RC] from Fournisseur", cn);
+                commandBuilder = new SqlCommandBuilder(dataAdapter);
+                if (ConnectionState.Open == cn.State)
+                {
+                    cn.Close();
+                }
+                cn.Open();
+                dataAdapter.Update(DataSet1, "Fournisseur");
+
+                DataSet1.Tables["Emballage"].Clear();
+                dataAdapter = new SqlDataAdapter("select  'AG'+convert(varchar(50),idEM) [Code Emballage],nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , UniteE [Unité de mesure] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
+                dataAdapter.Fill(DataSet1, "Emballage");
+
+                DataSet1.Tables["MatiereP"].Clear();
+                dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], nomFournisseur [Fournisseur] , UniteE [Unité de mesure] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée] from Matiere_premiere inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF inner join Etat on Etat.idE = Matiere_premiere.idE", cn);
+                dataAdapter.Fill(DataSet1, "MatiereP");
+
+                DataSet1.Tables["HistoriqueA"].Clear();
+                dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(Matiere_premiere.nomMP,'') + ISNULL('AG' +CONVERT(varchar(50),Emballage.idEM) ,'') [Nom de Produit], Fournisseur.nomFournisseur [Nom Fournisseur], qteA [Quantite] , prix [Prix] ,dateA [Date Achat] from historique_achat left join Matiere_premiere on  historique_achat.idMP = Matiere_premiere.idmp  left join Emballage on   historique_achat.idEM = Emballage.idEM inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF or Fournisseur.RCF = Emballage.RCF", cn);
+                dataAdapter.Fill(DataSet1, "HistoriqueA");
+
+                cn.Close();
+
+                //emba
+
+                msgbx = true;
+                if (ConnectionState.Open == cn.State)
+                {
+                    cn.Close();
+                }
+                cn.Open();
+
+                cmd = new SqlCommand("select RCF ,idE from Fournisseur,Etat where nomFournisseur = @a and UniteE = @b'", cn);
+
+
+                for (int i = 0; i < dataGridEmballage.Rows.Count; i++)
+                {
+                    cmd = new SqlCommand("update Emballage set RCF = (select RCF from Fournisseur where nomFournisseur = @b),qteEM = @c, idE = (select idE from Etat where UniteE = @d) , supportEM = @e,descEM = @f,cordoEM = @j where idEM = @a", cn);
+                    // SqlCommand cmd2 = new SqlCommand("delete from emballage where idEM = @a", cn);
+                    cmd.Parameters.AddWithValue("@a", dataGridEmballage.Rows[i].Cells[0].Value.ToString().Remove(0, 2));
+
+                    cmd.Parameters.AddWithValue("@b", dataGridEmballage.Rows[i].Cells[1].Value);
+                    cmd.Parameters.AddWithValue("@c", dataGridEmballage.Rows[i].Cells[2].Value);
+                    cmd.Parameters.AddWithValue("@d", dataGridEmballage.Rows[i].Cells[3].Value.ToString());
+                    cmd.Parameters.AddWithValue("@e", dataGridEmballage.Rows[i].Cells[4].Value);
+                    cmd.Parameters.AddWithValue("@f", dataGridEmballage.Rows[i].Cells[5].Value);
+                    cmd.Parameters.AddWithValue("@j", dataGridEmballage.Rows[i].Cells[6].Value);
+
+
+
+                    b = false;
+                    for (int j = 0; j < DataSet1.Tables["Fournisseur"].Rows.Count; j++)
+                    {
+
+                        if (dataGridEmballage.Rows[i].Cells[1].Value.ToString() == DataSet1.Tables["Fournisseur"].Rows[j][0].ToString() && (dataGridEmballage.Rows[i].Cells[3].Value.ToString().ToLower() == "kg" || dataGridEmballage.Rows[i].Cells[3].Value.ToString().ToLower() == "l"))
+                        {
+                            b = true;
+                            break;
+                        }
+                    }
+                    if (b)
+                    {
+                        cmd.ExecuteNonQuery();
+                        if (msgbx)
+                        {
+                            msgbx = false;
+                        }
+                    }
+                    else
+                        MessageBox.Show("la valeur " + dataGridEmballage.Rows[i].Cells[1].Value.ToString() + " ou " + dataGridEmballage.Rows[i].Cells[3].Value.ToString() + " de la lign " + (i + 1).ToString() + " est invalide");
+
+                }
+
+                for (int i = 0; i < DataSet1.Tables["Emballage"].Rows.Count; i++)
+                {
+                    if (DataSet1.Tables["Emballage"].Rows[i].RowState == DataRowState.Deleted)
+                    {
+                        cmd = new SqlCommand("delete from emballage where idEM =" + DataSet1.Tables["Emballage"].Rows[i][0, DataRowVersion.Original].ToString().Remove(0, 2), cn);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                DataSet1.Tables["Emballage"].Clear();
+                dataAdapter = new SqlDataAdapter("select ISNULL('AG'+convert(varchar(50),idEM) ,'')[Code Emballage],ISNULL(nomFournisseur,'notfound') [Nom Fournisseur] , qteEM [Quantite] , UniteE [Unité de mesure] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
+                dataAdapter.Fill(DataSet1, "Emballage");
+
+                DataSet1.Tables["HistoriqueA"].Clear();
+                dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(Matiere_premiere.nomMP,'') + ISNULL('AG' +CONVERT(varchar(50),Emballage.idEM) ,'') [Nom de Produit], Fournisseur.nomFournisseur [Nom Fournisseur], qteA [Quantite] , prix [Prix] ,dateA [Date Achat] from historique_achat left join Matiere_premiere on  historique_achat.idMP = Matiere_premiere.idmp  left join Emballage on   historique_achat.idEM = Emballage.idEM inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF or Fournisseur.RCF = Emballage.RCF", cn);
+                dataAdapter.Fill(DataSet1, "HistoriqueA");
+
+                DataSet1.Tables["Produit_finis"].Clear();
+                dataAdapter = new SqlDataAdapter("select nomPF + ' ' +CONVERT(varchar(50),codePF) [Code Prodiuit],'AG' +CONVERT(varchar(50),Emballage.idEM )[Emballage],qteEM [Quantite],Etat.NomE [Etat],cordoEM [Cordonnees],descEM [Descrption],idpf from Produit_finis inner join Emballage on Emballage.idEM = Produit_finis.idEM inner join Etat on Produit_finis.idE = Etat.idE", cn);
+                dataAdapter.Fill(DataSet1, "Produit_finis");
+                cn.Close();
+
+                //matP
+
+                msgbx = true;
+                if (ConnectionState.Open == cn.State)
+                {
+                    cn.Close();
+                }
+                cn.Open();
+                for (int i = 0; i < dataGridMatiereP.Rows.Count; i++)
+                {
+                    cmd = new SqlCommand("update Matiere_premiere set nomMP = @b , RCF = (select RCF from Fournisseur where nomFournisseur = @c), idE = (select idE from Etat where UniteE = @d ) ,qteMP = @e,descMP = @f, cordoMP = @j where codeMP = @a ", cn);
+                    cmd.Parameters.AddWithValue("@a", dataGridMatiereP.Rows[i].Cells[0].Value.ToString());
+                    cmd.Parameters.AddWithValue("@b", dataGridMatiereP.Rows[i].Cells[1].Value);
+                    cmd.Parameters.AddWithValue("@c", dataGridMatiereP.Rows[i].Cells[2].Value);
+                    cmd.Parameters.AddWithValue("@d", dataGridMatiereP.Rows[i].Cells[3].Value.ToString());
+                    cmd.Parameters.AddWithValue("@e", dataGridMatiereP.Rows[i].Cells[4].Value);
+                    cmd.Parameters.AddWithValue("@f", dataGridMatiereP.Rows[i].Cells[5].Value);
+                    cmd.Parameters.AddWithValue("@j", dataGridMatiereP.Rows[i].Cells[6].Value);
+                    b = false;
+                    for (int j = 0; j < DataSet1.Tables["Fournisseur"].Rows.Count; j++)
+                    {
+
+                        if (dataGridMatiereP.Rows[i].Cells[2].Value.ToString() == DataSet1.Tables["Fournisseur"].Rows[j][0].ToString() && (dataGridMatiereP.Rows[i].Cells[3].Value.ToString().ToLower() == "kg" || dataGridMatiereP.Rows[i].Cells[3].Value.ToString().ToLower() == "l"))
+                        {
+                            b = true;
+                            break;
+                        }
+                    }
+                    if (b)
+                    {
+                        cmd.ExecuteNonQuery();
+                        if (msgbx)
+                        {
+                            msgbx = false;
+                        }
+                    }
+                    else
+                        MessageBox.Show("la valeur " + dataGridMatiereP.Rows[i].Cells[2].Value.ToString() + " ou " + dataGridMatiereP.Rows[i].Cells[3].Value.ToString() + " de la lign " + (i + 1).ToString() + "  est invalide");
+
+
+
+                }
+                for (int i = 0; i < DataSet1.Tables["MatiereP"].Rows.Count; i++)
+                {
+                    if (DataSet1.Tables["MatiereP"].Rows[i].RowState == DataRowState.Deleted)
+                    {
+                        cmd = new SqlCommand("delete from Matiere_premiere where codeMP =" + DataSet1.Tables["MatiereP"].Rows[i][0, DataRowVersion.Original].ToString(), cn);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                DataSet1.Tables["MatiereP"].Clear();
+                dataAdapter = new SqlDataAdapter("select codeMP [Code], nomMP [Nom], nomFournisseur [Fournisseur] , UniteE [Unité de mesure] , qteMP [Quantite] , descMP [Description], cordoMP [Cordonnée] from Matiere_premiere inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF inner join Etat on Etat.idE = Matiere_premiere.idE", cn);
+                dataAdapter.Fill(DataSet1, "MatiereP");
+
+                DataSet1.Tables["HistoriqueA"].Clear();
+                dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(Matiere_premiere.nomMP,'') + ISNULL('AG' +CONVERT(varchar(50),Emballage.idEM) ,'') [Nom de Produit], Fournisseur.nomFournisseur [Nom Fournisseur], qteA [Quantite] , prix [Prix] ,dateA [Date Achat] from historique_achat left join Matiere_premiere on  historique_achat.idMP = Matiere_premiere.idmp  left join Emballage on   historique_achat.idEM = Emballage.idEM inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF or Fournisseur.RCF = Emballage.RCF", cn);
+                dataAdapter.Fill(DataSet1, "HistoriqueA");
+                cn.Close();
+
+                //histoA
+                msgbx = true;
+                if (ConnectionState.Open == cn.State)
+                {
+                    cn.Close();
+                }
+                cn.Open();
+                for (int i = 0; i < dataGrideHistoriqueA.Rows.Count; i++)
+                {
+                    b = false;
+                    b2 = false;
+                    nom = false;
+
+                    if (dataGrideHistoriqueA.Rows[i].Cells[1].Value.ToString().Contains("AG"))
+                    {
+                        cmd = new SqlCommand("update historique_achat set idMP = NULL, idEM = @b , RCF = (select RCF from Fournisseur where nomFournisseur = @c),qteA = @d ,prix = @e , dateA = @f where numAchat = @a", cn);
+                        cmd.Parameters.AddWithValue("@b", dataGrideHistoriqueA.Rows[i].Cells[1].Value.ToString().Remove(0, 2));
+                        for (int k = 0; k < DataSet1.Tables["Emballage"].Rows.Count; k++)
+                        {
+                            if (dataGrideHistoriqueA.Rows[i].Cells[1].Value.ToString().Remove(0, 2) == DataSet1.Tables["Emballage"].Rows[k][0].ToString().Remove(0, 2))
+                            {
+                                b2 = true;
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        cmd = new SqlCommand("update historique_achat set idEM = NULL, idMP = (select idmp from Matiere_premiere where codeMP = @b) , RCF = (select RCF from Fournisseur where nomFournisseur = @c),qteA = @d ,prix = @e , dateA = @f where numAchat = @a", cn);
+                        cmd.Parameters.AddWithValue("@b", dataGrideHistoriqueA.Rows[i].Cells[1].Value);
+                        for (int k = 0; k < DataSet1.Tables["MPPure"].Rows.Count; k++)
+                        {
+                            if (dataGrideHistoriqueA.Rows[i].Cells[1].Value.ToString() == DataSet1.Tables["MPPure"].Rows[k][0].ToString())
+                            {
+                                b2 = true;
+                                break;
+                            }
+                        }
+                        for (int k = 0; k < DataSet1.Tables["MPPure"].Rows.Count; k++)
+                        {
+                            if (dataGrideHistoriqueA.Rows[i].Cells[1].Value.ToString().ToLower() == DataSet1.Tables["MPPure"].Rows[k][1].ToString().ToLower())
+                            {
+                                nom = true;
+                                break;
+                            }
+                        }
+
+
+                    }
+                    cmd.Parameters.AddWithValue("@a", dataGrideHistoriqueA.Rows[i].Cells[0].Value.ToString());
+                    cmd.Parameters.AddWithValue("@c", dataGrideHistoriqueA.Rows[i].Cells[2].Value);
+                    cmd.Parameters.AddWithValue("@d", dataGrideHistoriqueA.Rows[i].Cells[3].Value.ToString());
+                    cmd.Parameters.AddWithValue("@e", dataGrideHistoriqueA.Rows[i].Cells[4].Value);
+                    cmd.Parameters.AddWithValue("@f", dataGrideHistoriqueA.Rows[i].Cells[5].Value);
+
+                    for (int j = 0; j < DataSet1.Tables["Fournisseur"].Rows.Count; j++)
+                    {
+
+                        if (dataGrideHistoriqueA.Rows[i].Cells[2].Value.ToString() == DataSet1.Tables["Fournisseur"].Rows[j][0].ToString())
+                        {
+                            b = true;
+                            break;
+                        }
+                    }
+                    if (!b2 && nom)
+                        //hna ghi mal9it manktb 3liha drt nom = true , ghi bach maidozch l dok les ifs lokhrin
+                        nom = true;
+                    else if (b && b2)
+                    {
+                        cmd.ExecuteNonQuery();
+                        if (msgbx)
+                        {
+                            msgbx = false;
+                        }
+                    }
+                    else if (!b && !b2)
+                        MessageBox.Show("la valeur '" + dataGrideHistoriqueA.Rows[i].Cells[1].Value.ToString() + "' et '" + dataGrideHistoriqueA.Rows[i].Cells[2].Value.ToString() + "' d'achat numero : " + dataGrideHistoriqueA.Rows[i].Cells[0].Value.ToString() + " est invalide");
+                    else if (!b)
+                        MessageBox.Show("la valeur '" + dataGrideHistoriqueA.Rows[i].Cells[2].Value.ToString() + "' d'achat numero : " + dataGrideHistoriqueA.Rows[i].Cells[0].Value.ToString() + " est invalide");
+                    else if (!b2)
+                        MessageBox.Show("la valeur '" + dataGrideHistoriqueA.Rows[i].Cells[1].Value.ToString() + "' d'achat numero : " + dataGrideHistoriqueA.Rows[i].Cells[0].Value.ToString() + " est invalide");
+                }
+
+                for (int i = 0; i < DataSet1.Tables["HistoriqueA"].Rows.Count; i++)
+                {
+                    if (DataSet1.Tables["HistoriqueA"].Rows[i].RowState == DataRowState.Deleted)
+                    {
+                        cmd = new SqlCommand("delete from historique_achat where numAchat = " + DataSet1.Tables["HistoriqueA"].Rows[i][0, DataRowVersion.Original].ToString(), cn);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                DataSet1.Tables["HistoriqueA"].Clear();
+                dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(Matiere_premiere.nomMP,'') + ISNULL('AG' +CONVERT(varchar(50),Emballage.idEM) ,'') [Nom de Produit], Fournisseur.nomFournisseur [Nom Fournisseur], qteA [Quantite] , prix [Prix] ,dateA [Date Achat] from historique_achat left join Matiere_premiere on  historique_achat.idMP = Matiere_premiere.idmp  left join Emballage on   historique_achat.idEM = Emballage.idEM inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF or Fournisseur.RCF = Emballage.RCF", cn);
+                dataAdapter.Fill(DataSet1, "HistoriqueA");
+                cn.Close();
+                //histoV
+
+                msgbx = true;
+                if (ConnectionState.Open == cn.State)
+                {
+                    cn.Close();
+                }
+                cn.Open();
+                for (int i = 0; i < dataGrideHistoriqueV.Rows.Count; i++)
+                {
+                    b2 = false;
+                    b = false;
+                    String[] str = dataGrideHistoriqueV.Rows[i].Cells[1].Value.ToString().Split(' ');
+                    if (str.Length != 2)
+                    {
+                        MessageBox.Show("le Nom de produit de Vente num : " + dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString() + " est incorrect , veuillez respecter la syntaxe d'insertion 'Nom'+ espace + 'Code'");
+                        break;
+                    }
+                    cmd = new SqlCommand("update historique_vente set  idPF = (select idPF from Produit_finis where nomPF = @b and codePF = @c) , RC_CIN = (select RC_CIN from Client where nomClt = @d) , qteV = @e , prix = @f , dateV  = @j where numVente = @a", cn);
+                    cmd.Parameters.AddWithValue("@a", dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString());
+                    cmd.Parameters.AddWithValue("@b", str[0]);
+                    cmd.Parameters.AddWithValue("@c", str[1]);
+                    cmd.Parameters.AddWithValue("@d", dataGrideHistoriqueV.Rows[i].Cells[2].Value.ToString());
+                    cmd.Parameters.AddWithValue("@e", dataGrideHistoriqueV.Rows[i].Cells[3].Value);
+                    cmd.Parameters.AddWithValue("@f", dataGrideHistoriqueV.Rows[i].Cells[4].Value);
+                    cmd.Parameters.AddWithValue("@j", dataGrideHistoriqueV.Rows[i].Cells[5].Value);
+
+                    for (int k = 0; k < DataSet1.Tables["Produit_finis"].Rows.Count; k++)
+                    {
+                        if (dataGrideHistoriqueV.Rows[i].Cells[1].Value.ToString().ToLower() == DataSet1.Tables["Produit_finis"].Rows[k][0].ToString().ToLower())
+                        {
+                            b2 = true;
+                            break;
+                        }
+                    }
+
+                    for (int k = 0; k < DataSet1.Tables["Client"].Rows.Count; k++)
+                    {
+                        if (dataGrideHistoriqueV.Rows[i].Cells[2].Value.ToString().ToLower() == DataSet1.Tables["Client"].Rows[k][0].ToString().ToLower())
+                        {
+                            b = true;
+                            break;
+                        }
+                    }
+
+
+                    if (b & b2)
+                    {
+                        cmd.ExecuteNonQuery();
+                        if (msgbx)
+                        {
+                            msgbx = false;
+                        }
+                    }
+                    else if (!b && !b2)
+                        MessageBox.Show("le Produit '" + dataGrideHistoriqueV.Rows[i].Cells[1].Value.ToString() + "' et le Client '" + dataGrideHistoriqueV.Rows[i].Cells[2].Value.ToString() + "' est introuvable de Vente num : " + dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString());
+                    else if (!b)
+                        MessageBox.Show("le Client '" + dataGrideHistoriqueV.Rows[i].Cells[2].Value.ToString() + "' est introuvable de Vente num : " + dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString());
+                    else if (!b2)
+                        MessageBox.Show("le Produit '" + dataGrideHistoriqueV.Rows[i].Cells[1].Value.ToString() + "' est introuvable de Vente num : " + dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString());
+                }
+
+                for (int i = 0; i < DataSet1.Tables["HistoriqueV"].Rows.Count; i++)
+                {
+                    if (DataSet1.Tables["HistoriqueV"].Rows[i].RowState == DataRowState.Deleted)
+                    {
+                        cmd = new SqlCommand("delete from historique_vente where numVente = " + DataSet1.Tables["HistoriqueV"].Rows[i][0, DataRowVersion.Original].ToString(), cn);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                DataSet1.Tables["HistoriqueV"].Clear();
+                dataAdapter = new SqlDataAdapter("select numVente [Num Vente],CONVERT(varchar(50),Produit_finis.nomPF)+' ' +CONVERT(varchar(50), codePF )[Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
+                dataAdapter.Fill(DataSet1, "HistoriqueV");
+                cn.Close();
+
+                //ProdF
+                msgbx = true;
+                if (ConnectionState.Open == cn.State)
+                {
+                    cn.Close();
+                }
+                cn.Open();
+                for (int i = 0; i < dataGrideHistoriqueV.Rows.Count; i++)
+                {
+                    b2 = false;
+                    b = false;
+                    String[] str = dataGrideHistoriqueV.Rows[i].Cells[1].Value.ToString().Split(' ');
+                    if (str.Length != 2)
+                    {
+                        MessageBox.Show("le Nom de produit de Vente num : " + dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString() + " est incorrect , veuillez respecter la syntaxe d'insertion 'Nom'+ espace + 'Code'");
+                        break;
+                    }
+                    cmd = new SqlCommand("update historique_vente set  idPF = (select idPF from Produit_finis where nomPF = @b and codePF = @c) , RC_CIN = (select RC_CIN from Client where nomClt = @d) , qteV = @e , prix = @f , dateV  = @j where numVente = @a", cn);
+                    cmd.Parameters.AddWithValue("@a", dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString());
+                    cmd.Parameters.AddWithValue("@b", str[0]);
+                    cmd.Parameters.AddWithValue("@c", str[1]);
+                    cmd.Parameters.AddWithValue("@d", dataGrideHistoriqueV.Rows[i].Cells[2].Value.ToString());
+                    cmd.Parameters.AddWithValue("@e", dataGrideHistoriqueV.Rows[i].Cells[3].Value);
+                    cmd.Parameters.AddWithValue("@f", dataGrideHistoriqueV.Rows[i].Cells[4].Value);
+                    cmd.Parameters.AddWithValue("@j", dataGrideHistoriqueV.Rows[i].Cells[5].Value);
+
+                    for (int k = 0; k < DataSet1.Tables["Produit_finis"].Rows.Count; k++)
+                    {
+                        if (dataGrideHistoriqueV.Rows[i].Cells[1].Value.ToString().ToLower() == DataSet1.Tables["Produit_finis"].Rows[k][0].ToString().ToLower())
+                        {
+                            b2 = true;
+                            break;
+                        }
+                    }
+
+                    for (int k = 0; k < DataSet1.Tables["Client"].Rows.Count; k++)
+                    {
+                        if (dataGrideHistoriqueV.Rows[i].Cells[2].Value.ToString().ToLower() == DataSet1.Tables["Client"].Rows[k][0].ToString().ToLower())
+                        {
+                            b = true;
+                            break;
+                        }
+                    }
+
+
+                    if (b & b2)
+                    {
+                        cmd.ExecuteNonQuery();
+                        if (msgbx)
+                        {
+                            msgbx = false;
+                        }
+                    }
+                    else if (!b && !b2)
+                        MessageBox.Show("le Produit '" + dataGrideHistoriqueV.Rows[i].Cells[1].Value.ToString() + "' et le Client '" + dataGrideHistoriqueV.Rows[i].Cells[2].Value.ToString() + "' est introuvable de Vente num : " + dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString());
+                    else if (!b)
+                        MessageBox.Show("le Client '" + dataGrideHistoriqueV.Rows[i].Cells[2].Value.ToString() + "' est introuvable de Vente num : " + dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString());
+                    else if (!b2)
+                        MessageBox.Show("le Produit '" + dataGrideHistoriqueV.Rows[i].Cells[1].Value.ToString() + "' est introuvable de Vente num : " + dataGrideHistoriqueV.Rows[i].Cells[0].Value.ToString());
+                }
+
+                for (int i = 0; i < DataSet1.Tables["HistoriqueV"].Rows.Count; i++)
+                {
+                    if (DataSet1.Tables["HistoriqueV"].Rows[i].RowState == DataRowState.Deleted)
+                    {
+                        cmd = new SqlCommand("delete from historique_vente where numVente = " + DataSet1.Tables["HistoriqueV"].Rows[i][0, DataRowVersion.Original].ToString(), cn);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                DataSet1.Tables["HistoriqueV"].Clear();
+                dataAdapter = new SqlDataAdapter("select numVente [Num Vente],CONVERT(varchar(50),Produit_finis.nomPF)+' ' +CONVERT(varchar(50), codePF )[Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
+                dataAdapter.Fill(DataSet1, "HistoriqueV");
+                cn.Close();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("quelque chose a mal tourné");
+                return;
+            }
+        }
+
     }
 }

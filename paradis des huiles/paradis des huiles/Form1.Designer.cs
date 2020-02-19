@@ -91,7 +91,7 @@
             this.gunaGradientButton1.BorderColor = System.Drawing.Color.Black;
             this.gunaGradientButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.gunaGradientButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaGradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaGradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.gunaGradientButton1.ForeColor = System.Drawing.Color.White;
             this.gunaGradientButton1.Image = null;
             this.gunaGradientButton1.ImageSize = new System.Drawing.Size(20, 20);
@@ -106,7 +106,7 @@
             this.gunaGradientButton1.Radius = 18;
             this.gunaGradientButton1.Size = new System.Drawing.Size(326, 42);
             this.gunaGradientButton1.TabIndex = 4;
-            this.gunaGradientButton1.Text = "Login";
+            this.gunaGradientButton1.Text = "Log-in";
             this.gunaGradientButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.gunaGradientButton1.Click += new System.EventHandler(this.gunaGradientButton1_Click);
             // 
@@ -126,6 +126,7 @@
             this.gunaTextBox1.TabIndex = 2;
             this.gunaTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.gunaTextBox1.UseSystemPasswordChar = true;
+            this.gunaTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gunaTextBox1_KeyDown);
             // 
             // label2
             // 

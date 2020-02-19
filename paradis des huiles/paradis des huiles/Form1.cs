@@ -76,5 +76,13 @@ namespace paradis_des_huiles
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void gunaTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                gunaGradientButton1_Click(sender, e);
+            }
+        }
     }
 }
