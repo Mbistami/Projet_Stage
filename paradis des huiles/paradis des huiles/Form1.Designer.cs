@@ -86,8 +86,8 @@
             this.gunaGradientButton1.AnimationHoverSpeed = 0.07F;
             this.gunaGradientButton1.AnimationSpeed = 0.03F;
             this.gunaGradientButton1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaGradientButton1.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
-            this.gunaGradientButton1.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(120)))), ((int)(((byte)(52)))));
+            this.gunaGradientButton1.BaseColor1 = System.Drawing.Color.SandyBrown;
+            this.gunaGradientButton1.BaseColor2 = System.Drawing.Color.Goldenrod;
             this.gunaGradientButton1.BorderColor = System.Drawing.Color.Black;
             this.gunaGradientButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.gunaGradientButton1.FocusedColor = System.Drawing.Color.Empty;
@@ -97,13 +97,13 @@
             this.gunaGradientButton1.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaGradientButton1.Location = new System.Drawing.Point(344, 464);
             this.gunaGradientButton1.Name = "gunaGradientButton1";
-            this.gunaGradientButton1.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
-            this.gunaGradientButton1.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
+            this.gunaGradientButton1.OnHoverBaseColor1 = System.Drawing.Color.Orange;
+            this.gunaGradientButton1.OnHoverBaseColor2 = System.Drawing.Color.Gold;
             this.gunaGradientButton1.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaGradientButton1.OnHoverForeColor = System.Drawing.Color.White;
             this.gunaGradientButton1.OnHoverImage = null;
             this.gunaGradientButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaGradientButton1.Radius = 18;
+            this.gunaGradientButton1.Radius = 15;
             this.gunaGradientButton1.Size = new System.Drawing.Size(326, 42);
             this.gunaGradientButton1.TabIndex = 4;
             this.gunaGradientButton1.Text = "Log-in";

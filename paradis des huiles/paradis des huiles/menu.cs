@@ -16,7 +16,8 @@ namespace paradis_des_huiles
         /*<<<<<<< HEAD
                 SqlConnection cn = new SqlConnection("Server='R_230_ROG-PC\\SQLEXPRESS';Database=DB_Gestionn;Integrated Security = true");
         =======*/
-        SqlConnection cn = new SqlConnection("Server='192.168.1.30, 1433'; Database= DB_Gestion ;user id='admin';password='admin'");
+        SqlConnection cn = new SqlConnection("Server='.';Database=DB_Gestionn;Integrated Security = true");
+        // SqlConnection cn = new SqlConnection("Server='192.168.1.30, 1433'; Database= DB_Gestion ;user id='admin';password='admin'");
         //>>>>>>> 8906389a96d07d69ed7732bc3cfd94170d581025
         public menu()
         {
@@ -1674,72 +1675,95 @@ namespace paradis_des_huiles
         bool fermerFourni = true, fermerClient = true, fermerEmballage = true, fermerMatiereP = true, fermerHistoA = true, fermerHistoV = true, fermerProdF = true;
         private void menu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            for (int i = 0; i < DataSet1.Tables["Client"].Rows.Count; i++)
+            if (DataSet1.Tables["Client"].Rows.Count != 0)
             {
-                if (DataSet1.Tables["Client"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["Client"].Rows[i].RowState == DataRowState.Deleted)
+                for (int i = 0; i < DataSet1.Tables["Client"].Rows.Count; i++)
                 {
-                    fermerClient = false;
-                    break;
+                    if (DataSet1.Tables["Client"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["Client"].Rows[i].RowState == DataRowState.Deleted)
+                    {
+                        fermerClient = false;
+                        break;
+                    }
                 }
             }
 
-            for (int i = 0; i < DataSet1.Tables["fournisseur"].Rows.Count; i++)
+            if (DataSet1.Tables["fournisseur"].Rows.Count != 0)
             {
-                if (DataSet1.Tables["fournisseur"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["fournisseur"].Rows[i].RowState == DataRowState.Deleted)
+                for (int i = 0; i < DataSet1.Tables["fournisseur"].Rows.Count; i++)
                 {
-                    fermerFourni = false;
-                    break;
+                    if (DataSet1.Tables["fournisseur"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["fournisseur"].Rows[i].RowState == DataRowState.Deleted)
+                    {
+                        fermerFourni = false;
+                        break;
+                    }
                 }
             }
 
-            for (int i = 0; i < DataSet1.Tables["Emballage"].Rows.Count; i++)
+            if (DataSet1.Tables["Emballage"].Rows.Count != 0)
             {
-                if (DataSet1.Tables["Emballage"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["Emballage"].Rows[i].RowState == DataRowState.Deleted)
+                for (int i = 0; i < DataSet1.Tables["Emballage"].Rows.Count; i++)
                 {
-                    fermerEmballage = false;
-                    break;
+                    if (DataSet1.Tables["Emballage"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["Emballage"].Rows[i].RowState == DataRowState.Deleted)
+                    {
+                        fermerEmballage = false;
+                        break;
+                    }
                 }
             }
 
-            for (int i = 0; i < DataSet1.Tables["MatiereP"].Rows.Count; i++)
+            if (DataSet1.Tables["MatiereP"].Rows.Count != 0)
             {
-                if (DataSet1.Tables["MatiereP"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["MatiereP"].Rows[i].RowState == DataRowState.Deleted)
+                for (int i = 0; i < DataSet1.Tables["MatiereP"].Rows.Count; i++)
                 {
-                    fermerMatiereP = false;
-                    break;
+                    if (DataSet1.Tables["MatiereP"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["MatiereP"].Rows[i].RowState == DataRowState.Deleted)
+                    {
+                        fermerMatiereP = false;
+                        break;
+                    }
                 }
             }
 
-            for (int i = 0; i < DataSet1.Tables["HistoriqueA"].Rows.Count; i++)
+            if (DataSet1.Tables["HistoriqueA"].Rows.Count != 0)
             {
-                if (DataSet1.Tables["HistoriqueA"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["HistoriqueA"].Rows[i].RowState == DataRowState.Deleted)
+                for (int i = 0; i < DataSet1.Tables["HistoriqueA"].Rows.Count; i++)
                 {
-                    fermerHistoA = false;
-                    break;
-                }
-            }            
-
-            for (int i = 0; i < DataSet1.Tables["HistoriqueV"].Rows.Count; i++)
-            {
-                if (DataSet1.Tables["HistoriqueV"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["HistoriqueV"].Rows[i].RowState == DataRowState.Deleted)
-                {
-                    fermerHistoV = false;
-                    break;
+                    if (DataSet1.Tables["HistoriqueA"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["HistoriqueA"].Rows[i].RowState == DataRowState.Deleted)
+                    {
+                        fermerHistoA = false;
+                        break;
+                    }
                 }
             }
 
-            for (int i = 0; i < DataSet1.Tables["Produit_finis"].Rows.Count; i++)
+
+            if (DataSet1.Tables["HistoriqueV"].Rows.Count != 0)
             {
-                if (DataSet1.Tables["Produit_finis"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["Produit_finis"].Rows[i].RowState == DataRowState.Deleted)
+                for (int i = 0; i < DataSet1.Tables["HistoriqueV"].Rows.Count; i++)
                 {
-                    fermerProdF = false;
-                    break;
+                    if (DataSet1.Tables["HistoriqueV"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["HistoriqueV"].Rows[i].RowState == DataRowState.Deleted)
+                    {
+                        fermerHistoV = false;
+                        break;
+                    }
                 }
             }
+
+            if (DataSet1.Tables["Produit_finis"].Rows.Count != 0)
+            {
+                for (int i = 0; i < DataSet1.Tables["Produit_finis"].Rows.Count; i++)
+                {
+                    if (DataSet1.Tables["Produit_finis"].Rows[i].RowState == DataRowState.Modified || DataSet1.Tables["Produit_finis"].Rows[i].RowState == DataRowState.Deleted)
+                    {
+                        fermerProdF = false;
+                        break;
+                    }
+                }
+            }
+
 
             if (!fermerClient || !fermerFourni || !fermerEmballage || !fermerHistoA || !fermerHistoV || !fermerMatiereP || !fermerProdF)
             {
-                DialogResult dialogResult = MessageBox.Show("voulez-Vous Enregist...?","attention",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Warning);
+                DialogResult dialogResult = MessageBox.Show("voulez-Vous Enregist...?", "attention", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
                 {
                     save();
