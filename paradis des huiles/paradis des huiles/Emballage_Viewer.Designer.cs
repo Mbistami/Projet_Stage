@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Emballage_Viewer));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,20 +47,19 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblLink = new System.Windows.Forms.Label();
-            this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.gunaButton3 = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton4 = new Guna.UI.WinForms.GunaButton();
             this.picEMV = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaButton5 = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton6 = new Guna.UI.WinForms.GunaButton();
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.gunaButton4 = new Guna.UI.WinForms.GunaGradientButton();
+            this.gunaButton3 = new Guna.UI.WinForms.GunaGradientButton();
+            this.gunaButton5 = new Guna.UI.WinForms.GunaGradientButton();
+            this.gunaGradient2Panel1 = new Guna.UI.WinForms.GunaGradient2Panel();
+            this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.checkBox1 = new Guna.UI.WinForms.GunaCheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEMV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.gunaGradient2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -71,7 +69,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(268, 191);
+            this.groupBox1.Location = new System.Drawing.Point(268, 203);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(292, 91);
             this.groupBox1.TabIndex = 0;
@@ -180,7 +178,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Location = new System.Drawing.Point(268, 27);
+            this.groupBox2.Location = new System.Drawing.Point(268, 39);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(292, 165);
             this.groupBox2.TabIndex = 12;
@@ -231,30 +229,6 @@
             this.lblLink.Size = new System.Drawing.Size(0, 13);
             this.lblLink.TabIndex = 5;
             // 
-            // gunaButton2
-            // 
-            this.gunaButton2.AnimationHoverSpeed = 0.07F;
-            this.gunaButton2.AnimationSpeed = 0.03F;
-            this.gunaButton2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
-            this.gunaButton2.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton2.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaButton2.ForeColor = System.Drawing.Color.White;
-            this.gunaButton2.Image = null;
-            this.gunaButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton2.Location = new System.Drawing.Point(29, 4);
-            this.gunaButton2.Name = "gunaButton2";
-            this.gunaButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(208)))), ((int)(((byte)(10)))));
-            this.gunaButton2.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton2.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton2.OnHoverImage = null;
-            this.gunaButton2.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton2.Radius = 9;
-            this.gunaButton2.Size = new System.Drawing.Size(17, 17);
-            this.gunaButton2.TabIndex = 17;
-            // 
             // gunaButton1
             // 
             this.gunaButton1.AnimationHoverSpeed = 0.07F;
@@ -268,9 +242,9 @@
             this.gunaButton1.ForeColor = System.Drawing.Color.White;
             this.gunaButton1.Image = null;
             this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(3, 4);
+            this.gunaButton1.Location = new System.Drawing.Point(566, 2);
             this.gunaButton1.Name = "gunaButton1";
-            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(18)))), ((int)(((byte)(25)))));
+            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.OrangeRed;
             this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaButton1.OnHoverForeColor = System.Drawing.Color.White;
             this.gunaButton1.OnHoverImage = null;
@@ -280,140 +254,134 @@
             this.gunaButton1.TabIndex = 16;
             this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click);
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(431, 12);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(129, 17);
-            this.checkBox1.TabIndex = 17;
-            this.checkBox1.Text = "Activer la modification";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // gunaButton3
-            // 
-            this.gunaButton3.AnimationHoverSpeed = 0.07F;
-            this.gunaButton3.AnimationSpeed = 0.03F;
-            this.gunaButton3.BaseColor = System.Drawing.Color.DimGray;
-            this.gunaButton3.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton3.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton3.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaButton3.ForeColor = System.Drawing.Color.White;
-            this.gunaButton3.Image = null;
-            this.gunaButton3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.gunaButton3.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton3.Location = new System.Drawing.Point(423, 337);
-            this.gunaButton3.Name = "gunaButton3";
-            this.gunaButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
-            this.gunaButton3.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton3.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton3.OnHoverImage = null;
-            this.gunaButton3.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton3.Size = new System.Drawing.Size(160, 28);
-            this.gunaButton3.TabIndex = 18;
-            this.gunaButton3.Text = "Annuler";
-            this.gunaButton3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.gunaButton3.Click += new System.EventHandler(this.gunaButton3_Click);
-            // 
-            // gunaButton4
-            // 
-            this.gunaButton4.AnimationHoverSpeed = 0.07F;
-            this.gunaButton4.AnimationSpeed = 0.03F;
-            this.gunaButton4.BaseColor = System.Drawing.Color.DimGray;
-            this.gunaButton4.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton4.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton4.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaButton4.ForeColor = System.Drawing.Color.White;
-            this.gunaButton4.Image = null;
-            this.gunaButton4.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton4.Location = new System.Drawing.Point(257, 337);
-            this.gunaButton4.Name = "gunaButton4";
-            this.gunaButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
-            this.gunaButton4.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton4.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton4.OnHoverImage = null;
-            this.gunaButton4.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton4.Size = new System.Drawing.Size(160, 28);
-            this.gunaButton4.TabIndex = 19;
-            this.gunaButton4.Text = "Enregistrer";
-            this.gunaButton4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.gunaButton4.Click += new System.EventHandler(this.gunaButton4_Click);
-            // 
             // picEMV
             // 
             this.picEMV.BaseColor = System.Drawing.Color.White;
-            this.picEMV.Location = new System.Drawing.Point(12, 27);
+            this.picEMV.Location = new System.Drawing.Point(12, 39);
             this.picEMV.Name = "picEMV";
             this.picEMV.Size = new System.Drawing.Size(250, 255);
             this.picEMV.TabIndex = 1;
             this.picEMV.TabStop = false;
             // 
+            // gunaDragControl1
+            // 
+            this.gunaDragControl1.TargetControl = this.gunaGradient2Panel1;
+            // 
+            // gunaButton4
+            // 
+            this.gunaButton4.AnimationHoverSpeed = 0.07F;
+            this.gunaButton4.AnimationSpeed = 0.03F;
+            this.gunaButton4.BackColor = System.Drawing.Color.Transparent;
+            this.gunaButton4.BaseColor1 = System.Drawing.Color.SandyBrown;
+            this.gunaButton4.BaseColor2 = System.Drawing.Color.Goldenrod;
+            this.gunaButton4.BorderColor = System.Drawing.Color.Black;
+            this.gunaButton4.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaButton4.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaButton4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.gunaButton4.ForeColor = System.Drawing.Color.White;
+            this.gunaButton4.Image = null;
+            this.gunaButton4.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton4.Location = new System.Drawing.Point(257, 337);
+            this.gunaButton4.Name = "gunaButton4";
+            this.gunaButton4.OnHoverBaseColor1 = System.Drawing.Color.Orange;
+            this.gunaButton4.OnHoverBaseColor2 = System.Drawing.Color.Gold;
+            this.gunaButton4.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaButton4.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaButton4.OnHoverImage = null;
+            this.gunaButton4.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaButton4.Radius = 5;
+            this.gunaButton4.Size = new System.Drawing.Size(160, 28);
+            this.gunaButton4.TabIndex = 37;
+            this.gunaButton4.Text = "Enregistrer";
+            this.gunaButton4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaButton4.Click += new System.EventHandler(this.gunaButton4_Click_1);
+            // 
+            // gunaButton3
+            // 
+            this.gunaButton3.AnimationHoverSpeed = 0.07F;
+            this.gunaButton3.AnimationSpeed = 0.03F;
+            this.gunaButton3.BackColor = System.Drawing.Color.Transparent;
+            this.gunaButton3.BaseColor1 = System.Drawing.Color.SandyBrown;
+            this.gunaButton3.BaseColor2 = System.Drawing.Color.Goldenrod;
+            this.gunaButton3.BorderColor = System.Drawing.Color.Black;
+            this.gunaButton3.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaButton3.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaButton3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.gunaButton3.ForeColor = System.Drawing.Color.White;
+            this.gunaButton3.Image = null;
+            this.gunaButton3.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton3.Location = new System.Drawing.Point(423, 337);
+            this.gunaButton3.Name = "gunaButton3";
+            this.gunaButton3.OnHoverBaseColor1 = System.Drawing.Color.Orange;
+            this.gunaButton3.OnHoverBaseColor2 = System.Drawing.Color.Gold;
+            this.gunaButton3.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaButton3.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaButton3.OnHoverImage = null;
+            this.gunaButton3.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaButton3.Radius = 5;
+            this.gunaButton3.Size = new System.Drawing.Size(160, 28);
+            this.gunaButton3.TabIndex = 38;
+            this.gunaButton3.Text = "Annuler";
+            this.gunaButton3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaButton3.Click += new System.EventHandler(this.gunaButton3_Click_1);
+            // 
             // gunaButton5
             // 
-            this.gunaButton5.AnimationHoverSpeed = 0.1F;
+            this.gunaButton5.AnimationHoverSpeed = 0.07F;
             this.gunaButton5.AnimationSpeed = 0.03F;
-            this.gunaButton5.BaseColor = System.Drawing.Color.Transparent;
+            this.gunaButton5.BackColor = System.Drawing.Color.Transparent;
+            this.gunaButton5.BaseColor1 = System.Drawing.Color.SandyBrown;
+            this.gunaButton5.BaseColor2 = System.Drawing.Color.Goldenrod;
             this.gunaButton5.BorderColor = System.Drawing.Color.Black;
             this.gunaButton5.DialogResult = System.Windows.Forms.DialogResult.None;
             this.gunaButton5.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaButton5.ForeColor = System.Drawing.Color.Black;
+            this.gunaButton5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.gunaButton5.ForeColor = System.Drawing.Color.White;
             this.gunaButton5.Image = null;
             this.gunaButton5.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton5.Location = new System.Drawing.Point(166, 263);
+            this.gunaButton5.Location = new System.Drawing.Point(166, 270);
             this.gunaButton5.Name = "gunaButton5";
-            this.gunaButton5.OnHoverBaseColor = System.Drawing.Color.Gray;
+            this.gunaButton5.OnHoverBaseColor1 = System.Drawing.Color.Orange;
+            this.gunaButton5.OnHoverBaseColor2 = System.Drawing.Color.Gold;
             this.gunaButton5.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaButton5.OnHoverForeColor = System.Drawing.Color.White;
             this.gunaButton5.OnHoverImage = null;
             this.gunaButton5.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton5.Size = new System.Drawing.Size(96, 19);
-            this.gunaButton5.TabIndex = 20;
+            this.gunaButton5.Radius = 2;
+            this.gunaButton5.Size = new System.Drawing.Size(96, 24);
+            this.gunaButton5.TabIndex = 39;
             this.gunaButton5.Text = "Modifier";
             this.gunaButton5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.gunaButton5.Click += new System.EventHandler(this.gunaButton5_Click);
+            this.gunaButton5.Click += new System.EventHandler(this.gunaButton5_Click_1);
             // 
-            // gunaButton6
+            // gunaGradient2Panel1
             // 
-            this.gunaButton6.AnimationHoverSpeed = 0.1F;
-            this.gunaButton6.AnimationSpeed = 0.03F;
-            this.gunaButton6.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaButton6.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton6.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton6.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaButton6.ForeColor = System.Drawing.Color.Black;
-            this.gunaButton6.Image = null;
-            this.gunaButton6.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton6.Location = new System.Drawing.Point(74, 263);
-            this.gunaButton6.Name = "gunaButton6";
-            this.gunaButton6.OnHoverBaseColor = System.Drawing.Color.Gray;
-            this.gunaButton6.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton6.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton6.OnHoverImage = null;
-            this.gunaButton6.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton6.Size = new System.Drawing.Size(96, 19);
-            this.gunaButton6.TabIndex = 21;
-            this.gunaButton6.Text = "Imprimer";
-            this.gunaButton6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.gunaButton6.Click += new System.EventHandler(this.gunaButton6_Click);
+            this.gunaGradient2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaGradient2Panel1.Controls.Add(this.gunaButton1);
+            this.gunaGradient2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gunaGradient2Panel1.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(208)))), ((int)(((byte)(118)))));
+            this.gunaGradient2Panel1.GradientColor2 = System.Drawing.Color.Orange;
+            this.gunaGradient2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.gunaGradient2Panel1.Name = "gunaGradient2Panel1";
+            this.gunaGradient2Panel1.Size = new System.Drawing.Size(588, 21);
+            this.gunaGradient2Panel1.TabIndex = 40;
             // 
-            // gunaDragControl1
+            // gunaElipse1
             // 
-            this.gunaDragControl1.TargetControl = this;
+            this.gunaElipse1.TargetControl = this;
             // 
-            // pictureBox1
+            // checkBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 290);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
+            this.checkBox1.BaseColor = System.Drawing.Color.White;
+            this.checkBox1.CheckedOffColor = System.Drawing.Color.Gray;
+            this.checkBox1.CheckedOnColor = System.Drawing.Color.Gold;
+            this.checkBox1.FillColor = System.Drawing.Color.White;
+            this.checkBox1.Location = new System.Drawing.Point(443, 300);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(140, 20);
+            this.checkBox1.TabIndex = 41;
+            this.checkBox1.Text = "Activer la modification";
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
             // 
             // Emballage_Viewer
             // 
@@ -421,14 +389,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(588, 370);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.gunaButton6);
-            this.Controls.Add(this.gunaButton5);
-            this.Controls.Add(this.gunaButton4);
-            this.Controls.Add(this.gunaButton3);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.gunaButton2);
-            this.Controls.Add(this.gunaButton1);
+            this.Controls.Add(this.gunaGradient2Panel1);
+            this.Controls.Add(this.gunaButton5);
+            this.Controls.Add(this.gunaButton3);
+            this.Controls.Add(this.gunaButton4);
             this.Controls.Add(this.lblLink);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.picEMV);
@@ -443,7 +408,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEMV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.gunaGradient2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -470,14 +435,13 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblLink;
-        private Guna.UI.WinForms.GunaButton gunaButton2;
         private Guna.UI.WinForms.GunaButton gunaButton1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private Guna.UI.WinForms.GunaButton gunaButton3;
-        private Guna.UI.WinForms.GunaButton gunaButton4;
-        private Guna.UI.WinForms.GunaButton gunaButton5;
-        private Guna.UI.WinForms.GunaButton gunaButton6;
         private Guna.UI.WinForms.GunaDragControl gunaDragControl1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private Guna.UI.WinForms.GunaGradientButton gunaButton4;
+        private Guna.UI.WinForms.GunaGradientButton gunaButton3;
+        private Guna.UI.WinForms.GunaGradientButton gunaButton5;
+        private Guna.UI.WinForms.GunaGradient2Panel gunaGradient2Panel1;
+        private Guna.UI.WinForms.GunaElipse gunaElipse1;
+        private Guna.UI.WinForms.GunaCheckBox checkBox1;
     }
 }

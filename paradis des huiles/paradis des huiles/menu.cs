@@ -16,8 +16,8 @@ namespace paradis_des_huiles
         /*<<<<<<< HEAD
                 SqlConnection cn = new SqlConnection("Server='R_230_ROG-PC\\SQLEXPRESS';Database=DB_Gestionn;Integrated Security = true");
         =======*/
-        SqlConnection cn = new SqlConnection("Server='.';Database=DB_Gestionn;Integrated Security = true");
-        // SqlConnection cn = new SqlConnection("Server='192.168.1.30, 1433'; Database= DB_Gestion ;user id='admin';password='admin'");
+        //SqlConnection cn = new SqlConnection("Server='.';Database=DB_Gestionn;Integrated Security = true");
+         SqlConnection cn = new SqlConnection("Server='192.168.1.30, 1433'; Database= DB_Gestion ;user id='admin';password='admin'");
         //>>>>>>> 8906389a96d07d69ed7732bc3cfd94170d581025
         public menu()
         {
@@ -38,27 +38,7 @@ namespace paradis_des_huiles
                 btnSaveProdF.TabPages.RemoveAt(btnSaveProdF.TabPages.Count - 1);
             String[] etage = { "E0", "E1", "E2" };
             String[] salle = { "S1", "S2", "S3" };
-            /* cmbAddEtageEmballage.Items.AddRange(etage);
-             cmbAddEtageEmballage.Text = cmbAddEtageEmballage.Items[0].ToString();
 
-             cmbAddSalleEmballage.Items.AddRange(salle);
-             cmbAddSalleEmballage.Text = cmbAddSalleEmballage.Items[0].ToString();*/
-
-            /*  cmbAddEtageMatiereP.Items.AddRange(etage);
-              cmbAddEtageMatiereP.Text = cmbAddEtageMatiereP.Items[0].ToString();
-
-              cmbAddSaleMatiereP.Items.AddRange(salle);
-              cmbAddSaleMatiereP.Text = cmbAddSaleMatiereP.Items[0].ToString();*/
-
-            /*    gunaComboBox4.Items.AddRange(etage);
-                gunaComboBox4.Text = gunaComboBox4.Items[0].ToString();
-
-                gunaComboBox2.Items.AddRange(salle);
-                gunaComboBox2.Text = gunaComboBox2.Items[0].ToString();*/
-
-
-
-            //combobox rechercher afficher clinet 
             CmbRechClientAfficher.Items.Add("NomClient");
             CmbRechClientAfficher.Items.Add("Num Tel");
             CmbRechClientAfficher.Items.Add("Adresse");
@@ -73,8 +53,6 @@ namespace paradis_des_huiles
             cmbtypecltadd.Items.Add("fidele");
             cmbtypecltadd.Text = cmbtypecltadd.Items[0].ToString();
 
-
-            //cmbTypeAddFourni type fournisseur Add
 
             if (ConnectionState.Open == cn.State)
             {
@@ -113,8 +91,6 @@ namespace paradis_des_huiles
 
             dataAdapter = new SqlDataAdapter("Select 'AG'+convert(varchar(50),idEM) [CODEEM],idEM from Emballage ", cn);
             dataAdapter.Fill(DataSet1, "EMCMBOX");
-            //dataAdapter = new SqlDataAdapter("select [type].nomType + codePF [Code Produit] ", cn);
-            //dataAdapter.Fill(DataSet1, "Produit_finis");
 
 
             cn.Close();
@@ -130,7 +106,6 @@ namespace paradis_des_huiles
 
                 rbtnAddHistoAMatierePrem.Checked = true;
 
-                //CmbRechFournisseurAfficher afficher rechercher fournisseur
                 for (int i = 0; i < DataSet1.Tables["Fournisseur"].Columns.Count; i++)
                 {
                     CmbRechFournisseurAfficher.Items.Add(DataSet1.Tables["Fournisseur"].Columns[i].ColumnName.ToString());
@@ -160,11 +135,7 @@ namespace paradis_des_huiles
                     CmbAfficherHistVfind.Items.Add(DataSet1.Tables["HistoriqueV"].Columns[i].ColumnName.ToString());
                 }
                 CmbAfficherHistVfind.Text = CmbAfficherHistVfind.Items[0].ToString();
-                /*for (int i = 0; i < DataSet1.Tables["HistoriqueV"].Columns.Count; i++)
-                {
-                    CmbAfficherHistVfind.Items.Add(DataSet1.Tables["HistoriqueV"].Columns[i].ColumnName.ToString());
-                }
-                CmbAfficherHistVfind.Text = CmbAfficherHistVfind.Items[0].ToString();*/
+
                 for (int i = 0; i < DataSet1.Tables["Produit_finis"].Columns.Count; i++)
                 {
                     cmbProduitFinis.Items.Add(DataSet1.Tables["Produit_finis"].Columns[i].ColumnName.ToString());
@@ -187,9 +158,6 @@ namespace paradis_des_huiles
                 this.cmbAddTypeMatierP.DisplayMember = "UniteE";
                 this.cmbAddTypeMatierP.ValueMember = "idE";
                 this.cmbAddTypeMatierP.DataSource = DataSet1.Tables["Etat"];
-                /*this.cmbnomproduitaddhistoriquedachat.DisplayMember = "nomPF";
-                this.cmbnomproduitaddhistoriquedachat.ValueMember = "idPF";
-                this.cmbnomproduitaddhistoriquedachat.DataSource = DataSet1.Tables["Produit_finis"];*/
                 this.gunaComboBox3.DisplayMember = "CODEEM";
                 this.gunaComboBox3.ValueMember = "idEM";
                 this.gunaComboBox3.DataSource = DataSet1.Tables["EMCMBOX"];
@@ -207,8 +175,7 @@ namespace paradis_des_huiles
                 this.gunaComboBox1.Items.Add("Administrateur");
             this.cmbAddHabituelHistorV.DataSource = DataSet1.Tables["produit_finis"];
                 cmbAddHabituelHistorV.DisplayMember = "nomPF";
-                cmbAddHabituelHistorV.ValueMember = "idPF";
-
+                cmbAddHabituelHistorV.ValueMember = "idPF";                
                 this.gunaComboBox6.DataSource = DataSet1.Tables["Client"];
                 this.gunaComboBox6.DisplayMember = "NomClient";
                 this.gunaComboBox6.ValueMember = "NomClient";
@@ -243,16 +210,34 @@ namespace paradis_des_huiles
 
         private void txtRechAffichForni_TextChanged_1(object sender, EventArgs e)
         {
-            DataView dataView = new DataView(DataSet1.Tables["Fournisseur"]);
-            dataView.RowFilter = "[Nom Fourni] like '%" + txtRechAffichForni.Text + "%'";
-            dataGridFourni.DataSource = dataView;
+            try
+            {
+                DataView dataView = new DataView(DataSet1.Tables["Fournisseur"]);
+                dataView.RowFilter = "[Nom Fourni] like '%" + txtRechAffichForni.Text + "%'";
+                dataGridFourni.DataSource = dataView;
+            }
+            catch (Exception)
+            {                
+                return;
+            }
+            
         }
 
         private void gunaTextBox1_TextChanged_1(object sender, EventArgs e)
         {
-            DataView dataView = new DataView(DataSet1.Tables["Emballage"]);
-            dataView.RowFilter = "[Code Emballage] like '%" + TxtEmbafficherfind.Text + "%'";
-            dataGridEmballage.DataSource = dataView;
+            try
+            {
+                DataView dataView = new DataView(DataSet1.Tables["Emballage"]);
+                dataView.RowFilter = "[Code Emballage] like '%" + TxtEmbafficherfind.Text + "%'";
+                dataGridEmballage.DataSource = dataView;
+            }
+            catch (Exception)
+            {
+                
+                return
+                    ;
+            }
+            
         }
 
         private void gunaTextBox3_TextChanged_1(object sender, EventArgs e)
@@ -461,6 +446,7 @@ namespace paradis_des_huiles
 
         private void btnAddImageEmballage_Click(object sender, EventArgs e)
         {
+            gunaTransition1.Hide(gunaElipsePanel1);
             OpenFileDialog open = new OpenFileDialog();
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             if (open.ShowDialog() == DialogResult.OK)
@@ -468,7 +454,10 @@ namespace paradis_des_huiles
                 pictureBoxEM.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBoxEM.Image = new Bitmap(open.FileName);
                 FilePathEM.Text = open.FileName;
+                gunaTransition1.Show(gunaElipsePanel1);
             }
+            else
+                gunaTransition1.Show(gunaElipsePanel1);
         }
 
         private void btnAddEmballage_Click(object sender, EventArgs e)
@@ -510,6 +499,7 @@ namespace paradis_des_huiles
                 DataSet1.Tables["Emballage"].Clear();
                 dataAdapter = new SqlDataAdapter("select ISNULL('AG'+convert(varchar(50),idEM) ,'')[Code Emballage],ISNULL(nomFournisseur,'notfound') [Nom Fournisseur] , qteEM [Quantite] , UniteE [Unité de mesure] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
                 dataAdapter.Fill(DataSet1, "Emballage");
+                gunaTransition1.Hide(gunaElipsePanel1);
                 cn.Close();
             }
             catch (Exception ex)
@@ -641,7 +631,7 @@ namespace paradis_des_huiles
                 DataSet1.Tables["HistoriqueV"].Clear();
                 dataAdapter = new SqlDataAdapter("select numVente [Num Vente],CONVERT(varchar(50),Produit_finis.nomPF)+' ' +CONVERT(varchar(50), codePF )[Nom Produit], nomClt  [Nom Client], qteV [Quantite], prix [Prix] , dateV [Date Vente] from Historique_vente inner join Produit_finis on Produit_finis.idPF = Historique_vente.idPF inner join Client on Historique_vente.RC_CIN = Client.RC_CIN", cn);
                 dataAdapter.Fill(DataSet1, "HistoriqueV");
-
+                actualiser();
                 cn.Close();
             }
             catch (Exception)
@@ -758,7 +748,7 @@ namespace paradis_des_huiles
                 DataSet1.Tables["HistoriqueA"].Clear();
                 dataAdapter = new SqlDataAdapter("select numAchat [Num Achat], ISNULL(Matiere_premiere.nomMP,'') + ISNULL('AG' +CONVERT(varchar(50),Emballage.idEM) ,'') [Nom de Produit], Fournisseur.nomFournisseur [Nom Fournisseur], qteA [Quantite] , prix [Prix] ,dateA [Date Achat] from historique_achat left join Matiere_premiere on  historique_achat.idMP = Matiere_premiere.idmp  left join Emballage on   historique_achat.idEM = Emballage.idEM inner join Fournisseur on Fournisseur.RCF = Matiere_premiere.RCF or Fournisseur.RCF = Emballage.RCF", cn);
                 dataAdapter.Fill(DataSet1, "HistoriqueA");
-
+                actualiser();
                 cn.Close();
             }
             catch (Exception)
@@ -1248,7 +1238,7 @@ namespace paradis_des_huiles
             TextBox textBox = new TextBox();
             textBox = (TextBox)EM.Controls["groupBox2"].Controls["textBox1"];
             textBox.Text = dataGridEmballage.SelectedRows[0].Cells[0].Value.ToString();
-            EM.Show();
+            EM.ShowDialog();
         }
 
         private void btnSaveHistoA_Click(object sender, EventArgs e)
@@ -1513,11 +1503,6 @@ namespace paradis_des_huiles
             print_Form.Show();
         }
 
-        private void gunaButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void gunaButton1_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -1759,11 +1744,9 @@ namespace paradis_des_huiles
                     }
                 }
             }
-
-
             if (!fermerClient || !fermerFourni || !fermerEmballage || !fermerHistoA || !fermerHistoV || !fermerMatiereP || !fermerProdF)
             {
-                DialogResult dialogResult = MessageBox.Show("voulez-Vous Enregist...?", "attention", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                DialogResult dialogResult = MessageBox.Show("voulez-Vous Enregistrer les Modificaions?", "attention", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
                 {
                     save();
