@@ -124,6 +124,8 @@ namespace paradis_des_huiles
                 picEMV.Image = new Bitmap(open.FileName);
                 lblLink.Text = open.FileName;
             }
+            else
+                return;
             FileStream stream = File.OpenRead(open.FileName);
             byte[] vs = new byte[stream.Length];
             stream.Read(vs, 0, vs.Length);

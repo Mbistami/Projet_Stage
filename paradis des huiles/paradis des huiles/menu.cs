@@ -406,10 +406,6 @@ namespace paradis_des_huiles
         {
 
         }
-        private void DatagridModifClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         private void BtnModifierclt_Click(object sender, EventArgs e)
         {
         }
@@ -464,18 +460,23 @@ namespace paradis_des_huiles
         {
             try
             {
+                
+                //DataSet1.Tables["EmballagePure"].Rows.Add("s","ss","sss","sss","sss","sss");
                 dataAdapter = new SqlDataAdapter("select RCF [RCsF] , qteEM [Quantite] , idE [idE] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage ", cn);
                 if (ConnectionState.Open == cn.State)
                 {
                     cn.Close();
                 }
+                //DataSet1.Tables["EmballagePure"].Clear();
                 cn.Open();
                 dataAdapter.Fill(DataSet1, "EmballagePure");
                 cn.Close();
-                int x = DataSet1.Tables["EmballagePure"].Rows.Count - 1;
+                int x = DataSet1.Tables["EmballagePure"].Rows.Count + 1;
+                MessageBox.Show(x.ToString());
                 DataSet1.Tables["EmballagePure"].Rows.Add(cmbAddNomFournisseurEmballage.SelectedValue.ToString(), txtAddquantiteEmballage.Text, cmbAddTypeEmballge.SelectedValue.ToString(), txtAddSupportEmballage.Text, txtAddDescriptionEmballage.Text, txtAddEmballageCordonn.Text);
                 SqlCommand cmd = new SqlCommand("update emballage set img=(SELECT BulkColumn FROM Openrowset( Bulk '" + this.FilePathEM.Text + "', Single_Blob) as img) where idEM='" + x.ToString() + "'", cn);
                 commandBuilder = new SqlCommandBuilder(dataAdapter);
+                MessageBox.Show(this.FilePathEM.Text);
                 if (ConnectionState.Open == cn.State)
                 {
                     cn.Close();
@@ -484,11 +485,13 @@ namespace paradis_des_huiles
                 dataAdapter.Update(DataSet1.Tables["EmballagePure"]);
                 if (FilePathEM.Text != null)
                     cmd.ExecuteNonQuery();
+                if (DataSet1.Tables["EmballagePure"].Rows.Count > 0)
+                    DataSet1.Tables["EmballagePure"].Clear();
                 dataAdapter = new SqlDataAdapter("select 'AG'+convert(varchar(50),idEM) [Code Emballage], nomFournisseur [Nom Fournisseur] , qteEM [Quantite] , UniteE [Unité de mesure] , supportEM[Support] , descEM [Description] , cordoEM [Coordonnée] from Emballage inner join Fournisseur on Emballage.RCF = Fournisseur.RCF inner join Etat on Etat.idE = Emballage.idE", cn);
                 commandBuilder = new SqlCommandBuilder(dataAdapter);
                 DataSet1.Tables["Emballage"].Clear();
                 dataAdapter.Fill(DataSet1, "Emballage");
-                
+
                 MessageBox.Show("Ajouter avec succes", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
                 txtAddquantiteEmballage.Text = "";
@@ -504,9 +507,11 @@ namespace paradis_des_huiles
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
-                return;
+
+                MessageBox.Show(ex.Message);
             }
+                
+            
             
         }
 
@@ -1104,7 +1109,7 @@ namespace paradis_des_huiles
                     for (int j = 0; j < DataSet1.Tables["Fournisseur"].Rows.Count; j++)
                     {
 
-                        if (dataGridEmballage.Rows[i].Cells[1].Value.ToString() == DataSet1.Tables["Fournisseur"].Rows[j][0].ToString() && (dataGridEmballage.Rows[i].Cells[3].Value.ToString().ToLower() == "kg" || dataGridEmballage.Rows[i].Cells[3].Value.ToString().ToLower() == "l"))
+                        if (dataGridEmballage.Rows[i].Cells[1].Value.ToString() == DataSet1.Tables["Fournisseur"].Rows[j][0].ToString() && (dataGridEmballage.Rows[i].Cells[3].Value.ToString().ToLower() == "g" || dataGridEmballage.Rows[i].Cells[3].Value.ToString().ToLower() == "ml"))
                         {
                             b = true;
                             break;
@@ -1181,7 +1186,7 @@ namespace paradis_des_huiles
                     for (int j = 0; j < DataSet1.Tables["Fournisseur"].Rows.Count; j++)
                     {
 
-                        if (dataGridMatiereP.Rows[i].Cells[2].Value.ToString() == DataSet1.Tables["Fournisseur"].Rows[j][0].ToString() && (dataGridMatiereP.Rows[i].Cells[3].Value.ToString().ToLower() == "kg" || dataGridMatiereP.Rows[i].Cells[3].Value.ToString().ToLower() == "l"))
+                        if (dataGridMatiereP.Rows[i].Cells[2].Value.ToString() == DataSet1.Tables["Fournisseur"].Rows[j][0].ToString() && (dataGridMatiereP.Rows[i].Cells[3].Value.ToString().ToLower() == "g" || dataGridMatiereP.Rows[i].Cells[3].Value.ToString().ToLower() == "ml"))
                         {
                             b = true;
                             break;
@@ -1517,11 +1522,11 @@ namespace paradis_des_huiles
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("exec sp_addacc");
+                SqlCommand cmd = new SqlCommand("sp_addacc", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("username", gunaTextBox6.Text.ToString());
-                cmd.Parameters.AddWithValue("pass", gunaTextBox7.Text.ToString());
-                cmd.Parameters.AddWithValue("permLvl", gunaComboBox1.SelectedText.ToString());
+                cmd.Parameters.AddWithValue("@username", gunaTextBox6.Text.ToString());
+                cmd.Parameters.AddWithValue("@password", gunaTextBox7.Text.ToString());
+                cmd.Parameters.AddWithValue("@permLevl", (gunaComboBox1.SelectedIndex + 1).ToString());
                 cn.Open();
                 cmd.ExecuteNonQuery();
                 cn.Close();
@@ -1658,6 +1663,32 @@ namespace paradis_des_huiles
             actualiser();
         }
         bool fermerFourni = true, fermerClient = true, fermerEmballage = true, fermerMatiereP = true, fermerHistoA = true, fermerHistoV = true, fermerProdF = true;
+
+        private void datagridAffProduitF_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            this.lblCountProdF.Text = "Nombre des Produits : " + datagridAffProduitF.Rows.Count;
+        }
+
+        private void dataGrideHistoriqueV_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            this.lblCountHistorV.Text = "Nombre des Historique : " + dataGrideHistoriqueV.Rows.Count;
+        }
+
+        private void dataGrideHistoriqueA_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            this.lblCountHistoA.Text = "Nombre des Historique : " + dataGrideHistoriqueA.Rows.Count;
+        }
+
+        private void dataGridMatiereP_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            this.lblCountMP.Text = "Nombre des Matieres Premieres : " + dataGridMatiereP.Rows.Count;
+        }
+
+        private void dataGridEmballage_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            this.lblCountEmballage.Text = "Nombre des Emballages : " + dataGridEmballage.Rows.Count;
+        }
+
         private void menu_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (DataSet1.Tables["Client"].Rows.Count != 0)
@@ -1706,6 +1737,7 @@ namespace paradis_des_huiles
                         break;
                     }
                 }
+                
             }
 
             if (DataSet1.Tables["HistoriqueA"].Rows.Count != 0)
@@ -1718,6 +1750,7 @@ namespace paradis_des_huiles
                         break;
                     }
                 }
+                
             }
 
 
@@ -1731,6 +1764,7 @@ namespace paradis_des_huiles
                         break;
                     }
                 }
+                
             }
 
             if (DataSet1.Tables["Produit_finis"].Rows.Count != 0)
@@ -1743,6 +1777,7 @@ namespace paradis_des_huiles
                         break;
                     }
                 }
+                
             }
             if (!fermerClient || !fermerFourni || !fermerEmballage || !fermerHistoA || !fermerHistoV || !fermerMatiereP || !fermerProdF)
             {
@@ -1751,13 +1786,17 @@ namespace paradis_des_huiles
                 {
                     save();
                     MessageBox.Show("Modification effectues avec succes");
+                    Program.form1.Close();
                 }
                 else if (dialogResult == DialogResult.Cancel)
-                {
                     e.Cancel = true;
-                }
+                else if(dialogResult == DialogResult.No)
+                    Program.form1.Close();
             }
-            
+            if (fermerClient && fermerFourni && fermerEmballage && fermerHistoA && fermerHistoV && fermerMatiereP && fermerProdF)
+            {
+                Program.form1.Close();
+            }
         }
 
         private void cmbnomproduitaddhistoriquedachat_SelectedIndexChanged(object sender, EventArgs e)
@@ -1918,7 +1957,7 @@ namespace paradis_des_huiles
                     for (int j = 0; j < DataSet1.Tables["Fournisseur"].Rows.Count; j++)
                     {
 
-                        if (dataGridEmballage.Rows[i].Cells[1].Value.ToString() == DataSet1.Tables["Fournisseur"].Rows[j][0].ToString() && (dataGridEmballage.Rows[i].Cells[3].Value.ToString().ToLower() == "kg" || dataGridEmballage.Rows[i].Cells[3].Value.ToString().ToLower() == "l"))
+                        if (dataGridEmballage.Rows[i].Cells[1].Value.ToString() == DataSet1.Tables["Fournisseur"].Rows[j][0].ToString() && (dataGridEmballage.Rows[i].Cells[3].Value.ToString().ToLower() == "g" || dataGridEmballage.Rows[i].Cells[3].Value.ToString().ToLower() == "ml"))
                         {
                             b = true;
                             break;
@@ -1981,7 +2020,7 @@ namespace paradis_des_huiles
                     for (int j = 0; j < DataSet1.Tables["Fournisseur"].Rows.Count; j++)
                     {
 
-                        if (dataGridMatiereP.Rows[i].Cells[2].Value.ToString() == DataSet1.Tables["Fournisseur"].Rows[j][0].ToString() && (dataGridMatiereP.Rows[i].Cells[3].Value.ToString().ToLower() == "kg" || dataGridMatiereP.Rows[i].Cells[3].Value.ToString().ToLower() == "l"))
+                        if (dataGridMatiereP.Rows[i].Cells[2].Value.ToString() == DataSet1.Tables["Fournisseur"].Rows[j][0].ToString() && (dataGridMatiereP.Rows[i].Cells[3].Value.ToString().ToLower() == "g" || dataGridMatiereP.Rows[i].Cells[3].Value.ToString().ToLower() == "ml"))
                         {
                             b = true;
                             break;
