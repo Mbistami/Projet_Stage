@@ -8,4 +8,4 @@ apres la creation de l'utilisateur l'admin a le droit de donées permission a l'
 # Authors :
 désign de l'interface login : https://github.com/mbalaguid
 design général : https://github.com/mbalaguid avec https://github.com/achedmi
-codage de l'application  gérer par : https://github.com/mbistami avec l'aide  de https://guthub.com/achedmi
+codage de l'application  gérer par : https://github.com/mbistami avec https://guthub.com/achedmi
